@@ -1,0 +1,135 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+/* BOTH NAVBARS */
+@media (max-width: 992px) {
+    #navbar_transparent{
+        background: rgba(0,0,0,0.8);
+    }
+
+    #menu_button{
+        background: transparent;
+    }
+}
+
+/* BOTH NAVBARS */
+#navbar_transparent ul {
+    list-style-type: none;
+}
+
+#navbar_transparent a {
+    text-decoration: none;
+    margin: 10px;
+}
+
+.nav_item {
+    padding: 10px;
+}
+
+.nav_item > a {
+    color: white;
+}
+
+.nav_item > a:not([href]) {
+    color: white;
+}
+
+.nav_item > a:not([href]):hover {
+    color: white;
+}
+
+/* MOBILE VERSION */
+#menu_items {
+    display: none;
+    background: rgba(0,0,0,0);
+    transition: .5s;
+    padding: 10px;
+}
+
+.dropdown_menu {
+    display: none;
+}
+.dropdown_menu a {
+    color: white;
+}
+
+#navbar_transparent li {
+    margin-bottom: 10px;
+}
+
+/* DESKTOP VERSION */
+@media only screen and (min-width: 992px) {
+
+    #menu_items {
+        display: block;
+        background-color: rgba(30, 34, 40, 0.0);
+    }
+
+    .dropdown_menu {
+        position: absolute;
+        z-index: 1000;
+        display: none;
+        min-width: 4rem;
+        padding: 1rem 0;
+        margin: 0;
+        margin-top: 5px;
+        font-size: 0.85rem;
+        color: #38183c;
+        text-align: left;
+        list-style: none;
+        background-color: white;
+        background-clip: padding-box;
+        border: 1px solid white;
+        border-radius: 0.4rem;
+        box-shadow: 0rem 0rem 1.25rem rgba(30, 34, 40, 0.04);
+    }
+
+    .dropdown_menu a {
+        color: #38183c;
+    }
+
+    .nav_item:hover {
+        text-decoration: underline;
+    }
+
+    .dropdown_menu li:hover {
+        text-decoration: underline;
+    }
+
+    #navbar_transparent li {
+        margin-bottom: 2px;
+        padding: 3px;
+    }
+}
+
+/*----- Styles for skip navigation link -----*/
+#skip_nav a
+{
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow: hidden;
+    z-index: 999;
+}
+
+#skip_nav a:focus
+{
+    height:auto;
+    width: auto;
+    left: auto;
+    overflow: auto;
+    background-color: white;
+}
