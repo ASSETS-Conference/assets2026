@@ -10,7 +10,7 @@ The ASSETS2023 website was built upon the template provided by the [ASSETS2022](
 Install node.js from [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
 In command line, 
-* `cd` into the folder that contains `index.html` (e.g. `cd ~/Documents/assets2022/`) 
+* `cd` into the folder that contains `index.html` (e.g. `cd ~/Documents/assets2023/`) 
 * run `http-server -c-1`
 
 Open [http://localhost:8080/](http://localhost:8080/) in your browswer. 
