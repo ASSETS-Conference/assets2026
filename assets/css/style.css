@@ -163,8 +163,8 @@ a {
     z-index: -1;
   
     display: block;
-    /* background: url('../img/large/nyc-midjourney-large.png'), #000; */
-    background: url('../img/landing_background.jpg');
+    background: url('../img/large/nyc-midjourney-large.png'), #000;
+    /* background: url('../img/landing_background.jpg'); */
     background-size: cover;
     transform: scale(1.05);
     width: 100%;
@@ -175,7 +175,8 @@ a {
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
-    filter: brightness(.6) grayscale(0.1);
+    /* filter: brightness(.6) grayscale(0.1); */
+    filter: blur(10px) brightness(.7) grayscale(0.4);
 }
 
 #top-jumbotron {
@@ -219,11 +220,11 @@ a {
 }
 
 #top-jumbotron-cfp {
-    background        : url('../img/Cornell-Tech-after.jpeg') center center no-repeat;
+    /* background        : url('../img/Cornell-Tech-after.jpeg') center center no-repeat; */
+    background        : #000;
     /*background      : no-repeat center center;*/
     background-size   : cover;
     position          : relative;
-    min-height        : 35vh;
     z-index           : 0;
 }
 
@@ -392,14 +393,13 @@ table td {
 /*===============================================*/
 
 #details {
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 3rem;
-  background-color: rgba(0, 0, 0, 0.4);
-  /* padding: 2rem 3rem 1rem 3rem; */
+  /* background-color: rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   width: 25rem;
   margin-left: 28rem;
-  padding-left: 1.5rem;
+  padding-left: 1.5rem; */
 }
 
 #details span {
