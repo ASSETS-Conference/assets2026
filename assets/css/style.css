@@ -164,16 +164,18 @@ a {
   
     display: block;
     background: url('../img/large/nyc-midjourney-large.png'), #000;
+    /* background: url('../img/landing_background.jpg'); */
     background-size: cover;
     transform: scale(1.05);
     width: 100%;
     height: 100%;
-    opacity: 1;
+    /* opacity: 1; */
   
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
+    /* filter: brightness(.6) grayscale(0.1); */
     filter: blur(10px) brightness(.7) grayscale(0.4);
 }
 
@@ -218,6 +220,7 @@ a {
 }
 
 #top-jumbotron-cfp {
+    /* background        : url('../img/Cornell-Tech-after.jpeg') center center no-repeat; */
     background        : #000;
     /*background      : no-repeat center center;*/
     background-size   : cover;
@@ -392,6 +395,11 @@ table td {
 #details {
   font-weight: 500;
   margin-bottom: 3rem;
+  /* background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  width: 25rem;
+  margin-left: 28rem;
+  padding-left: 1.5rem; */
 }
 
 #details span {
@@ -423,7 +431,7 @@ table td {
   }
 
   .lead {
-    font-size: 1rem;
+    font-size: 2rem;
     line-height: 1.15rem;
   }
 
