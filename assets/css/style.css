@@ -285,7 +285,8 @@ a {
 }
 
 .callout_section_2 {
-    background: #ECECF9;
+    /* background: #ECECF9; */
+    background: white;
 }
 
 .main-callout {
