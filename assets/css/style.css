@@ -380,7 +380,7 @@ table td {
 
 .toc-div p {
   padding-left: 20px;
-  color       : #65446D;
+  color       : #000;
 }
 
 @media (max-width: 1250px) {
