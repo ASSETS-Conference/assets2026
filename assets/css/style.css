@@ -203,7 +203,7 @@ a {
     z-index           : 0;
 }
 
-#top-jumbotron-conduct{
+#top-jumbotron-code-of-conduct {
     /* background        : url('../img/large/athens-sponsor-bg-large.jpeg') center center no-repeat; */
     background: #000;
     /*background      : no-repeat center center;*/
@@ -380,7 +380,7 @@ table td {
 
 .toc-div p {
   padding-left: 20px;
-  color       : #65446D;
+  color       : #000;
 }
 
 @media (max-width: 1250px) {

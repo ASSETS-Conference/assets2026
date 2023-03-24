@@ -85,7 +85,7 @@
         margin: 0;
         margin-top: 5px;
         font-size: 0.85rem;
-        color: #38183c;
+        color: #000;
         text-align: left;
         list-style: none;
         background-color: white;
@@ -96,7 +96,7 @@
     }
 
     .dropdown_menu a {
-        color: #38183c;
+        color: #000;
     }
 
     .nav_item:hover {
