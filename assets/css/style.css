@@ -301,9 +301,9 @@ a {
     background: rgba(30, 34, 40, 0.3);
 }
 
-.image-wrapper.bg-overlay:not(.bg-content) *,
 .image-wrapper.bg-overlay.bg-content .content {
     position: relative;
+    width: 100%;
 }
 
 #jumbotron_bottom_text {
@@ -435,8 +435,11 @@ table td {
 /*===============================================*/
 
 #details {
+  display: flex;
   font-weight: 500;
   margin-bottom: 3rem;
+  width: 100%;
+  justify-content: center;
   /* background-color: rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   width: 25rem;
@@ -445,7 +448,7 @@ table td {
 }
 
 #details span {
-  padding-right: 2em;
+  padding: 0 1rem;
 }
 
 .subtitle {
@@ -479,6 +482,15 @@ table td {
 
   .description {
     padding: 1rem 2rem 0.5rem 1.5rem;
+  }
+
+  #details {
+    font-size: 1.15rem;
+    flex-direction: column;
+  }
+  
+  #details span {
+    padding-bottom: 0.5rem;
   }
 }
 
