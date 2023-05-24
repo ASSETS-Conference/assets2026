@@ -20,7 +20,8 @@
 }
 
 #navbar_transparent {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(7px);
 }
 
 /* BOTH NAVBARS */
@@ -38,15 +39,15 @@
 }
 
 .nav_item>a {
-    color: white;
+    color: #fff;
 }
 
 .nav_item>a:not([href]) {
-    color: white;
+    color: #fff;
 }
 
 .nav_item>a:not([href]):hover {
-    color: white;
+    color: #fff;
 }
 
 /* MOBILE VERSION */
