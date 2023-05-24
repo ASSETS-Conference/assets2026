@@ -14,13 +14,13 @@
 
 /* BOTH NAVBARS */
 @media (max-width: 992px) {
-    #navbar_transparent{
-        background: rgba(0,0,0,0.8);
-    }
-
-    #menu_button{
+    #menu_button {
         background: transparent;
     }
+}
+
+#navbar_transparent {
+    background: rgba(0, 0, 0, 0.8);
 }
 
 /* BOTH NAVBARS */
@@ -37,22 +37,22 @@
     padding: 10px;
 }
 
-.nav_item > a {
+.nav_item>a {
     color: white;
 }
 
-.nav_item > a:not([href]) {
+.nav_item>a:not([href]) {
     color: white;
 }
 
-.nav_item > a:not([href]):hover {
+.nav_item>a:not([href]):hover {
     color: white;
 }
 
 /* MOBILE VERSION */
 #menu_items {
     display: none;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     transition: .5s;
     padding: 10px;
 }
@@ -60,6 +60,7 @@
 .dropdown_menu {
     display: none;
 }
+
 .dropdown_menu a {
     color: white;
 }
@@ -114,20 +115,18 @@
 }
 
 /*----- Styles for skip navigation link -----*/
-#skip_nav a
-{
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
+#skip_nav a {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
     overflow: hidden;
     z-index: 999;
 }
 
-#skip_nav a:focus
-{
-    height:auto;
+#skip_nav a:focus {
+    height: auto;
     width: auto;
     left: auto;
     overflow: auto;
