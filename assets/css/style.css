@@ -182,8 +182,8 @@ a {
 #top-jumbotron {
   min-height: 90vh;
   display: flex;
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -220,14 +220,54 @@ a {
     z-index           : 0;
 }
 
+
 #top-jumbotron-cfp {
-    /* background        : url('../img/Cornell-Tech-after.jpeg') center center no-repeat; */
-    background        : #000;
-    /*background      : no-repeat center center;*/
-    background-size   : cover;
-    position          : relative;
-    z-index           : 0;
+    position: relative;
+    padding-top: 4vh;
+    min-height: 30vh;
+    background: #000;
 }
+
+/* #top-jumbotron-cfp::before  {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  
+  background        : url('../img/landing_background.jpg') center center no-repeat;
+  background: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align:center;
+  margin:auto;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(10px);
+} */
+
+/* #top-jumbotron-cfp::before  {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  
+  background        : url('../img/landing_background1.jpg') center center no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align:center;
+  margin:auto;
+  padding: 40%;
+  width: 100%;
+  filter: saturate(1.4) contrast(0.8) brightness(0.7);
+} */
 
 #top-jumbotron-a11y {
     background        : url('../img/large/athens-accessibility-bg-large.jpeg') center center no-repeat;
@@ -261,9 +301,9 @@ a {
     background: rgba(30, 34, 40, 0.3);
 }
 
-.image-wrapper.bg-overlay:not(.bg-content) *,
 .image-wrapper.bg-overlay.bg-content .content {
     position: relative;
+    width: 100%;
 }
 
 #jumbotron_bottom_text {
@@ -395,8 +435,11 @@ table td {
 /*===============================================*/
 
 #details {
+  display: flex;
   font-weight: 500;
   margin-bottom: 3rem;
+  width: 100%;
+  justify-content: center;
   /* background-color: rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   width: 25rem;
@@ -405,7 +448,7 @@ table td {
 }
 
 #details span {
-  padding-right: 2em;
+  padding: 0 1rem;
 }
 
 .subtitle {
@@ -439,6 +482,15 @@ table td {
 
   .description {
     padding: 1rem 2rem 0.5rem 1.5rem;
+  }
+
+  #details {
+    font-size: 1.15rem;
+    flex-direction: column;
+  }
+  
+  #details span {
+    padding-bottom: 0.5rem;
   }
 }
 

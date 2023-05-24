@@ -1,23 +1,56 @@
 .committee_member {
-    display: block;
+    display: flex;
     margin-top: 10px;
     margin-bottom: 15px;
+    align-items: center;
+}
+
+.committee_member_img  {
+    /* display: inline; */
+    border-radius: 50%;
+    border: 0.1px solid #e6dfce;
+    overflow: hidden;
+    height: 120px;
+    width: 120px;
+    /* min-height: 120px; */
+    /* max-height: 120px; */
+    flex-shrink: 0;
+    margin-right: 20px;
+    display: flex;
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
 }
 
 .committee_member_img img {
-    height: 120px;
-    width: 120px;
-    display: inline;
-    border-radius: 50%;
-    border: 0.1px solid #e6dfce;
-    margin-right: 20px;
+    width: 100%;
 }
 
-.committee_member p {
-    display: table-cell;
-    font-size: 14pt;
-    /*font-weight: 400;*/
-    /*color: rgb(33, 33, 51);*/
-    vertical-align: middle;
-    padding: 5px;
+.logo_blue_bg {
+    background-color: #101078;
 }
+
+.logo_sky_bg {
+    background-color: #4b9bbb;
+}
+
+.logo_gray_bg {
+    background-color: #808183;
+}
+
+.logo_red_bg {
+    background-color: #db473a;
+}
+
+.logo_green_bg {
+    background-color: #409147;
+}
+
+
+.committee_member_info {
+    padding: 5px;
+    font-size: 14pt;
+}
+
