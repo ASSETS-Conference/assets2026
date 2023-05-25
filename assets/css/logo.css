@@ -52,7 +52,18 @@
 
 .logo-wrapper {
     margin: 1em auto;
+}
+
+.logo-wrapper.full-logo {
     aspect-ratio: 1.2/1;
+}
+
+.logo-wrapper.tiles-only {
+    aspect-ratio: 2.85/1;
+}
+
+.logo-wrapper.tiles-only .logo-image {
+    display: none;
 }
 
 .logo {
@@ -111,8 +122,12 @@
 }
 
 @media (min-width: 600px) {
-    .logo-wrapper {
+    .logo-wrapper.full-logo {
         aspect-ratio: 1.7 / 1;
+    }
+
+    .logo-wrapper.tiles-only {
+        aspect-ratio: 9.7/1;
     }
 
 
