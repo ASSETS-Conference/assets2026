@@ -24,7 +24,8 @@
 /* CHANGE THIS CLASS, AND ITS MEDIA QUERIES, TO ADAPT TO OTHER PAGES  */
 
 #top-jumbotron .logo-wrapper {
-    width: 50%;
+    width: 55%;
+
 }
 
 @media (min-width: 600px) {
@@ -33,9 +34,16 @@
     }
 }
 
-@media (min-width: 768px) {
+
+@media only screen and (min-width: 992px) {
     #top-jumbotron .logo-wrapper {
         width: 55%;
+    }
+}
+
+@media (min-width: 1250px) {
+    #top-jumbotron .logo-wrapper {
+        width: 40%;
     }
 }
 
