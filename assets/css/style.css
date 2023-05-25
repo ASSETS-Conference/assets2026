@@ -183,12 +183,11 @@ a {
   height: 100%;
   /* opacity: 1; */
 
-  -webkit-filter: blur(px);
-  -moz-filter: blur(px);
-  -o-filter: blur(px);
-  -ms-filter: blur(5x);
-  filter: brightness(1.1);
-  filter: blur(100px);
+  -webkit-filter: blur(100px) brightness(1.1);
+  -moz-filter: blur(100px) brightness(1.1);
+  -o-filter: blur(100px) brightness(1.1);
+  -ms-filter: blur(100px) brightness(1.1);
+  filter: blur(100px) brightness(1.1);
   /* filter: blur(10px) brightness(.7) grayscale(0.4); */
 }
 
