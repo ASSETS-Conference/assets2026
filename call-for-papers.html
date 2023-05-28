@@ -38,6 +38,7 @@
     <link href="./assets/css/style.css" rel="stylesheet">
     <link href="./assets/css/navbar.css" rel="stylesheet">
     <link href="./assets/css/committees.css" rel="stylesheet">
+    <link href="./assets/css/logo.css" rel="stylesheet">
 
     <!-- Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -62,13 +63,17 @@
 
         <!-- Jumbotron -->
         <div id="top-jumbotron-cfp" class="jumbotron jumbotron-fluid text-light image-wrapper">
-            <div class="container px-4 py-4 text-center content">
+            <div class="container px-4 py-4 text-center content" >
                 <span class="d-block justify-content-center align-items-center mt-5">
-                    <picture>
-                        <source class="display-6 confTitle mt-4 mb-0" media="(min-width: 480px)" srcset="./assets/img/logo_letters_only.png" alt="ASSETS'23 logo" width="400">
-                        <!-- <source class="display-6 confTitle mt-4 mb-0" media="(min-width: 200px)" srcset="./assets/img/logo_letters_only_mobile.png" alt="ASSETS'23 logo" width="100%"> -->
-                        <img class="display-6 confTitle mt-4 mb-0" src="./assets/img/logo_letters_only_mobile.png" alt="ASSETS'23 logo" width="85%">
-                    </picture>
+                    <div class="logo-wrapper tiles-only">
+                        <script>
+                            $(function () {
+                                $(".logo-wrapper").load("logo.html", complete = function() {
+                                    $(".logo").hide().fadeIn(2500); 
+                                });
+                            });
+                        </script>
+                    </div>
                     <div>
                         <h1 class="display-6 confTitle mt-4 mb-0">Call For Papers</h1>
                     </div>

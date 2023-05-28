@@ -39,6 +39,7 @@
   <link href="./assets/css/style.css" rel="stylesheet">
   <link href="./assets/css/navbar.css" rel="stylesheet">
   <link href="./assets/css/committees.css" rel="stylesheet">
+  <link href="./assets/css/logo.css" rel="stylesheet">
 
   <!-- Javascript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -64,17 +65,25 @@
     <div id="content">
 
       <!-- Jumbotron -->
-      <div id="top-jumbotron-cfp" class="jumbotron jumbotron-fluid text-light bg-overlay image-wrapper">
-        <div class="container px-4 py-5 text-center content">
-          <span class="d-flex justify-content-center align-items-center mt-5">
-            <div>
-              <h1 class="display-6 confTitle mt-4 mb-0">Become A Sponsor</h1>
-              <!-- <h5 class="confTitle">October 22-25, 2023</h5> -->
-            </div>
-          </span>
+      <div id="top-jumbotron-cfp" class="jumbotron jumbotron-fluid text-light image-wrapper">
+        <div class="container px-4 py-4 text-center content" >
+            <span class="d-block justify-content-center align-items-center mt-5">
+                <div class="logo-wrapper tiles-only">
+                    <script>
+                        $(function () {
+                            $(".logo-wrapper").load("logo.html", complete = function() {
+                                $(".logo").hide().fadeIn(2500); 
+                            });
+                        });
+                    </script>
+                </div>
+                <div>
+                  <h1 class="display-6 confTitle mt-4 mb-0">Become A Sponsor</h1>
+                </div>
+            </span>
         </div>
-      </div>
-      <!-- Jumbotron -->
+    </div>
+    <!-- Jumbotron -->
 
       <!-- Content -->
       <section class="callout_section_0 p-3">
