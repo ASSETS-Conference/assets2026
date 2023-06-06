@@ -153,7 +153,7 @@ a {
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 500;
   --bs-body-line-height: 1.7;
-  --bs-body-color: black;
+  --bs-body-color: #444D5F;
   --bs-body-bg: #fefefe;
 }
 
@@ -332,7 +332,7 @@ a {
 }
 
 .callout_section_1 {
-  background: white;
+  background: #efeff0;
 }
 
 .callout_section_2 {
