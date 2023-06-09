@@ -1,0 +1,193 @@
+/* LOGO COLORS ---------------------------------------------------------------------------- */
+
+.logo_blue_bg {
+    background-color: #101078;
+}
+
+.logo_sky_bg {
+    background-color: #4b9bbb;
+}
+
+.logo_gray_bg {
+    background-color: #808183;
+}
+
+.logo_red_bg {
+    background-color: #db473a;
+}
+
+.logo_green_bg {
+    background-color: #409147;
+}
+
+/* LOGO-WRAPPER ---------------------------------------------------------------------------- */
+/* CHANGE THIS CLASS, AND ITS MEDIA QUERIES, TO ADAPT TO OTHER PAGES  */
+
+#top-jumbotron .logo-wrapper {
+    width: 55%;
+}
+
+
+@media (min-width: 600px) {
+    #top-jumbotron .logo-wrapper {
+        width: 60%;
+    }
+
+    #top-jumbotron-cfp .logo-wrapper {
+        width: 75%;
+        font-size: 110%;
+    }
+}
+
+@media (min-width: 768px) {
+    #top-jumbotron .logo-wrapper {
+        width: 60%;
+    }
+
+    #top-jumbotron-cfp .logo-wrapper {
+        width: 60%;
+        font-size: 110%;
+    }
+}
+
+
+@media only screen and (min-width: 992px) {
+    #top-jumbotron .logo-wrapper {
+        width: 55%;
+    }
+
+    #top-jumbotron-cfp .logo-wrapper {
+        width: 45%;
+        font-size: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    #top-jumbotron .logo-wrapper {
+        width: 40%;
+    }
+
+    #top-jumbotron-cfp .logo-wrapper {
+        width: 40%;
+    }
+}
+
+/* LOGO STYLING ---------------------------------------------------------------------------- */
+
+.logo-wrapper {
+    margin: 1em auto;
+}
+
+.logo-wrapper.full-logo {
+    aspect-ratio: 1.2/1;
+}
+
+.logo-wrapper.tiles-only {
+    aspect-ratio: 2.85/1;
+    width: 60%;
+    font-size: 150%;
+}
+
+.logo-wrapper.tiles-only .logo-image {
+    display: none;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.logo-image,
+.logo-words {
+    width: 100%;
+}
+
+.logo-image img {
+    width: 100%;
+}
+
+.logo-words {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.logo-letter {
+    line-height: 0px;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 16% because ASSETS is 6 letters in a single line, 2023 will adapt below */
+    width: 16%;
+    /* 8% padding top and bottom to match the width and make it a perfect circle */
+    padding: 8% 0;
+    /* with a width of 16%, the total width of the letters is 96%  */
+    /* this leaves 4% for 5 spaces, so each margin should be (4/5)% */
+    margin-right: 0.8%;
+    margin-top: .2em;
+}
+
+.logo-end-of-word {
+    /* the last letter doesn't need a margin-right */
+    margin-right: 0%;
+}
+
+.logo-letter {
+    font-size: 100%;
+}
+
+@media (min-width: 481px) {
+    .logo-letter {
+        font-size: 120%;
+    }
+}
+
+@media (min-width: 600px) {
+    .logo-wrapper.full-logo {
+        aspect-ratio: 1.7 / 1;
+    }
+
+    .logo-wrapper.tiles-only {
+        aspect-ratio: 9.7/1;
+    }
+
+
+    .logo-letter {
+        /* when the logo is in a single line, there's 10 letters, so each is 9% */
+        width: 9%;
+        height: 0;
+        padding: 4.5% 0;
+        margin-right: .55%;
+    }
+
+    .logo-end-of-word {
+        margin-right: 5%;
+    }
+
+    .logo-end-of-word:last-child {
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo-letter {
+        font-size: 130%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .logo-letter {
+        font-size: 150%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .logo-letter {
+        font-size: 160%;
+    }
+}

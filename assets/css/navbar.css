@@ -14,13 +14,19 @@
 
 /* BOTH NAVBARS */
 @media (max-width: 992px) {
-    #navbar_transparent{
-        background: rgba(0,0,0,0.8);
-    }
-
-    #menu_button{
+    #menu_button {
         background: transparent;
     }
+}
+
+#navbar_transparent {
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.5s ease;
+}
+
+/* This class is removed in navbar.js after 992px to match the media query below */
+#navbar_transparent.navbar_open {
+    background: rgba(20, 20, 20);
 }
 
 /* BOTH NAVBARS */
@@ -37,31 +43,41 @@
     padding: 10px;
 }
 
-.nav_item > a {
-    color: white;
+.nav_item>a {
+    color: #fff;
 }
 
-.nav_item > a:not([href]) {
-    color: white;
+.nav_item>a:not([href]) {
+    color: #fff;
 }
 
-.nav_item > a:not([href]):hover {
-    color: white;
+.nav_item>a:not([href]):hover {
+    color: #fff;
 }
 
 /* MOBILE VERSION */
 #menu_items {
-    display: none;
-    background: rgba(0,0,0,0);
-    transition: .5s;
-    padding: 10px;
+    transition: min-height 0.5s ease;
+    max-height: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* This class is removed in navbar.js after 992px to match the media query below */
+#menu_items.navbar_open {
+    min-height: 100vh;
 }
 
 .dropdown_menu {
     display: none;
 }
+
 .dropdown_menu a {
     color: white;
+}
+
+.dropdown_menu li:first-child {
+    margin-top: 10px;
 }
 
 #navbar_transparent li {
@@ -72,7 +88,8 @@
 @media only screen and (min-width: 992px) {
 
     #menu_items {
-        display: block;
+        max-height: 100vh;
+        min-height: auto;
         background-color: rgba(30, 34, 40, 0.0);
     }
 
@@ -99,12 +116,23 @@
         color: #000;
     }
 
-    .nav_item:hover {
-        text-decoration: underline;
+    .dropdown_menu li:first-child {
+        margin-top: 0px;
     }
 
+    .nav_item>a:hover,
     .dropdown_menu li:hover {
-        text-decoration: underline;
+        text-decoration: underline !important;
+        opacity: 0.8;
+    }
+
+    .nav_item>a:hover {
+        text-decoration-color: #fff;
+    }
+
+    .nav_item.has_dropdown>a:hover {
+        text-decoration-color: #fff;
+        cursor: default;
     }
 
     #navbar_transparent li {
@@ -114,20 +142,18 @@
 }
 
 /*----- Styles for skip navigation link -----*/
-#skip_nav a
-{
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
+#skip_nav a {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
     overflow: hidden;
     z-index: 999;
 }
 
-#skip_nav a:focus
-{
-    height:auto;
+#skip_nav a:focus {
+    height: auto;
     width: auto;
     left: auto;
     overflow: auto;

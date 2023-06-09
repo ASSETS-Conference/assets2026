@@ -4,7 +4,7 @@
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-59JZV5ZYEB"></script>
-    <script src="../assets/js/analytics.js"></script>
+    <script src="/assets/js/analytics.js"></script>
     
     <!-- Meta data -->
     <meta charset="utf-8">
@@ -30,16 +30,17 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/navbar.css" rel="stylesheet">
-    <link href="../assets/css/committees.css" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+    <link href="./assets/css/navbar.css" rel="stylesheet">
+    <link href="./assets/css/committees.css" rel="stylesheet">
+    <link href="./assets/css/logo.css" rel="stylesheet">
 
     <!-- Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
@@ -51,24 +52,23 @@
 		<div id="navbar"></div>
 		<script>
 		$(function(){
-		  $("#navbar").load("../navbar.html");
+		  $("#navbar").load("navbar.html");
 		});
 		</script>
 		<!--Navigation bar-->
 
         <div id="content">
 
-        <!-- Jumbotron -->
-        <div id="top-jumbotron-cfp" class="jumbotron jumbotron-fluid text-light bg-overlay image-wrapper">
-            <div class="container px-4 py-5 text-center content">
-                <span class="d-flex justify-content-center align-items-center mt-5">
-                    <!-- TODO: Replace with new logo-->
-                    <!-- <img class="d-block my-0 mx-4" src="../assets/img/large/logo-large.png" alt="ASSETS'23 logo" width="125"> -->
-
+       <!-- Jumbotron -->
+        <div id="top-jumbotron-cfp" class="jumbotron jumbotron-fluid text-light image-wrapper">
+            <div class="container px-4 py-4 text-center content" >
+                <span class="d-block justify-content-center align-items-center mt-5">
+                    <div class="logo-wrapper tiles-only">
+                        <script src="assets/js/logo.js"> </script>
+                    </div>
                     <div>
                         <h1 class="display-6 confTitle mt-4 mb-0">Doctoral Consortium</h1>
-                        <!-- TODO: Replace with date-->
-                        <h5 class="confTitle">TBD</h5>
+                        <h5 class="confTitle">Deadline: <b>Monday, July 17, 2023</b> </h5>
                     </div>
                 </span>
             </div>
@@ -80,7 +80,7 @@
             <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-lg-8 mt-4">
-                    <p>The ASSETS 2023 Doctoral Consortium (DC) is expected to be held on <b>TBD</b>.</p>
+                    <p>The ASSETS 2023 Doctoral Consortium (DC) is expected to be held on <b>Sunday, October 22, 2023</b>.</p>
                     <p>The overarching goal of the consortium is to encourage and prepare a group of promising young researchers dedicated to accessibility and assistive technology by:</p>
                     <ul>
                         <li>Providing PhD students with a supportive forum to submit and receive high-quality feedback about their accessibility-related dissertation work from researchers outside their own institution, including student peers, faculty, and industry professionals.</li>
@@ -124,7 +124,14 @@
                 <div class="col-lg-8 mt-4">
                     <h3 class="text-center" tabindex="0">Important Dates and How to Apply</h3>
                     
+                    <p><b>All deadlines are 11:59 P.M. Anywhere on Earth (UTC -12:00).</b></p>
                     <p>Each Doctoral Consortium applicant must submit a package of application materials and also request a letter of recommendation from their advisor.</p>
+                    <p>The student’s Cover Letter, the Research Project Summary, and CV should be submitted to <a href="https://new.precisionconference.com/assets" target="_blank">PCS</a> as a combined PDF document by <b>Monday, July 17, 2023</b>.</p>
+                    <p>The Advisor’s Letter of Recommendation should be received by <b>Monday, July 17, 2023,</b> and sent directly from the advisor to <a href="mailto:dc-chairs-assets23@acm.org">dc-chairs-assets23@acm.org</a>.</p>
+                    <p>Notification of Acceptance: <b>Friday, July 28, 2023</b></p>
+                    <p>Camera ready deadline: <b>Friday, August 11, 2023</b></p>
+                    <p>Video presentation deadline: <b>Monday, August 28, 2023</b></p>
+
                    
                     <h4>Applicant's Materials</h4>
                     <p>Submissions are not anonymous; the applicant's name must appear on the documents.</p>
@@ -154,10 +161,11 @@
                         <li><b>The Candidate's CV</b>
                         <p>The candidate is required to submit a CV (maximum of 2 pages) that relates their background, relevant experience, and research accomplishments.</p></li>
                         <li><b>Supervisor’s Letter of Recommendation</b>
-                        <p>A letter on official letterhead from the primary thesis advisor/supervisor that briefly states what the advisor/supervisor expects the student to gain from and contribute to the consortium. Letters should be received by TBD. The letter should be sent directly from the advisor to <a href="mailto:dc-chairs-assets23@acm.org">dc-chairs-assets23@acm.org</a>.</li>
+                        <p>A letter on official letterhead from the primary thesis advisor/supervisor that briefly states what the advisor/supervisor expects the student to gain from and contribute to the consortium. The letter should be sent directly from the advisor to <a href="mailto:dc-chairs-assets23@acm.org">dc-chairs-assets23@acm.org</a>.</li>
                     </ul>
 
                     <h4>How To Submit</h4>
+                    <p>Please upload all relevant materials to the Doctoral Consortium submission site on <a href="https://new.precisionconference.com/assets" target="_blank"> PCS </a> as separate PDF documents by <b>Monday, July 17, 2023 at 11:59 P.M. Anywhere on Earth (UTC -12:00).</b> </p>
                     
                 </div>
             </div>
@@ -187,7 +195,7 @@
             <div class="row justify-content-md-center">
                 <div class="col-lg-8 mt-4">
                     <h3 class="text-center" tabindex="0">Publication</h3>
-                    <p>Following the Doctoral Consortium, participants may be invited to submit revised and updated papers for publication in a 2023 issue of the SIGACCESS Newsletter.</p>
+                    <p>Following the Doctoral Consortium, participants may be invited to submit revised and updated papers for publication in a 2024 issue of the SIGACCESS Newsletter.</p>
                 </div>
             </div>
             </div>
@@ -198,7 +206,7 @@
             <div class="row justify-content-md-center">
                 <div class="col-lg-8 mt-4">
                     <h3 class="text-center" tabindex="0">Posters</h3>
-                    <p>Doctoral Consortium participants are invited to share their work as a poster, to be presented during the poster sessions at the conference. Presenters should follow the poster presentation accessibility guidelines outlined in the <a href="posters-and-demos.html">Posters and Demos</a> category.</p>
+                    <p>Doctoral Consortium participants are invited to share their work as a poster, to be presented during the poster sessions at the conference. Presenters should follow the poster presentation accessibility guidelines outlined in the <a href="call-for-posters-and-demos.html">Posters and Demos</a> category.</p>
                 </div>
             </div>
             </div>
@@ -215,12 +223,23 @@
             </div>
         </section>
 
-        <section class="callout_section_2 p-3">
+        <!-- <section class="callout_section_2 p-3">
             <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-lg-8 mt-4">
                     <h3 class="text-center" tabindex="0">Location</h3>
                     <p> If you have disability or health concerns that prevent travel, please contact <a href="mailto:assets23-leadership@acm.org">assets23-leadership@acm.org</a>.</p>
+                </div>
+            </div>
+            </div>
+        </section> -->
+
+        <section class="callout_section_0 p-3">
+            <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-8 mt-4">
+                    <h3 class="text-center" tabindex="0">Schedule</h3>
+                    <p>The main event is expected to start on Sunday, October 22, 2023. The specifics of the schedule will be announced closer to the event.</p>
                 </div>
             </div>
             </div>
@@ -230,8 +249,8 @@
             <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-lg-8 mt-4">
-                    <h3 class="text-center" tabindex="0">Schedule</h3>
-                    <p>The main event is expected to start TBD. The specifics of the schedule will be announced closer to the event.</p>
+                    <h3 class="text-center" tabindex="0">Further Information</h3>
+                    <p>For further information or any questions regarding the event or submissions, please contact the Doctoral Consortium Chairs, Catie Baker and Patrick Carrington, at <a href="mailto:dc-chairs-assets23@acm.org">dc-chairs-assets23@acm.org</a>.</p>
                 </div>
             </div>
             </div>
@@ -241,21 +260,9 @@
             <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-lg-8 mt-4">
-                    <h3 class="text-center" tabindex="0">Further Information</h3>
-                    <p>For further information or any questions regarding the event or submissions, please contact the Doctoral Consortium Chairs, TBD , at <a href="mailto:dc-chairs-assets23@acm.org">dc-chairs-assets23@acm.org</a>.</p>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        <section class="callout_section_1 p-3">
-            <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-8 mt-4">
                     <h3 class="text-center" tabindex="0">Mentors</h3>
                     <ul>
-                        <li>X Y</li>
-                        
+                        <li>The mentors will be announced soon. Check back later.</li>
                     </ul>
                 </div>
             </div>
@@ -272,7 +279,7 @@
         </div> 
         <!-- Content -->
     </main>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
