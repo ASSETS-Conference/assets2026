@@ -139,6 +139,11 @@ nav ul.main-menu > li.selected-link {
   padding-left: 1ch;
   border-color: var(--link-color);
 }
+@media screen and (max-width: 768px) {
+  nav ul.main-menu > li.selected-link {
+    padding: 1ch;
+  }  
+}
 
 nav ul.main-menu > li.selected-link > a {
   text-decoration-color: transparent;
@@ -176,7 +181,7 @@ nav ul.main-menu li, nav ul.secondary-menu li {
   list-style: none;
   transition: border-color 0.75s ease 0.5s;
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 
 nav ul.main-menu > li {
@@ -339,10 +344,12 @@ ul.main-menu li:hover ul, nav > ul li.open ul {
 
   nav ul.secondary-menu {
     background-color: transparent;
+    width: 100%;
   }
 
   nav .has-submenu.selected-link ul.secondary-menu li a {
     color: var(--light-text);
+    text-decoration: none;
   }
 
   @media (prefers-color-scheme: dark) {
