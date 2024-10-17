@@ -442,6 +442,11 @@ h1 .sub-menu {
   line-height: 1;
 }
 
+.small-caps {
+  font-variant-caps: small-caps;
+  text-transform: lowercase;
+}
+
 .event-info {
   font-family: 'Drafting', sans-serif;
   color: var(--accent-color);
