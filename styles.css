@@ -169,8 +169,6 @@ nav ul.main-menu > li.selected-link > a {
   nav ul.main-menu > li.open .submenu-toggle > span:before,
   nav ul.main-menu > li.selected-link .submenu-toggle > span:before {
     border-color: var(--inverted-text);
-    border-width: 2px 0 0 2px;
-    margin-top: 5px;
   } 
 
   nav ul.main-menu > li:hover > a, 
@@ -246,7 +244,7 @@ ul.main-menu li:hover ul, nav > ul li.open ul {
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 4px;
-  transform: rotate(45deg);
+  transform: translateY(-2px) rotate(45deg);
 }
 
 
@@ -301,6 +299,10 @@ ul.main-menu li:hover ul, nav > ul li.open ul {
     grid-column: 3;
     justify-self: flex-end;
   }
+
+  .has-submenu {
+    padding-right: 0.4rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -347,14 +349,20 @@ ul.main-menu li:hover ul, nav > ul li.open ul {
     background-color: transparent;
   }
 
+  nav .has-submenu.selected-link ul.secondary-menu li a {
+    color: var(--light-text);
+  }
+
   @media (prefers-color-scheme: dark) {
-    nav ul.secondary-menu li:not(:hover) a {
+
+    nav .has-submenu.selected-link ul.secondary-menu li:not(:hover) a {
+      color: var(--dark-text);
+    }
+
+    nav .has-submenu:not(.selected-link) ul.secondary-menu li:not(:hover) a {
       color: var(--light-text);
     }
-    
   }
-  
-
 
   .has-submenu {
     display: flex;
