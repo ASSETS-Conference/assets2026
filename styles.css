@@ -101,6 +101,8 @@ nav ul.secondary-menu {
   display: flex;
   flex-direction: column; 
 
+  width: max-content;
+
   
   position: absolute;
   top: 100%;
@@ -302,6 +304,7 @@ ul.main-menu li:hover ul, nav > ul li.open ul {
 
   .has-submenu {
     padding-right: 0.4rem;
+    position: relative;
   }
 }
 
