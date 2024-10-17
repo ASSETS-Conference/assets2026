@@ -1,17 +1,5 @@
 @import url('./fonts.css');
 
-@font-face {
-  font-family: 'Drafting';
-  src: url('Drafting[wght].ttf') format('truetype');
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Drafting';
-  src: url('Drafting-Italic[wght].ttf') format('truetype');
-  font-style: italic;
-}
-
 :root {
   --text-color: #44251b;
   --bg-color: #f4ece7;

@@ -1,3 +1,16 @@
+
+@font-face {
+  font-family: 'Drafting';
+  src: url('fonts/drafting/Drafting[wght].ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Drafting';
+  src: url('fonts/drafting/Drafting-Italic[wght].ttf') format('truetype');
+  font-style: italic;
+}
+
 @font-face {
     font-family: 'Besley';
     src: url('fonts/besley/Besley-Book.ttf') format('truetype');
