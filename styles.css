@@ -748,3 +748,48 @@ footer p {
     --bullet-margin: 0.75ch;
   }
 }
+
+
+ul.committee-members {
+  --profile-width: 16rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  ul.committee-members {
+    grid-template-columns: 1fr;
+  }
+}
+
+ul.committee-members li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+ul.committee-members img, .img-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 1ch;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.33);
+}
+
+
+ul.committee-members li > div.member {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+ul.committee-members .members-name {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--accent-color2)
+}
