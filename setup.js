@@ -23,7 +23,7 @@ fetch('menu.html')
 
 
 // Add small caps to all-caps words
-document.querySelectorAll('div.text-block p, div.text-block li').forEach(function(element) {
+document.querySelectorAll('div.text-block p, div.text-block li, .grid-item p').forEach(function(element) {
   element.innerHTML = element.innerHTML.replace(/\b([A-Z]{2,})\b/g, function(match) {
     return `<span class="small-caps">${match}</span>`;
   });
