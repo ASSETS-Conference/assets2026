@@ -6,6 +6,7 @@
   --inverted-text: white;
   --accent-color: #E02900;
   --accent-color2: #3366b8;
+  --footer-color: var(--accent-color2);
   --default-wght: 400;
   --dark-text: var(--text-color);
   --light-text: white;
@@ -19,9 +20,10 @@
     --inverted-text: var(--bg-color);
     --accent-color: #ffde00;
     --accent-color2: #907df3; /*#7e65fe;*/
+    --footer-color: #8154fd;
     --default-wght: 460;
     --dark-text: var(--bg-color);
-    --light-text: var(--text-color);
+    --light-text: #ffffff;
   }
 }
 
@@ -684,7 +686,7 @@ footer picture {
 footer {
   min-height: 50vh;
   margin-top: 10rem;
-  background-color: var(--accent-color2);
+  background-color: var(--footer-color);
   color: white;
   padding-top: 2rem;
 }
