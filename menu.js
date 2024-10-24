@@ -37,7 +37,7 @@ Array.prototype.forEach.call(menuItems, function (el, i) {
 
   // Insert a button to have a keyboard selectable toggle submenu after the <a> element for accessibility purposes
   let activatingA = el.querySelector('a')
-  let btn = `<button class="submenu-toggle">
+  let btn = `<button class="submenu-toggle" aria-label="show submenu for ${activatingA.text}">
         <span>
           <span class="visually-hidden">show submenu for “${activatingA.text}”</span>
         </span>
