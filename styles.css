@@ -3,12 +3,12 @@
 :root {
   --text-color: #44251b;
   --bg-color: #f4ece7;
-  --inverted-text: var(--bg-color);
-  --accent-color: #f42c00;
+  --inverted-text: white;
+  --accent-color: #E02900;
   --accent-color2: #3366b8;
   --default-wght: 400;
   --dark-text: var(--text-color);
-  --light-text: var(--bg-color);
+  --light-text: white;
 
   --content-width: 1280px;
 }
