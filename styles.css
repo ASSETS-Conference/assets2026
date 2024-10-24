@@ -118,7 +118,13 @@ nav ul.secondary-menu li a, nav ul.main-menu li a {
   font-family: 'Drafting', sans-serif;
   text-decoration: underline;
   transition: text-decoration-color 2s ease 1s;
+}
+
+nav ul.secondary-menu li a:not(.no-root-link), nav ul.main-menu li a:not(.no-root-link) {
   text-decoration-color: color-mix(in srgb, var(--link-color), transparent 30%);
+}
+nav ul.secondary-menu li a.no-root-link, nav ul.main-menu li a.no-root-link {
+  text-decoration: none;
 }
 
 nav ul.main-menu > li > a {
