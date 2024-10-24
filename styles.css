@@ -144,7 +144,7 @@ nav ul.secondary-menu li a {
 
 nav ul.main-menu > li.selected-link {
   background-color: var(--link-color);
-  padding-left: 1ch;
+  /* padding-left: 1ch; */
   border-color: var(--link-color);
 }
 @media screen and (max-width: 768px) {
