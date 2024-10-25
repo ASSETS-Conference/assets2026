@@ -515,7 +515,7 @@ p {
   color: var(--light-text);
   text-decoration: none;
 }
-p + p {
+p + p, ul + p {
   margin-top: 1.6em;
 }
 
