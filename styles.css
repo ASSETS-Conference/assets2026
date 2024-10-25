@@ -501,7 +501,7 @@ p {
   font-weight: var(--default-wght);
   max-width: var(--contentWidth);
 }
-.text-block a {
+.text-block a, .styled-link {
   color: var(--text-color);
   text-decoration-color: var(--accent-color2);
   padding: 0 0.2ex;
@@ -510,7 +510,7 @@ p {
   position: relative;
   left: -0.2ex;
 }
-.text-block a:hover {
+.text-block a:hover, .styled-link:hover {
   background-color: var(--accent-color2);
   color: var(--light-text);
   text-decoration: none;
@@ -560,11 +560,6 @@ p + p {
 
   display: flex;
   flex-direction: column;
-}
-
-.grid-helper .grid-item p + p {
-  margin-top: 0;
-  text-indent: 1rem;
 }
 
 .grid-item.small-hero p {
