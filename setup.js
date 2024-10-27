@@ -1,3 +1,12 @@
+;(function () {
+  const script = document.createElement('script')
+  script.src = 'https://cloud.umami.is/script.js'
+  script.defer = true
+  script.setAttribute('data-website-id', 'e2f681f9-0ef5-4e7c-98b9-e3f2316e9125')
+
+  document.head.appendChild(script) // Append the script to the head
+})()
+
 fetch('footer.html')
   .then((response) => response.text())
   .then((html) => {
