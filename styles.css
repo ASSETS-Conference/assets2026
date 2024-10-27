@@ -133,6 +133,18 @@ nav ul.main-menu > li > a {
   color: var(--text-color);
 }
 
+@media screen and (max-width: 1024px) {
+  nav ul.main-menu > li > a {
+    font-size: 1rem;
+  }  
+}
+
+@media screen and (max-width: 900px) {
+  nav ul.main-menu > li > a {
+    font-size: 0.9rem;
+  }  
+}
+
 nav ul.secondary-menu li a {
   color: var(--dark-text);
   font-size: 0.85rem;
