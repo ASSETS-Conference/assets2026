@@ -3,11 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Assets 2025</title>
+    <title>Technical Papers / Assets 2025</title>
+
+    <meta
+      name="description"
+      content="The 27th International ACM SIGACCESS Conference on Computers and Accessibility"
+    />
+    <meta name="keywords" content="Accessibility, Technology, Conference, Assets 2025" />
+    <meta name="author" content="ACM SIGACCESS" />
+
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <!-- Preload stylesheets -->
+    <link rel="preload" href="/reset.css" as="style" />
+    <link rel="preload" href="/styles.css" as="style" />
+
+    <!-- Load stylesheets -->
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/styles.css" />
+
+    <link rel="preload" href="/setup.js" as="script" />
+    <script src="/setup.js" defer></script>
   </head>
   <body>
     <nav id="nav-container" data-active="authors"></nav>
@@ -15,12 +31,13 @@
     <main class="content-block-container">
       <div class="grid-helper">
         <div class="text-block">
-          <h1>Call for Papers</h1>
+          <h1>Technical Papers</h1>
+          <h2>Call for Technical Papers</h2>
           <p>
-            The <strong>ASSETS</strong> conference is the premier forum for presenting research on
-            the design, evaluation, use, and education related to computing for people with
-            disabilities and older adults. We invite high-quality original submissions on topics
-            relevant to computing and&nbsp;accessibility.
+            The ASSETS conference is the premier forum for presenting research on the design,
+            evaluation, use, and education related to computing for people with disabilities and
+            older adults. We invite high-quality original submissions on topics relevant to
+            computing and accessibility.
           </p>
           <p>
             Submissions should present significant contributions to design, systems, tools,
@@ -34,15 +51,8 @@
             representative users, and as such key contributions of a single paper may be primarily
             technical.
           </p>
-          <p>
-            All Technical Papers and Posters and Demonstrations submissions are peer-reviewed by an
-            international Program Committee. Accepted papers and the abstracts for posters and
-            demonstrations, experience reports, and the student research competition will be
-            archived in the ACM Digital Library. At least one author of accepted submissions must
-            register as the presenter by the early registration deadline.
-          </p>
 
-          <h2>Important Dates <span class="sub-menu">Technical Papers</span></h2>
+          <h2>Important Dates</h2>
           <p>All deadlines are 11:59 P.M. Anywhere on Earth (UTC -12:00).</p>
           <ul>
             <li>Wednesday, April 16, 2025 – submission deadline</li>
@@ -52,14 +62,9 @@
             <li>Wednesday, July 16, 2025 - camera-ready deadline</li>
             <li>Wednesday, July 23, 2025 - video presentation</li>
           </ul>
-          <p>
-            Technical papers are expected to present significant and original contributions. For
-            early work and work-in-progress, authors may consider submitting a poster or demo.
-            Papers may expand upon previously published posters or demos, but must present novel and
-            significantly extended content, and should cite any previous abstracts for posters or
-            demos. Please refer to the ACM policy on plagiarism for guidance.
-          </p>
+
           <h2>Submission Guidelines</h2>
+
           <h3>Paper Format and Length</h3>
           <ul>
             <li>
@@ -112,7 +117,7 @@
             have questions about making your paper accessible, please contact the Accessibility
             Chairs at <a href="mailto:access-assets25@acm.org">access-assets25@acm.org</a>.
           </p>
-          <h3>Optional Accessible Video Figures as Supplementary Material</h3>
+          <h4>Optional Accessible Video Figures as Supplementary Material</h4>
           <p>
             You may include an optional video figure to accompany your paper submission as
             supplementary material, which may be up to <strong>five minutes</strong> long. There is
@@ -226,7 +231,9 @@
             in the ACM Digital Library after the conference is over, the official publication date
             remains the first day of the conference.)
           </p>
+
           <h2>Further Information</h2>
+
           <p>
             By submitting your article to an ACM Publication, you are hereby acknowledging that you
             and your co-authors are subject to all ACM Publications Policies, including ACM's new
@@ -245,6 +252,5 @@
     </main>
 
     <div id="footer-container"></div>
-    <script src="setup.js"></script>
   </body>
 </html>
