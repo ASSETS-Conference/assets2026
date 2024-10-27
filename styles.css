@@ -719,13 +719,20 @@ footer p {
   font-weight: 600;
 }
 
-.text-block h3 {
+.text-block h3, h4 {
   font-family: 'Drafting', sans-serif;
-  font-weight: 600;
   font-size: 1rem;
-  text-transform: uppercase;
-
+  
   margin-block: 3rem 1rem;
+}
+
+.text-block h3 {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.text-block h4 {
+  font-weight: 480;
 }
 
 .text-block h2 + h3, .text-block h1 + h2 {
