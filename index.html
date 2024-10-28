@@ -13,7 +13,6 @@
     <meta name="author" content="ACM SIGACCESS" />
 
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-
     <!-- Preload stylesheets -->
     <link rel="preload" href="reset.css" as="style" />
     <link rel="preload" href="styles.css" as="style" />
@@ -27,7 +26,12 @@
   </head>
   <body>
     <nav id="nav-container" data-active="home"></nav>
-
+        <picture id="denver-img-top" class="grid-item span12c text-img">
+          <source
+            srcset="imgs/denver-wikimedia.jpg"
+            media="(min-width: 400px)"
+          />
+        </picture>
     <main class="content-block-container">
       <div class="grid-helper">
         <div class="grid-item span9c">
@@ -54,7 +58,6 @@
         <div class="grid-item span2c hide-on-small-screens"></div>
         <div class="grid-item span8c hide-on-small-screens"></div>
 
-        <img src="imgs/denver-wikimedia.jpg"/>
         <picture id="denver-img" class="grid-item span12c text-img">
           <!-- For small screens, using a more square or taller aspect ratio -->
           <source
