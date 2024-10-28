@@ -486,7 +486,7 @@ h1 {
   aspect-ratio: 320/111;
 }
 
-#denver-img * {
+.text-img, .text-img * {
   border-radius: 0.5rem;
 }
 
