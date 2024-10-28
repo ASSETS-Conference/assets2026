@@ -30,6 +30,7 @@ fetch('menu.html')
     document.body.appendChild(script)
   })
 
+/*
 // Add small caps to all-caps words
 document
   .querySelectorAll('div.text-block p, div.text-block li, .grid-item p')
@@ -38,3 +39,4 @@ document
       return `<span class="small-caps">${match}</span>`
     })
   })
+*/
