@@ -106,6 +106,8 @@ nav ul.secondary-menu {
   box-shadow: color-mix(in srgb, var(--dark-text), transparent 95%) 0px 6px 24px 0px, color-mix(in srgb, var(--dark-text), transparent 92%) 0px 0px 0px 1px;
 
   overflow: hidden; /* hides rounded corners of first and last menu items */
+
+  z-index: 1;
 }
 
 
