@@ -444,6 +444,7 @@ body.menu-open {
 
 .content-block-container {
   padding: 0 max(2rem, 50vw - var(--content-width) / 2);
+  min-height: 40vh;
 }
 
 @media only screen and (max-width: 768px) {
