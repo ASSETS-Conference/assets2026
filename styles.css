@@ -643,6 +643,11 @@ footer picture {
   width: 18rem;
 }
 
+footer hr {
+  border: none;
+  border-bottom: 1px solid var(--light-text);
+}
+
 .footer-menu {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
