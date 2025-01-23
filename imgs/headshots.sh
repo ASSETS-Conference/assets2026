@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory containing images
-IMAGE_DIR="./original"
+IMAGE_DIR="./to_process"
 
 # Create an output directory if it doesn't exist
 OUTPUT_DIR="."
