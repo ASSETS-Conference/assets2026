@@ -775,6 +775,11 @@ footer p {
   left: calc(var(--bullet-margin) * -1);
 }
 
+.text-block ul ul {
+  padding-left: 2ch;
+  list-style-type: "\203A\203A";
+}
+
 .text-block ul li {
   padding-left: var(--bullet-margin);
 }
