@@ -761,18 +761,54 @@ footer p {
   margin-block: 2rem 1rem;
 }
 
-.text-block ul {
+.text-block ul, .text-block ol {
   padding: 0;
   display: flex;
   flex-direction: column;
   padding-block: 0.5rem;
   gap: 0.5rem;
-  list-style-type: "\203A";
   list-style-position: outside;
   --bullet-margin: 1ch;
   width: calc(100% + var(--bullet-margin));
   position: relative;
   left: calc(var(--bullet-margin) * -1);
+}
+
+.text-block ol {
+  list-style: none;
+  counter-reset: items;
+}
+
+.text-block ol li {
+  counter-increment: item;
+}
+
+.text-block ol li:before {
+  content: counter(item) ".";
+  font-family: 'Drafting', sans-serif;
+  font-size: 0.85rem;
+  text-align: right; 
+  
+}
+
+@media only screen and (min-width: 768px) {
+  .text-block ol li {
+    position: relative;
+    padding-left: 2rem;
+    left: -1.5rem;
+  }
+  
+  .text-block ol li:before {
+    position: absolute;
+    left: calc(var(--bullet-margin) * -1/2); 
+    top: .2rem;
+    width: 1.5rem;
+  }  
+}
+
+.text-block ul {
+  list-style-type: "\203A";
+
 }
 
 .text-block ul ul {
