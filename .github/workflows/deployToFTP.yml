@@ -1,8 +1,8 @@
-on:
-  push:
-    branches:
-      - main
 name: Deploy to FTP
+
+on:
+  workflow_dispatch:
+
 jobs:
   web-deploy:
     name: Deploy
