@@ -518,7 +518,7 @@ p {
   font-weight: var(--default-wght);
   max-width: var(--contentWidth);
 }
-.text-block a, .styled-link {
+.text-block a, .styled-link, .text-block a:visited, .styled-link:visited {
   color: var(--text-color);
   text-decoration-color: var(--accent-color2);
   padding: 0 0.2ex;
