@@ -820,6 +820,24 @@ footer p {
   padding-left: var(--bullet-margin);
 }
 
+.text-block .updates li {
+  display: flex;
+  grid-template-columns: min-content auto;
+}
+
+.text-block .updates-dates {
+  font-family: 'Drafting', sans-serif;
+  position: relative;
+  padding-right: 1ch;
+}
+
+.text-block .updates-dates:before {
+  content: "> ";
+  font-family: 'Besley', serif;
+  position: absolute;
+  transform: translateX(-2ch);
+}
+
 @media only screen and (max-width: 768px) {
   .text-block ul {
     --bullet-margin: 0.75ch;
