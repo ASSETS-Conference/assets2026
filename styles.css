@@ -844,6 +844,23 @@ footer p {
   }
 }
 
+.quote {
+  font-family: 'Drafting', sans-serif;
+  font-style: italic;
+  text-align: left;
+}
+.quote .author {
+  font-family: 'Besley', serif;
+  margin-top: 0.5rem;
+  text-align: right;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.quote .author:before {
+  content: "— ";
+}
+
 
 ul.committee-members {
   --profile-width: 16rem;
