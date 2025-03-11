@@ -905,3 +905,26 @@ ul.committee-members .members-name {
   font-size: 1.1rem;
   color: var(--accent-color2)
 }
+
+
+ul.pc-members {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.666rem;
+}
+
+ul.pc-members .pc-member {
+  line-height: 1.2;
+}
+
+ul.pc-members .pc-name {
+  font-weight: bold;
+}
+
+ul.pc-members .pc-institution, ul.pc-members .pc-country {
+  font-style: italic;
+  font-family: 'Drafting', sans-serif;
+  font-size: 0.9rem;
+  opacity: 0.666;
+}
