@@ -273,7 +273,7 @@ nav ul.main-menu > li.mobile-only {
 ul.main-menu li ul { 
   transition: all 0.25s;
 }
-ul.main-menu li:hover ul, nav > ul li.open ul { 
+ul.main-menu li:hover ul, ul.main-menu li.open ul { 
   transition: all 0s;
   visibility: visible;
   opacity: 1;

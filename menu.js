@@ -37,7 +37,7 @@ Array.prototype.forEach.call(menuItems, function (el, i) {
 
   // Insert a button to have a keyboard selectable toggle submenu after the <a> element for accessibility purposes
   let activatingA = el.querySelector('a')
-  let btn = `<button class="submenu-toggle" aria-label="show submenu for ${activatingA.text}">
+  let btn = `<button class="submenu-toggle" aria-label="${activatingA.text}">
         <span>
           <span class="visually-hidden">show submenu for “${activatingA.text}”</span>
         </span>
@@ -63,18 +63,21 @@ Array.prototype.forEach.call(menuItems, function (el, i) {
 
 document.getElementById('menu-toggle').addEventListener('click', function () {
   const menuContainer = document.getElementById('menu-container')
+  menuContainer.classList.toggle('open')
+  this.classList.toggle('active')
+  document.body.classList.toggle('menu-open')
+  document.body.style.overflow = document.body.classList.contains('menu-open') ? 'hidden' : ''
+})
 
-  if (menuContainer.classList.contains('open')) {
-    // Close the main menu
-    menuContainer.classList.remove('open')
-    document.getElementById('menu-toggle').classList.remove('active')
-    document.body.classList.remove('menu-open')
-    document.body.style.overflow = ''
-  } else {
-    // Open the main menu
-    menuContainer.classList.add('open')
-    document.getElementById('menu-toggle').classList.add('active')
-    document.body.classList.add('menu-open')
-    document.body.style.overflow = 'hidden'
+// closes open submenus on escape key press
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.has-submenu.open').forEach(function (menu) {
+      menu.classList.remove('open')
+      const link = menu.querySelector('a')
+      const toggle = menu.querySelector('.submenu-toggle')
+      if (link) link.setAttribute('aria-expanded', 'false')
+      if (toggle) toggle.setAttribute('aria-expanded', 'false')
+    })
   }
 })
