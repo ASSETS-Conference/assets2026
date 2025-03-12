@@ -84,6 +84,11 @@ nav {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  #nav-logo img {
+    width: 18rem
+  }
+}
 
 nav ul.main-menu {
   display: flex;
@@ -960,4 +965,10 @@ ul.pc-members .pc-institution, ul.pc-members .pc-country {
   font-family: 'Drafting', sans-serif;
   font-size: 0.9rem;
   opacity: 0.666;
+}
+
+.blog-post-separator {
+  border: none;
+  border-top: 2px solid var(--accent-color);
+  margin-block: 5rem;
 }
