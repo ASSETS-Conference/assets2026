@@ -67,6 +67,24 @@ nav {
   max-width: calc(100vw - 3rem - 4rem); /* avoids overlap of padding and hamburger */
 }
 
+@media screen and (max-width: 1280px) {
+  #nav-logo img {
+    width: 14rem
+  }
+}
+@media screen and (max-width: 1152px) {
+  #nav-logo img {
+    width: 12rem
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #nav-logo img {
+    width: 10rem
+  }
+}
+
+
 nav ul.main-menu {
   display: flex;
   align-items: center;
@@ -130,20 +148,35 @@ nav ul.secondary-menu li a.no-root-link, nav ul.main-menu li a.no-root-link {
 }
 
 nav ul.main-menu > li > a {
-  padding: 0 var(--inner-pad);
-  font-size: 1.2rem;
+  padding: 0 calc(var(--inner-pad) * .9);
+  font-size: 1.1rem;
   color: var(--text-color);
+}
+
+@media screen and (max-width: 1280px) {
+  nav ul.main-menu > li > a {
+    font-size: 1rem;
+    padding-inline: calc(var(--inner-pad) * .8);
+  }
+  .main-menu .submenu-toggle {
+    width: 1rem;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   nav ul.main-menu > li > a {
-    font-size: 1rem;
-  }  
+    font-size: 0.9rem;
+    padding-inline: calc(var(--inner-pad) * .7);
+  }
+  .main-menu .submenu-toggle {
+    width: 0.8rem;
+  }
 }
 
 @media screen and (max-width: 900px) {
   nav ul.main-menu > li > a {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    padding-inline: calc(var(--inner-pad) * .6);
   }  
 }
 
