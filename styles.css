@@ -980,7 +980,7 @@ ul.pc-members .pc-institution, ul.pc-members .pc-country {
   opacity: 0.666;
 }
 
-.blog-post-separator, .generic-separator {
+.blog-post-separator{
   border: none;
   border-top: 2px solid var(--accent-color);
 }
@@ -988,7 +988,8 @@ ul.pc-members .pc-institution, ul.pc-members .pc-country {
   margin-block: 5rem;
 }
 .generic-separator {
-  margin-block: 2rem;
+  margin-block: 1rem;
+  border:none;
 }
 
 .deadlines-summary {
