@@ -15,14 +15,14 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <!-- Preload stylesheets -->
     <link rel="preload" href="reset.css" as="style" />
-    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="styles.css?v=COMMIT_HASH" as="style" />
 
     <!-- Load stylesheets -->
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=COMMIT_HASH" />
 
-    <link rel="preload" href="setup.js" as="script" />
-    <script src="setup.js" defer></script>
+    <link rel="preload" href="setup.js?v=COMMIT_HASH" as="script" />
+    <script src="setup.js?v=COMMIT_HASH" defer></script>
   </head>
   <body>
     <nav id="nav-container" data-active="home"></nav>

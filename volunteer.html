@@ -16,14 +16,14 @@
 
     <!-- Preload stylesheets -->
     <link rel="preload" href="reset.css" as="style" />
-    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="styles.css?v=COMMIT_HASH" as="style" />
 
     <!-- Load stylesheets -->
     <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=COMMIT_HASH" />
 
-    <link rel="preload" href="setup.js" as="script" />
-    <script src="setup.js" defer></script>
+    <link rel="preload" href="setup.js?v=COMMIT_HASH" as="script" />
+    <script src="setup.js?v=COMMIT_HASH" defer></script>
   </head>
   <body>
     <nav id="nav-container" data-active="volunteer"></nav>
@@ -32,11 +32,29 @@
       <div class="grid-helper">
         <div class="text-block">
           <h1>Volunteers</h1>
-          <p>If you'd like to get involved with organizing ASSETS 2025, you can fill out the forms below.</p>
+          <p>
+            If you'd like to get involved with organizing ASSETS 2025, you can fill out the forms
+            below.
+          </p>
           <ul>
-            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScKO3AQlGKWM_yOZOX7sSwKPGDz6xzH8urGeoxXtBohDrBxBw/viewform?usp=sf_link">Student volunteer interest form</a></li>
-            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSedcLBDappGSjP7qGZ-utj2opua7Xaipu7fW7dJ1NTxi8rckA/viewform?usp=header">Volunteer to review for the conference</a></li>
-            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfYUhz4D7Do0Qb4UHf0z1p_prCTPf1d15nQykN7OGhFOhBNtQ/viewform?usp=sf_link">Volunteer for the organizing committee</a></li>
+            <li>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScKO3AQlGKWM_yOZOX7sSwKPGDz6xzH8urGeoxXtBohDrBxBw/viewform?usp=sf_link"
+                >Student volunteer interest form</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSedcLBDappGSjP7qGZ-utj2opua7Xaipu7fW7dJ1NTxi8rckA/viewform?usp=header"
+                >Volunteer to review for the conference</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfYUhz4D7Do0Qb4UHf0z1p_prCTPf1d15nQykN7OGhFOhBNtQ/viewform?usp=sf_link"
+                >Volunteer for the organizing committee</a
+              >
+            </li>
             <li>Organizations may consider <a href="sponsors.html">sponsoring ASSETS</a></li>
           </ul>
         </div>
