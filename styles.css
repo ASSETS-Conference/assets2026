@@ -492,7 +492,13 @@ body.menu-open {
 }
 
 main.content-block-container {
-  margin-top: 3rem;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  main.content-block-container {
+    margin-top: 0;
+  }  
 }
 
 h1 {
@@ -501,6 +507,12 @@ h1 {
   line-height: 1.5;
   margin-bottom: 2rem;
   font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    margin-bottom: 1rem;
+  }
 }
 
 .sub-menu {
@@ -589,7 +601,8 @@ p + p, ul + p {
 }
 
 .grid-helper.airy-grid {
-  gap: 3rem;
+  gap: 1rem 3rem;
+
 }
 
 @media only screen and (max-width: 768px) {
