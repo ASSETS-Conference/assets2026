@@ -8,12 +8,24 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Get latest code
-      uses: actions/checkout@v3
+      - name: Get latest code
+        uses: actions/checkout@v3
 
-    - name: Push files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ${{ secrets.FTP_HOST }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
+      - name: Get short commit hash
+        run: echo "COMMIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Replace placeholders in all HTML files
+        run: |
+          find . -name "*.html" -type f | tee html_files.txt
+          COUNT=$(wc -l < html_files.txt)
+          echo "Found $COUNT HTML files"
+          find . -name "*.html" -type f -exec sed -i "s/COMMIT_HASH/${{ env.COMMIT_HASH }}/g" {} +
+          # Check how many files still contain "COMMIT_HASH" (should be 0)
+          REMAINING=$(grep -rl "COMMIT_HASH" . --include="*.html" | tee remaining_files.txt | wc -l)
+          echo "Remaining files with COMMIT_HASH: $REMAINING"
+
+      - name: Push files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
