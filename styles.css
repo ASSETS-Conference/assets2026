@@ -1026,6 +1026,11 @@ ul.pc-members .pc-institution, ul.pc-members .pc-country {
   border: none;
 }
 
+.visible-separator {
+  border-top: 1px solid var(--text-color);
+  margin-block: 2rem;
+}
+
 .deadlines-summary {
   font-size: 0.85rem;
 }
