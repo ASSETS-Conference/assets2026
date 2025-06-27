@@ -1029,3 +1029,8 @@ ul.pc-members .pc-institution, ul.pc-members .pc-country {
 .deadlines-summary {
   font-size: 0.85rem;
 }
+
+.crossed-out {
+  text-decoration: line-through;
+  opacity: 0.666;
+}
