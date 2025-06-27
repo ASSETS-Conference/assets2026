@@ -1008,7 +1008,7 @@ ul.pc-members .pc-institution, ul.pc-members .pc-country {
   margin-bottom: 5rem;
 }
 
-.blog-post-date {
+.blog-post-date, .subtitle {
   display: block;
   font-family: 'Drafting', sans-serif;
   font-size: 1rem;

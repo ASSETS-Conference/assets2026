@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessibility Guidelines / ASSETS 2025</title>
+
+    <meta
+      name="description"
+      content="The 27th International ACM SIGACCESS Conference on Computers and Accessibility"
+    />
+    <meta name="keywords" content="Accessibility, Technology, Conference, Assets 2025" />
+    <meta name="author" content="ACM SIGACCESS" />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+    <!-- Preload stylesheets -->
+    <link rel="preload" href="reset.css" as="style" />
+    <link rel="preload" href="styles.css?v=COMMIT_HASH" as="style" />
+
+    <!-- Load stylesheets -->
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css?v=COMMIT_HASH" />
+
+    <link rel="preload" href="setup.js?v=COMMIT_HASH" as="script" />
+    <script src="setup.js?v=COMMIT_HASH" defer></script>
+  </head>
+  <body>
+    <nav id="nav-container" data-active="authors"></nav>
+
+    <main class="content-block-container">
+      <div class="grid-helper">
+        <div class="text-block">
+          <h1>
+            Accessibility Guidelines
+            <span class="subtitle"
+              >Guidelines for ensuring accessible submissions for ASSETS’25
+            </span>
+          </h1>
+
+          <h2>Creating Accessible PDFs</h2>
+          <p>
+            ACM publications are read (and reviewed) by many people. Making your paper accessible
+            will help to promote the equal participation of people with disabilities in science and
+            engineering. This note describes how to check if your PDF is accessible, and how to fix
+            the most common accessibility problems. For more information please refer to
+            <a href="http://www.adobe.com/accessibility/resources.html" target="_blank"
+              >Adobe's accessibility resource center</a
+            >.
+          </p>
+
+          <h3>How do I test if my PDF is accessible?</h3>
+          <ul>
+            <li>
+              The document should be tagged. In Adobe Acrobat Pro: Go to the 'File' menu. 'Document
+              properties'. 'Description' tab. Look for 'Tagged PDF: Yes' among the set of advanced
+              properties. If you do not have access to Adobe Acrobat, try selecting some text in the
+              PDF and pasting it into a text editor. If you can't do this, or the text looks wrong,
+              chances are your document is not readable with a screen reader.
+            </li>
+            <li>
+              Check the accessibility. In Adobe Acrobat Pro: Go to the 'Advanced' menu.
+              'Accessibility'. 'Full Check'. The checker will report accessibility problems.
+            </li>
+            <li>
+              Fonts should be embedded, or your PDF will need to be regenerated, and you may lose
+              accessibility that you have added. In Adobe Acrobat Pro: Go to the 'File' menu.
+              'Document properties'. 'Fonts 'tab. All of the fonts should have the word 'embedded'
+              in parentheses after the font name (unless they are not visible in the final document)
+            </li>
+          </ul>
+
+          <h3>How do I fix accessibility problems?</h3>
+          <p>
+            Word users should correct as many problems as possible in the Word source file rather
+            than the pdf, as described in the next section. On a PC, the Adobe plugin for Word can
+            export accessibility features from the Word document into the pdf.
+          </p>
+          <p>
+            On a Mac, this is not the case. Those using Word on a Mac, and all LaTeX users will need
+            to edit the PDF directly using Adobe Acrobat. A better basic PDF may be produced by
+            using latex2pdf as opposed to ps2pdf. See also the
+            <a href="http://webaim.org/techniques/acrobat/converting" target="_blank"
+              >WebAim PDF Accessibility primer</a
+            >
+            which provides information for OpenOffice users.
+          </p>
+          <p>
+            The accessibility checker in Adobe Acrobat Pro provides help with fixing many
+            accessibility problems. The following steps are for Adobe Acrobat Pro 9. More detailed
+            instructions for
+            <a
+              href="http://www.sigaccess.org/welcome-to-sigaccess/resources/accessible-pdf-author-guide/"
+              target="_blank"
+              >Adobe Acrobat Pro XI</a
+            >
+            and a
+            <a href="https://www.youtube.com/watch?v=fO4udYorD6g" target="_blank"
+              >video for Adobe Acrobat Pro XI</a
+            >, are also available. Please see
+            <a href="http://www.adobe.com/accessibility/resources.html" target="_blank"
+              >Adobe's best practices</a
+            >
+            for instructions covering more versions of Adobe Acrobat.
+          </p>
+          <ul>
+            <li>
+              Add tags. Go to the 'Advanced' menu. Select 'Accessibility', then 'Add tags to
+              document'.
+            </li>
+            <li>
+              Add alternative text for figures. Context-click the Figure, select 'Properties', and
+              fill in 'Alternate Text'. If no 'Properties' option appears, go to the 'Advanced'
+              menu, select 'Touch Up Reading Order', and then try context-clicking on the figures
+              again, looking for an 'Edit alternate text' option.
+            </li>
+            <li>
+              Specify the document language. Go to the 'File' menu. Select 'Properties', then the
+              'Advanced' tab, 'Language' field. In some versions of Acrobat, the 'Properties' option
+              is called 'Document Properties'. In some versions the 'Language' field is in a
+              'Reading Options' tab.
+            </li>
+            <li>
+              Define tab order.
+              <ul>
+                <li>Go to the 'View' menu. Select 'Navigation tabs', then 'Pages'.</li>
+                <li>
+                  Click on any page, then type Ctrl-A (or Command-A on a Mac) to select all the
+                  pages.
+                </li>
+                <li>
+                  Go to the 'Options' menu in the top right of the dialog box (icon showing two
+                  cogs), and select 'Page Properties'.
+                </li>
+                <li>In the 'Tab Order' tab, select 'Use document structure'.</li>
+              </ul>
+            </li>
+            <li>
+              Make sure tables have headings.
+              <ul>
+                <li>Go to the 'View' menu. Select 'Navigation tabs', then 'Tags'.</li>
+                <li>Select the 'Tags' tab. This panel shows the document structure as a tree.</li>
+                <li>Navigate to the table cells that should be headers.</li>
+                <li>
+                  Check they have the type &lt;th&gt; . If not, then right click on the header cell,
+                  select 'properties', select the 'Tag' tab, and change the value for 'Type' to
+                  'Table Header Cell'. &lt;/th&gt;
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Creating an accessible PDF directly from Word</h3>
+          <p>
+            The following link provides step-by-step instructions for adding basic accessibility
+            information to a Word document on a PC, then exporting it to a PDF document intended for
+            ACM:
+            <a
+              href="http://www.sigaccess.org/welcome-to-sigaccess/resources/acm-submission-with-ms-word/"
+              target="_blank"
+              >Create an accessible ACM submission using Microsoft Word</a
+            >.
+          </p>
+
+          <h3>Making Accessible Figures and Tables</h3>
+          <ul>
+            <li>
+              Do not add your figures as a pdf. The tagging of figures that are in pdf can sometimes
+              lead to undesired effects on the visual presentation. Instead, insert the image, for
+              example, as png or svg.
+            </li>
+            <li>Do not add your tables as images.</li>
+            <li>
+              Give your tables lines/borders. This can facilitate the tagging of the document.
+            </li>
+          </ul>
+
+          <h2>Video Presentation Creation Guidelines</h2>
+          <p>
+            Video presentations, like papers, must be accessible. For videos to be accessible, they
+            require an audio narration (so that a person with a visual impairment can understand the
+            contents of the video) and text captions (so that a person who is deaf or hard of
+            hearing can understand the video’s contents). Since accessibility is a top priority in
+            our community, we may ask you to fix your video if it is not fully accessible. So,
+            please follow these guidelines carefully, ask questions if you have them, and make
+            accessibility a priority.
+          </p>
+          <p>
+            To assist you with creating an accessible video presentation, we have developed the
+            following guidelines:
+          </p>
+
+          <h3>Steps for creating video presentation and closed-captioning:</h3>
+          <ul>
+            <li>
+              Please DO NOT burn the captioning text directly into your video presentation. You will
+              upload the video and closed-captioning files separately.
+            </li>
+            <li>Make sure to describe important visuals.</li>
+            <li>
+              Manually modify closed-captioning content to match video and audio and to verify
+              correct transcription.
+            </li>
+            <li>Try to keep your reading speed under 180 words per minute.</li>
+          </ul>
+
+          <h3>Guidelines for creating your presentation video:</h3>
+          <ul>
+            <li>
+              Create your presentation video with audio using your favorite program (Adobe Premiere
+              Pro, Zoom, PowerPoint, etc.).
+            </li>
+            <li>
+              Video length:
+              <ul>
+                <li>Poster/Demonstration: Three (3) minutes or less</li>
+                <li>All other papers: Six (6) minutes or less</li>
+              </ul>
+            </li>
+            <li>Video resolution: 1920 x 1080px</li>
+            <li>Video format: MP4</li>
+          </ul>
+          <h3>Guidelines for accessible narrations:</h3>
+          <ul>
+            <li>
+              Your narrations should be able to stand on their own. Try listening to your video
+              without looking at it. If everything makes sense, you are on the right track.
+            </li>
+            <li>
+              Narrations should describe visuals including pictures, visualizations (graphs, etc),
+              tables, and diagrams. Describe the important trends or most salient features of these
+              visuals.
+            </li>
+            <li>
+              Avoid statements like, “As you can see here…” instead say, “This slide shows
+              [described visual].”
+            </li>
+            <li>Make sure you read or closely paraphrase any text that appears in the video.</li>
+          </ul>
+          <h3>Guidelines for closed-captioning:</h3>
+          <ul>
+            <li>Font: A sans serif font (e.g., Arial, Helvetica, Verdana)</li>
+            <li>Font Color: White</li>
+            <li>Font Background: Black background box</li>
+            <li>Line Length: No more than ~40 characters</li>
+            <li>Number of Lines: No more than two (2) lines</li>
+            <li>Line Alignment: Centre</li>
+            <li>Positioning: Lower center of the video presentation screen</li>
+            <li>Export captions format: SRT</li>
+            <li>Try to keep your subtitles on the screen for at least two (2) seconds.</li>
+            <li>
+              Keep the bottom ~1/5 of the video screen free of important visuals. This keeps images
+              from being covered over by the subtitles.
+            </li>
+            <li>
+              Captions should coincide with your audio soundtrack. If you have significant pauses,
+              please add in ellipses (…).
+            </li>
+            <li>
+              If splitting your subtitles into two (2) lines, keep the lines at an equal or similar
+              length.
+            </li>
+          </ul>
+          <h4>For authors using Adobe Premiere Pro:</h4>
+          <ul>
+            <li>
+              To create or generate your captions, please follow the instructions on “Captions
+              workflow in Premier Pro | Adobe” at:
+              <a
+                href="https://helpx.adobe.com/premiere-pro/using/working-with-captions.html"
+                target="_blank"
+                >https://helpx.adobe.com/premiere-pro/using/working-with-captions.html</a
+              >
+            </li>
+            <li>
+              To export the created captions as an SRT, please follow the instructions on “Export
+              text from Premiere Pro” at:
+              <a
+                href="https://helpx.adobe.com/premiere-pro/using/export-text-captions.html"
+                target="_blank"
+                >https://helpx.adobe.com/premiere-pro/using/export-text-captions.html</a
+              >
+            </li>
+          </ul>
+          <h4>For authors using Flixier:</h4>
+          <ul>
+            <li>
+              To create, generate, and download your captions as a SRT file, please follow the
+              instructions on “Add or Generate Subtitles” at:
+              <a href="https://flixier.com/help/219-adding-subtitles" target="_blank"
+                >https://flixier.com/help/219-adding-subtitles</a
+              >
+            </li>
+          </ul>
+          <h4>Additional resources:</h4>
+          <ul>
+            <li>
+              Guide on language mechanics for captioning
+              <a href="https://flixier.com/help/219-adding-subtitles" target="_blank"
+                >https://flixier.com/help/219-adding-subtitles</a
+              >
+              from the Described and Captioned Media Program.
+            </li>
+            <li>
+              Information on good and bad subtitles/captioning and video descriptions by The
+              National Association of the Deaf:
+              <a href="https://www.youtube.com/watch?v=VyA5mkhCzRA" target="_blank"
+                >https://www.youtube.com/watch?v=VyA5mkhCzRA</a
+              >
+            </li>
+          </ul>
+          <p>
+            If you have any questions about the accessible video presentation guidelines, please
+            contact the Accessibility Chairs at
+            <a href="mailto:access-assets25@acm.org">access-assets25@acm.org</a>.
+          </p>
+
+          <h2>Making Accessible Presentations</h2>
+          <p>
+            Presenters are responsible for making their presentations accessible to the diverse
+            attendees at the conference. For instance, there will be ASL interpreters during the
+            conference for people who use sign language, and there will be attendees in the audience
+            who are blind or who have low vision.
+          </p>
+          <p>
+            As a resource to our community, Kyle Rector has prepared a wonderful and concise guide
+            about how to make your presentation accessible, along with a video
+            <a
+              href="http://www.sigaccess.org/welcome-to-sigaccess/resources/accessible-presentation-guide/"
+              target="_blank"
+              >Accessible Presentation Guide</a
+            >. Please ensure that your presentation incorporates the recommendations from this
+            guide.
+          </p>
+          <h2>Other Useful Links</h2>
+          <ul>
+            <li>
+              <a
+                href="http://interactions.acm.org/archive/view/november-december-2015/writing-about-accessibility"
+                target="_blank"
+                >Writing Guidelines</a
+              >
+            </li>
+            <li>
+              <a href="https://www.acm.org/publications/policies" target="_blank">ACM Policies</a>
+            </li>
+            <li>
+              <a
+                href="https://www.sigaccess.org/welcome-to-sigaccess/resources/conflict-of-interest/"
+                target="_blank"
+                >Conflict of Interest</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-container"></div>
+  </body>
+</html>
