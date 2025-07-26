@@ -977,7 +977,8 @@ ul.committee-members .members-name {
   color: var(--accent-color2);
 }
 
-ul.pc-members {
+ul.pc-members,
+ul.workshop-organizers {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -988,16 +989,22 @@ ul.pc-members .pc-member {
   line-height: 1.2;
 }
 
-ul.pc-members .pc-name {
+ul.pc-members .pc-name,
+ul.workshop-organizers .name {
   font-weight: bold;
 }
 
 ul.pc-members .pc-institution,
-ul.pc-members .pc-country {
+ul.pc-members .pc-country,
+ul.workshop-organizers .affiliation {
   font-style: italic;
   font-family: 'Drafting', sans-serif;
   font-size: 0.9rem;
-  opacity: 0.666;
+  opacity: 0.8;
+}
+
+ul.workshop-organizers .affiliation a {
+  word-break: break-all;
 }
 
 .blog-post-separator {
@@ -1134,4 +1141,25 @@ ul.pc-members .pc-country {
   .pricing-table td {
     border-color: color-mix(in srgb, var(--text-color), transparent 85%);
   }
+}
+
+ul.workshop-organizers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.workshop + .workshop {
+  margin-top: 8rem;
+  border-top: 2px solid var(--accent-color);
+}
+
+.workshop h2 {
+  position: sticky;
+  top: 0;
+  background-color: color-mix(in srgb, var(--bg-color), transparent 8%);
+  backdrop-filter: blur(5px);
+  padding-bottom: 0.125rem;
+  z-index: 1;
+  box-shadow: 0 0.5rem 10px var(--bg-color);
 }
