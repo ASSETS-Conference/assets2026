@@ -567,6 +567,7 @@ p {
 .styled-link,
 .text-block a:visited,
 .styled-link:visited {
+  color: var(--accent-color2);
   text-decoration-color: var(--accent-color2);
   padding: 0 0.2ex;
   border-radius: 0.2ex;
