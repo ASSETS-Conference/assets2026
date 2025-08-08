@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Attending / ASSETS 2025</title>
+
+    <meta
+      name="description"
+      content="The 27th International ACM SIGACCESS Conference on Computers and Accessibility"
+    />
+    <meta name="keywords" content="Accessibility, Technology, Conference, Assets 2025" />
+    <meta name="author" content="ACM SIGACCESS" />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+    <!-- Preload stylesheets -->
+    <link rel="preload" href="reset.css" as="style" />
+    <link rel="preload" href="styles.css?v=COMMIT_HASH" as="style" />
+
+    <!-- Load stylesheets -->
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css?v=COMMIT_HASH" />
+
+    <link rel="preload" href="setup.js?v=COMMIT_HASH" as="script" />
+    <script src="setup.js?v=COMMIT_HASH" defer></script>
+  </head>
+  <body>
+    <nav id="nav-container" data-active="attending"></nav>
+
+    <main class="content-block-container">
+      <div class="grid-helper">
+        <div class="text-block">
+          <h1>Keynote Speaker</h1>
+          <h2>Jenny Lay Flurrie</h2>
+          <h3>Vice President, Chief Accessibility Officer, Microsoft</h3>
+          <p>X: @jennylayfluffy
+LinkedIn: www.linkedin.com/in/jennylf
+          </p>
+
+  <h3>Bio</h3>
+ <p> Jenny is the current Vice President and Chief Accessibility Officer at Microsoft, a technologist, and operations leader working in technology for 25+ years. She has been Chief Accessibility Officer since 2016, working across the company to design and build accessible products, services, and workplace. Initially joined Microsoft in 2005 to work on Hotmail and build large scale technical and customer operations. Went on to work on variety of products and domains including Advertising, Privacy and Digital Safety before pivoting to focus on accessibility. Now manages inventory of over 6000 products, websites and tools, buildings and empowers disabled talent across the company. She is executive sponsor of the Disability Employee Community, and a member of Microsoft’s Inclusion Council.
+ 
+Identifying as deaf and disabled, Jenny brings a user-centered perspective to her work viewing accessibility as a critical driver of innovation for the world. Passionate about building technology right, with durable scalable processes and leading the future with AI.
+She leans on the insights of employees and customers to create technologies and services. Launching initiatives like the Disability Answer Desk which has provided technical support to 1.5million+ disabled people, Neurodiversity Program, and the annual Microsoft Ability Summit, now in its 16th year, with 20,000+ attendees. And instrumental in creation of new products, technologies and realizing the potential of AI and Accessibility.
+ 
+Jenny serves on the boards of Disability:IN, ITV, and Team Gleason, and has been recognized by the White House as a Disability Employment Champion of Change (2014), Fast Company’s Most Creative People in Business (2017), Forbes’ Future of Work 50 (2023), and received several awards including Jim Thatcher Lifetime Achievement Award, John D Kemp Inclusion award (2023), Womenomics Inclusion Award (2025) and identified in top #100 in Accessibility by Forbes (2025). She was awarded Honorary Doctorate in Engineering by University of Sheffield in 2024, MBA in 2007 from University of Bradford and B.Mus Hons in Music from Sheffield in 1997.
+ 
+Speaker, moderator, interviewer, experienced on small and large stadium stages. An avid reader who loves interviewing authors from Steve Gleason to Sabina Nawaz ‘Your’re the Boss’. Jenny is a dual citizen who grew up in the UK, and now lives in Seattle with her husband Tom.
+</p>
+  
+
+          <h3>Keynote: Accessibility in the Age of Agentic AI</h3>          
+          <p> Over the past few years, AI has shifted from tools to teammates: multimodal, personalized, and increasingly agentic. This talk opens the door to what’s working now for accessibility in AI (captions, descriptions, assistive agents), current limitations (bias, hallucinations, evaluation), and what the next three years demand from our community - datasets that reflect disability, safety and governance aligned to EAA/AI Act, and research that includes disabled people in the loop. We’ll share Microsoft case studies, open tools, and concrete calls-to-action for ASSETS researchers.          
+          </p>
+
+
+          <br />
+         
+
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-container"></div>
+  </body>
+</html>
