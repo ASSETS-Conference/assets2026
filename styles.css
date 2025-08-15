@@ -157,13 +157,13 @@ nav ul.main-menu li a.no-root-link {
 
 nav ul.main-menu > li > a {
   padding: 0 calc(var(--inner-pad) * 0.9);
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-color);
 }
 
 @media screen and (max-width: 1280px) {
   nav ul.main-menu > li > a {
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding-inline: calc(var(--inner-pad) * 0.8);
   }
   .main-menu .submenu-toggle {
@@ -173,7 +173,7 @@ nav ul.main-menu > li > a {
 
 @media screen and (max-width: 1024px) {
   nav ul.main-menu > li > a {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     padding-inline: calc(var(--inner-pad) * 0.7);
   }
   .main-menu .submenu-toggle {
@@ -1162,4 +1162,53 @@ ul.workshop-organizers {
   padding-bottom: 0.125rem;
   z-index: 1;
   box-shadow: 0 0.5rem 10px var(--bg-color);
+}
+
+#hero {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+#hero img {
+  border-radius: 0.5rem;
+}
+
+#hero h2 {
+  font-size: 2rem;
+  color: var(--accent-color);
+  font-family: 'Drafting', sans-serif;
+  font-style: italic;
+  margin-block: 1rem 0;
+}
+
+#hero h3 {
+  margin: 0;
+  font-weight: 400;
+}
+
+ul.jennys-links {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.jennys-links li {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+
+  flex: 0 1 auto;
+}
+
+.jennys-links a {
+  text-decoration: none;
+}
+
+.jennys-links svg {
+  max-height: 1.25rem;
+  min-width: 1rem;
 }
