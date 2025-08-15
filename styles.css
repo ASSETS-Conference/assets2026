@@ -1204,6 +1204,18 @@ ul.jennys-links {
   flex: 0 1 auto;
 }
 
+.jennys-links svg {
+  width: 1.25rem;
+  fill: var(--text-color);
+}
+
+/* dark mode */
+/* @media (prefers-color-scheme: dark) {
+  .jennys-links li {
+    color: var();
+  } /* dark-mode color */
+/* } */
+
 .jennys-links a {
   text-decoration: none;
 }
@@ -1228,7 +1240,13 @@ ul.jennys-links {
   font-style: italic;
 }
 
-#keynote-teaser span.role {
+@media (prefers-color-scheme: dark) {
+  #keynote-teaser h3 {
+    color: var(--text-color);
+  }
+}
+
+* #keynote-teaser span.role {
   font-weight: 400;
   font-size: 1rem;
   font-style: italic;
