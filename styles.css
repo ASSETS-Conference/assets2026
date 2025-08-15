@@ -1212,3 +1212,35 @@ ul.jennys-links {
   max-height: 1.25rem;
   min-width: 1rem;
 }
+
+#keynote-teaser {
+}
+
+#keynote-teaser h2 {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+#keynote-teaser h3 {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  font-family: 'Drafting', sans-serif;
+  font-style: italic;
+}
+
+#keynote-teaser span.role {
+  font-weight: 400;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.666;
+}
+
+.keynote-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.keynote-info * {
+  line-height: 1.6;
+}
