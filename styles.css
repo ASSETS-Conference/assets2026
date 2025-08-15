@@ -1246,7 +1246,7 @@ ul.jennys-links {
   }
 }
 
-* #keynote-teaser span.role {
+#keynote-teaser span.role {
   font-weight: 400;
   font-size: 1rem;
   font-style: italic;
@@ -1261,4 +1261,14 @@ ul.jennys-links {
 
 .keynote-info * {
   line-height: 1.6;
+}
+
+.jenny-vertical {
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.jenny-vertical img {
+  max-height: 66vh;
+  margin: 2rem auto;
 }
