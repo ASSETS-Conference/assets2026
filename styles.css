@@ -19,7 +19,8 @@
     --text-color: #f4f4df;
     --inverted-text: var(--bg-color);
     --accent-color: #ffde00;
-    --accent-color2: #907df3; /*#7e65fe;*/
+    --accent-color2: #9e8bfb; /*#7e65fe;*/
+    --dark-accent-color2: #7e65fe;
     --footer-color: #8154fd;
     --default-wght: 460;
     --dark-text: var(--bg-color);
@@ -638,6 +639,12 @@ ul + p {
   padding: 1rem;
 }
 
+@media (prefers-color-scheme: dark) {
+  .highlighted-block a {
+    color: var(--dark-accent-color2) !important;
+  }
+}
+
 .grid-helper li.grid-item {
   font-weight: bold;
   padding: 1rem;
@@ -1193,6 +1200,7 @@ ul.jennys-links {
   list-style-type: none;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
