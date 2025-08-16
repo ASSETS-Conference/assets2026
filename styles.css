@@ -1188,7 +1188,8 @@ ul.workshop-organizers {
   color: var(--accent-color);
   font-family: 'Drafting', sans-serif;
   font-style: italic;
-  margin-block: 1rem 0;
+  margin-block: 1rem 0.5rem;
+  line-height: 1.15;
 }
 
 #hero h3 {
