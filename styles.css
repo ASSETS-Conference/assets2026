@@ -1287,6 +1287,14 @@ ul.jennys-links {
   grid-template-rows: repeat(3, auto);
   gap: 0.5rem;
 }
+
+p + .accepted-paper {
+  /* first one */
+  padding-top: 4rem;
+  margin-top: 2rem;
+  border-top: 1px solid color-mix(in srgb, var(--text-color), transparent 75%);
+}
+
 .accepted-paper + .accepted-paper {
   margin-top: 4rem;
 }
@@ -1320,7 +1328,7 @@ ul.jennys-links {
 }
 
 .author-list li {
-  display: inline;
+  display: inline-block;
   padding: 0 !important;
 }
 
@@ -1328,6 +1336,11 @@ ul.jennys-links {
   content: ', ';
 }
 
-.author-list li:last-child::before {
+.author-list li:last-child:not(:first-child)::before {
   content: 'and ';
+}
+
+/* Special case: if there are exactly two items, remove the comma */
+.author-list li:first-child:nth-last-child(2)::after {
+  content: ' ';
 }
