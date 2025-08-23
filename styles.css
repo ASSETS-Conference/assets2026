@@ -1287,14 +1287,6 @@ ul.jennys-links {
   grid-template-rows: repeat(3, auto);
   gap: 0.5rem;
 }
-
-p + .accepted-paper {
-  /* first one */
-  padding-top: 4rem;
-  margin-top: 2rem;
-  border-top: 1px solid color-mix(in srgb, var(--text-color), transparent 75%);
-}
-
 .accepted-paper + .accepted-paper {
   margin-top: 4rem;
 }
@@ -1328,7 +1320,7 @@ p + .accepted-paper {
 }
 
 .author-list li {
-  display: inline-block;
+  display: inline;
   padding: 0 !important;
 }
 
@@ -1336,11 +1328,252 @@ p + .accepted-paper {
   content: ', ';
 }
 
-.author-list li:last-child:not(:first-child)::before {
+.author-list li:last-child::before {
   content: 'and ';
 }
 
-/* Special case: if there are exactly two items, remove the comma */
-.author-list li:first-child:nth-last-child(2)::after {
-  content: ' ';
+/* Schedule Table Styles */
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 2rem;
+  font-family: 'Drafting', sans-serif;
+  font-size: 0.85rem;
+  text-align: left;
+  table-layout: fixed;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--text-color), transparent 80%);
+  vertical-align: top;
+}
+
+.schedule-table th {
+  background-color: var(--accent-color2);
+  color: var(--light-text);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.schedule-table .session-item {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.schedule-table .session-item:last-child {
+  margin-bottom: 0;
+}
+
+.schedule-table .session-code {
+  font-weight: 580;
+  color: var(--accent-color2);
+  display: block;
+  font-size: 0.85rem;
+}
+
+.schedule-table .session-name {
+  display: block;
+  font-style: italic;
+  font-weight: 450;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.schedule-table .session-type {
+  font-weight: 600;
+  color: var(--accent-color);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.schedule-table .session-time {
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'Drafting', sans-serif;
+}
+
+.schedule-table .session-divider {
+  height: 1px;
+  background-color: color-mix(in srgb, var(--text-color), transparent 85%);
+  margin: 0.75rem 0;
+}
+
+.schedule-table .paper-sessions {
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 97%);
+}
+.schedule-table .paper-sessions:not(:last-of-type),
+.schedule-table .break-session:not(:last-of-type) {
+  border-bottom: 1px solid color-mix(in srgb, var(--text-color), transparent 85%);
+}
+.schedule-table .paper-sessions:not(:first-of-type),
+.schedule-table .break-session:not(:first-of-type) {
+  border-top: 1px solid color-mix(in srgb, var(--text-color), transparent 85%);
+}
+
+.schedule-table .break-session {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
+  text-align: left;
+}
+
+.schedule-table .lunch-session {
+  background-color: color-mix(in srgb, var(--text-color), transparent 96%);
+  text-align: left;
+}
+
+.schedule-table .conference-opening {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
+  text-align: left;
+}
+
+.schedule-table .special-session {
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 94%);
+  text-align: left;
+}
+
+.schedule-table .closing-session {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  text-align: left;
+}
+
+.schedule-table .empty-cell {
+  background-color: color-mix(in srgb, var(--text-color), transparent 98%);
+}
+
+/* Hide mobile section headers on desktop */
+.schedule-table .mobile-section-header {
+  display: none;
+}
+
+/* Mobile responsiveness for schedule table */
+@media only screen and (max-width: 768px) {
+  .schedule-table thead {
+    display: none;
+  }
+
+  .schedule-table,
+  .schedule-table tbody,
+  .schedule-table tr,
+  .schedule-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .schedule-table tr {
+    margin-bottom: 3rem;
+    background-color: color-mix(in srgb, var(--accent-color2), transparent 98%);
+    border-radius: 0.5rem;
+    padding: 0rem;
+    border: 1px solid color-mix(in srgb, var(--text-color), transparent 90%);
+  }
+
+  /* Show and style mobile section headers */
+  .schedule-table .mobile-section-header {
+    display: block;
+    background-color: var(--accent-color2);
+    color: var(--light-text);
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    text-align: left;
+    padding: 1rem;
+  }
+
+  .schedule-table .mobile-section-header td {
+    padding: 1rem;
+    margin: 0;
+  }
+
+  .schedule-table .mobile-section-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-family: 'Drafting', sans-serif;
+  }
+
+  .schedule-table .mobile-section-header td::before {
+    display: none;
+  }
+
+  .schedule-table td {
+    border: none;
+    padding: 1rem 1rem;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .schedule-table td:last-child {
+    margin-bottom: 0;
+  }
+
+  .schedule-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 1;
+    margin-bottom: 0.5rem;
+    font-family: 'Drafting', sans-serif;
+    text-transform: uppercase;
+    /* color: var(--accent-color2); */
+  }
+
+  .schedule-table .session-code {
+    font-size: 0.9rem;
+  }
+
+  .schedule-table .session-name {
+    font-size: 0.95rem;
+  }
+
+  .schedule-table .session-type {
+    font-size: 0.95rem;
+  }
+
+  .schedule-table .session-time {
+    font-size: 0.8rem;
+  }
+
+  .schedule-table .session-divider {
+    margin: 1rem 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .schedule-table th {
+    background-color: var(--accent-color2);
+  }
+
+  .schedule-table td {
+    border-color: color-mix(in srgb, var(--text-color), transparent 85%);
+  }
+
+  .schedule-table .paper-sessions {
+    background-color: color-mix(in srgb, var(--accent-color2), transparent 95%);
+  }
+
+  .schedule-table .break-session {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 94%);
+  }
+
+  .schedule-table .lunch-session {
+    background-color: color-mix(in srgb, var(--text-color), transparent 94%);
+  }
+
+  .schedule-table .conference-opening {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 88%);
+  }
+
+  .schedule-table .special-session {
+    background-color: color-mix(in srgb, var(--accent-color2), transparent 90%);
+  }
+
+  .schedule-table .closing-session {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+  }
 }
