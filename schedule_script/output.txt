@@ -1,0 +1,229 @@
+<!-- Start of Schedule Table -->
+
+<table class="schedule-table">
+  <thead>
+    <tr>
+      <th>Monday, Oct. 27</th>
+      <th>Tuesday, Oct. 28</th>
+      <th>Wednesday, Oct. 29</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="mobile-section-header">
+      <td colspan="3">
+        <h3>Morning Schedule</h3>
+      </td>
+    </tr>
+    <tr>
+    <td class="conference-opening">
+        <div class="session-item">
+          <span class="session-time">9:00 AM - 10:45 AM</span>
+          <span class="session-type">Conference Open and Keynote</span>
+        </div>
+    </td>
+    <td class="paper-sessions">
+        <div class="session-item">
+          <span class="session-time">9:00 AM - 10:30 AM</span>
+          <span class="session-code">Paper Session 4A</span>
+          <span class="session-name">Daily Living</span>
+        </div>
+        <div class="session-divider"></div>
+        <div class="session-item">
+          <span class="session-code">Paper Session 4B</span>
+          <span class="session-name">Learner Experiences</span>
+        </div>
+    </td>
+    <td class="paper-sessions">
+        <div class="session-item">
+          <span class="session-time">9:00 AM - 10:30 AM</span>
+          <span class="session-code">Paper Session 7A</span>
+          <span class="session-name">Guidelines, Measurements and Taxonomies</span>
+        </div>
+        <div class="session-divider"></div>
+        <div class="session-item">
+          <span class="session-code">Paper Session 7B</span>
+          <span class="session-name">Information Access</span>
+        </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="break-session">
+        <div class="session-item">
+          <span class="session-time">10:45 AM - 11:30 AM</span>
+          <span class="session-type">Coffee Break and Poster Session A</span>
+        </div>
+    </td>
+    <td class="break-session">
+        <div class="session-item">
+          <span class="session-time">10:30 AM - 11:15 AM</span>
+          <span class="session-type">Coffee Break and Poster Session B</span>
+        </div>
+    </td>
+    <td class="break-session">
+        <div class="session-item">
+          <span class="session-time">10:30 AM - 11:15 AM</span>
+          <span class="session-type">Coffee Break and Poster Session C</span>
+        </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="paper-sessions">
+        <div class="session-item">
+          <span class="session-time">11:30 AM - 12:45 PM</span>
+          <span class="session-code">Paper Session 1A</span>
+          <span class="session-name">Inclusive Mixed Reality</span>
+        </div>
+        <div class="session-divider"></div>
+        <div class="session-item">
+          <span class="session-code">Paper Session 1B</span>
+          <span class="session-name">Fabrication</span>
+        </div>
+    </td>
+    <td class="paper-sessions">
+        <div class="session-item">
+          <span class="session-time">11:15 AM - 12:30 PM</span>
+          <span class="session-code">Paper Session 5A</span>
+          <span class="session-name">Creativity and Content Creation</span>
+        </div>
+        <div class="session-divider"></div>
+        <div class="session-item">
+          <span class="session-code">Paper Session 5B</span>
+          <span class="session-name">Perspective and Communication</span>
+        </div>
+    </td>
+    <td class="paper-sessions">
+        <div class="session-item">
+          <span class="session-time">11:15 AM - 12:30 PM</span>
+          <span class="session-code">Paper Session 8A</span>
+          <span class="session-name">Communication and Social Connection</span>
+        </div>
+        <div class="session-divider"></div>
+        <div class="session-item">
+          <span class="session-code">Paper Session 8B</span>
+          <span class="session-name">Explorations in Disability, Accessibility, and Technology</span>
+        </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="lunch-session">
+        <div class="session-item">
+          <span class="session-time">12:45 PM - 2:15 PM</span>
+          <span class="session-type">Lunch</span>
+        </div>
+    </td>
+    <td class="lunch-session">
+        <div class="session-item">
+          <span class="session-time">12:30 PM - 2:00 PM</span>
+          <span class="session-type">Lunch</span>
+        </div>
+    </td>
+    <td class="lunch-session">
+        <div class="session-item">
+          <span class="session-time">12:30 PM - 2:00 PM</span>
+          <span class="session-type">Lunch</span>
+        </div>
+    </td>
+    </tr>
+    <tr class="mobile-section-header">
+      <td colspan="3">
+        <h3>Afternoon Schedule</h3>
+      </td>
+    </tr>
+    <tr>
+    <td class="paper-sessions">
+        <div class="session-item">
+          <span class="session-time">2:15 PM - 3:30 PM</span>
+          <span class="session-code">Paper Session 2A</span>
+          <span class="session-name">Music Creation and  Performance</span>
+        </div>
+        <div class="session-divider"></div>
+        <div class="session-item">
+          <span class="session-code">Paper Session 2B</span>
+          <span class="session-name">Privacy and FATE</span>
+        </div>
+    </td>
+    <td class="paper-sessions">
+        <div class="session-item">
+          <span class="session-time">2:00 PM - 3:30 PM</span>
+          <span class="session-code">Paper Session 6A</span>
+          <span class="session-name">Education and Learning</span>
+        </div>
+        <div class="session-divider"></div>
+        <div class="session-item">
+          <span class="session-code">Paper Session 6B</span>
+          <span class="session-name">Power and Knowledge Production</span>
+        </div>
+    </td>
+    <td class="paper-sessions">
+        <div class="session-item">
+          <span class="session-time">2:00 PM - 3:30 PM</span>
+          <span class="session-code">Paper Session 9A</span>
+          <span class="session-name">Work and Productivity</span>
+        </div>
+        <div class="session-divider"></div>
+        <div class="session-item">
+          <span class="session-code">Paper Session 9B</span>
+          <span class="session-name">Accessible Interactions and Digital Content</span>
+        </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="break-session">
+        <div class="session-item">
+          <span class="session-time">3:30 PM - 4:15 PM</span>
+          <span class="session-type">Coffee Break and Poster Session A</span>
+        </div>
+    </td>
+    <td class="break-session">
+        <div class="session-item">
+          <span class="session-time">3:30 PM - 4:15 PM</span>
+          <span class="session-type">Coffee Break and Poster Session B</span>
+        </div>
+    </td>
+    <td class="break-session">
+        <div class="session-item">
+          <span class="session-time">3:30 PM - 4:15 PM</span>
+          <span class="session-type">Coffee Break and Poster Session C</span>
+        </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="paper-sessions">
+        <div class="session-item">
+          <span class="session-time">4:15 PM - 5:30 PM</span>
+          <span class="session-code">Paper Session 3A</span>
+          <span class="session-name">Health and Wellness</span>
+        </div>
+        <div class="session-divider"></div>
+        <div class="session-item">
+          <span class="session-code">Paper Session 3B</span>
+          <span class="session-name">Tactile and Nonvisual Data Representations</span>
+        </div>
+    </td>
+    <td class="special-session">
+        <div class="session-item">
+          <span class="session-time">4:15 PM - 5:30 PM</span>
+          <span class="session-type">Student Research Competition</span>
+        </div>
+    </td>
+    <td class="closing-session">
+        <div class="session-item">
+          <span class="session-time">4:15 PM - 5:00 PM</span>
+          <span class="session-type">Closing Ceremony</span>
+        </div>
+    </td>
+    </tr>
+    <tr>
+    <td class="empty-cell"></td>
+    <td class="special-session">
+        <div class="session-item">
+          <span class="session-time">5:30 PM - 6:30 PM</span>
+          <span class="session-type">SIGACCESS Business Meeting</span>
+        </div>
+    </td>
+    <td class="empty-cell"></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- End of Schedule Table -->
