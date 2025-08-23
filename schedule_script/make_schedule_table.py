@@ -35,7 +35,6 @@ def parse_time_piece(piece: str) -> Optional[time]:
     if not s or s.upper() == "TBD":
         return None
     s = _normalize_meridiem(s)
-
     # Try 12h w/ meridiem first, then 24h.
     for fmt in ("%I:%M %p", "%I %p", "%H:%M", "%H"):
         try:
@@ -310,11 +309,6 @@ def cell_html(group: List[Session]) -> str:
 
 def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
     # Order columns strictly by calendar date (Mon→Tue→Wed)
-    def extract_date(label: str) -> Tuple[int,int,int]:
-        # We saved the date per-session; take the earliest session date for that label
-        # because label is e.g., "Monday, Oct. 27"
-        return (0,0,0)  # actual ordering derived below
-    # Build a stable (date,label) mapping:
     day_order: List[Tuple[Optional[date], str]] = []
     for label, dct in day_buckets.items():
         any_list = dct["morning"] or dct["lunch"] or dct["afternoon"] or dct["evening"]  # type: ignore
@@ -354,6 +348,8 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
         return rows
 
     body_rows: List[str] = []
+
+    # Morning
     body_rows += rows_for_block("morning", mobile_header="Morning Schedule")
 
     # Lunch row (first lunch per day)
@@ -367,18 +363,12 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
             lunch_tds.append("<td class=\"empty-cell\"></td>")
     body_rows.append("  <tr>\n" + indent_block("\n".join(lunch_tds), 1) + "\n  </tr>")
 
+    # Afternoon
     body_rows += rows_for_block("afternoon", mobile_header="Afternoon Schedule")
 
-    # Optional evening row
+    # Evening (with header)
     if any(day_buckets[k]["evening"] for k in ordered_keys):  # type: ignore
-        evening_tds: List[str] = []
-        for k in ordered_keys:
-            evs = day_buckets[k]["evening"]  # type: ignore
-            if evs:
-                evening_tds.append(cell_html([evs[0]]))
-            else:
-                evening_tds.append("<td class=\"empty-cell\"></td>")
-        body_rows.append("  <tr>\n" + indent_block("\n".join(evening_tds), 1) + "\n  </tr>")
+        body_rows += rows_for_block("evening", mobile_header="Evening Schedule")
 
     tbody = "<tbody>\n" + "\n".join(body_rows) + "\n</tbody>"
     return ("<!-- Start of Schedule Table -->\n\n"
