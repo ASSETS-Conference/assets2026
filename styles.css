@@ -1480,16 +1480,19 @@ ul.jennys-links {
     border-radius: 0.5rem;
     text-align: left;
     padding: 0rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
 
   .schedule-table .mobile-section-header td {
-    padding: 1rem;
+    padding: 0.25rem 1rem;
     margin: 0;
   }
 
   .schedule-table .mobile-section-header h3 {
     margin: 0;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 500;
     text-transform: none;
     font-family: 'Drafting', sans-serif;
