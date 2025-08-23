@@ -1444,6 +1444,32 @@ ul.jennys-links {
   background-color: color-mix(in srgb, var(--text-color), transparent 98%);
 }
 
+/* Sunday Table Specific Styles */
+.sunday-table {
+  margin-bottom: 3rem;
+}
+
+.sunday-table th {
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.sunday-table .sunday-event {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
+}
+
+.sunday-table .session-item {
+  text-align: left;
+}
+
+.sunday-table .session-type {
+  font-weight: 600;
+  color: var(--text-color);
+  display: block;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
 /* Hide mobile section headers on desktop */
 .schedule-table .mobile-section-header {
   display: none;
@@ -1469,6 +1495,41 @@ ul.jennys-links {
     border-radius: 0.5rem;
     padding: 0rem;
     border: 1px solid color-mix(in srgb, var(--text-color), transparent 90%);
+  }
+
+  /* Sunday table mobile styles */
+  .sunday-table thead {
+    display: block;
+  }
+
+  .sunday-table th {
+    display: block;
+    width: 100%;
+    background-color: var(--accent-color2);
+    color: var(--light-text);
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+    position: static;
+    z-index: auto;
+    box-shadow: none;
+  }
+
+  .sunday-table tr {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
+    margin-bottom: 0.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  .sunday-table tr:first-child {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .sunday-table tr:last-child {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  .sunday-table .sunday-event {
+    padding: 1rem;
   }
 
   /* Show and style mobile section headers */
