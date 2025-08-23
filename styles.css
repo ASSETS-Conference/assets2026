@@ -1470,6 +1470,35 @@ ul.jennys-links {
   margin-top: 0.25rem;
 }
 
+/* Registration Table Specific Styles */
+.registration-table {
+  margin-bottom: 3rem;
+}
+
+.registration-table th {
+  text-align: left;
+  font-size: 0.9rem;
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 96%);
+  color: var(--text-color);
+}
+
+.registration-table .registration-event {
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 96%);
+  text-align: left;
+}
+
+.registration-table .session-item {
+  text-align: left;
+}
+
+.registration-table .session-type {
+  font-weight: 600;
+  color: var(--text-color);
+  display: block;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
 /* Hide mobile section headers on desktop */
 .schedule-table .mobile-section-header {
   display: none;
@@ -1526,6 +1555,21 @@ ul.jennys-links {
 
   .sunday-table tr:last-child {
     border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  /* Registration table mobile styles */
+  .registration-table thead {
+    display: none;
+  }
+
+  .registration-table tr {
+    background-color: color-mix(in srgb, var(--accent-color2), transparent 96%);
+    margin-bottom: 2rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  .registration-table .registration-event {
+    padding: 1rem;
   }
 
   .sunday-table .sunday-event {
