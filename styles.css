@@ -1787,7 +1787,7 @@ ul.jennys-links {
   justify-content: center;
   width: 3rem;
   height: 1.5rem;
-  background-color: color-mix(in srgb, var(--light-text) 20%, transparent);
+  background-color: color-mix(in srgb, var(--inverted-text) 20%, transparent);
   color: var(--accent-color) !important;
 
   text-decoration: none;
