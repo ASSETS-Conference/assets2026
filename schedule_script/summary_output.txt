@@ -18,31 +18,41 @@
     <td class="conference-opening">
         <div class="session-item">
           <span class="session-time">9:00 AM - 10:45 AM</span>
-          <span class="session-type">Conference Open and Keynote</span>
+          <a class="session-link" href="#monday-conference-open-and-keynote-0900-1045">
+            <span class="session-type">Conference Open and Keynote</span>
+          </a>
         </div>
     </td>
     <td class="paper-sessions">
         <div class="session-item">
           <span class="session-time">9:00 AM - 10:30 AM</span>
-          <span class="session-code">Paper Session 4A</span>
-          <span class="session-name">Daily Living</span>
+          <a class="session-link" href="#tuesday-paper-session-4a-daily-living-0900-1030">
+            <span class="session-code">Paper Session 4A</span>
+            <span class="session-name">Daily Living</span>
+          </a>
         </div>
         <div class="session-divider"></div>
         <div class="session-item">
-          <span class="session-code">Paper Session 4B</span>
-          <span class="session-name">Learner Experiences</span>
+          <a class="session-link" href="#tuesday-paper-session-4b-learner-experiences-0900-1030">
+            <span class="session-code">Paper Session 4B</span>
+            <span class="session-name">Learner Experiences</span>
+          </a>
         </div>
     </td>
     <td class="paper-sessions">
         <div class="session-item">
           <span class="session-time">9:00 AM - 10:30 AM</span>
-          <span class="session-code">Paper Session 7A</span>
-          <span class="session-name">Guidelines, Measurements and Taxonomies</span>
+          <a class="session-link" href="#wednesday-paper-session-7a-guidelines-measurements-and-taxonomies-0900-1030">
+            <span class="session-code">Paper Session 7A</span>
+            <span class="session-name">Guidelines, Measurements and Taxonomies</span>
+          </a>
         </div>
         <div class="session-divider"></div>
         <div class="session-item">
-          <span class="session-code">Paper Session 7B</span>
-          <span class="session-name">Information Access</span>
+          <a class="session-link" href="#wednesday-paper-session-7b-information-access-0900-1030">
+            <span class="session-code">Paper Session 7B</span>
+            <span class="session-name">Information Access</span>
+          </a>
         </div>
     </td>
     </tr>
@@ -50,19 +60,25 @@
     <td class="break-session">
         <div class="session-item">
           <span class="session-time">10:45 AM - 11:30 AM</span>
-          <span class="session-type">Coffee Break and Poster Session A</span>
+          <a class="session-link" href="#monday-coffee-break-and-poster-session-a-1045-1130">
+            <span class="session-type">Coffee Break and Poster Session A</span>
+          </a>
         </div>
     </td>
     <td class="break-session">
         <div class="session-item">
           <span class="session-time">10:30 AM - 11:15 AM</span>
-          <span class="session-type">Coffee Break and Poster Session B</span>
+          <a class="session-link" href="#tuesday-coffee-break-and-poster-session-b-1030-1115">
+            <span class="session-type">Coffee Break and Poster Session B</span>
+          </a>
         </div>
     </td>
     <td class="break-session">
         <div class="session-item">
           <span class="session-time">10:30 AM - 11:15 AM</span>
-          <span class="session-type">Coffee Break and Poster Session C</span>
+          <a class="session-link" href="#wednesday-coffee-break-and-poster-session-c-1030-1115">
+            <span class="session-type">Coffee Break and Poster Session C</span>
+          </a>
         </div>
     </td>
     </tr>
@@ -70,37 +86,49 @@
     <td class="paper-sessions">
         <div class="session-item">
           <span class="session-time">11:30 AM - 12:45 PM</span>
-          <span class="session-code">Paper Session 1A</span>
-          <span class="session-name">Inclusive Mixed Reality</span>
+          <a class="session-link" href="#monday-paper-session-1a-inclusive-mixed-reality-1130-1245">
+            <span class="session-code">Paper Session 1A</span>
+            <span class="session-name">Inclusive Mixed Reality</span>
+          </a>
         </div>
         <div class="session-divider"></div>
         <div class="session-item">
-          <span class="session-code">Paper Session 1B</span>
-          <span class="session-name">Fabrication</span>
+          <a class="session-link" href="#monday-paper-session-1b-fabrication-1130-1245">
+            <span class="session-code">Paper Session 1B</span>
+            <span class="session-name">Fabrication</span>
+          </a>
         </div>
     </td>
     <td class="paper-sessions">
         <div class="session-item">
           <span class="session-time">11:15 AM - 12:30 PM</span>
-          <span class="session-code">Paper Session 5A</span>
-          <span class="session-name">Creativity and Content Creation</span>
+          <a class="session-link" href="#tuesday-paper-session-5a-creativity-and-content-creation-1115-1230">
+            <span class="session-code">Paper Session 5A</span>
+            <span class="session-name">Creativity and Content Creation</span>
+          </a>
         </div>
         <div class="session-divider"></div>
         <div class="session-item">
-          <span class="session-code">Paper Session 5B</span>
-          <span class="session-name">Perspective and Communication</span>
+          <a class="session-link" href="#tuesday-paper-session-5b-perspective-and-communication-1115-1230">
+            <span class="session-code">Paper Session 5B</span>
+            <span class="session-name">Perspective and Communication</span>
+          </a>
         </div>
     </td>
     <td class="paper-sessions">
         <div class="session-item">
           <span class="session-time">11:15 AM - 12:30 PM</span>
-          <span class="session-code">Paper Session 8A</span>
-          <span class="session-name">Communication and Social Connection</span>
+          <a class="session-link" href="#wednesday-paper-session-8a-communication-and-social-connection-1115-1230">
+            <span class="session-code">Paper Session 8A</span>
+            <span class="session-name">Communication and Social Connection</span>
+          </a>
         </div>
         <div class="session-divider"></div>
         <div class="session-item">
-          <span class="session-code">Paper Session 8B</span>
-          <span class="session-name">Explorations in Disability, Accessibility, and Technology</span>
+          <a class="session-link" href="#wednesday-paper-session-8b-explorations-in-disability-accessibility-and-technology-1115-1230">
+            <span class="session-code">Paper Session 8B</span>
+            <span class="session-name">Explorations in Disability, Accessibility, and Technology</span>
+          </a>
         </div>
     </td>
     </tr>
@@ -108,19 +136,25 @@
     <td class="lunch-session">
         <div class="session-item">
           <span class="session-time">12:45 PM - 2:15 PM</span>
-          <span class="session-type">Lunch</span>
+          <a class="session-link" href="#monday-lunch-1245-1415">
+            <span class="session-type">Lunch</span>
+          </a>
         </div>
     </td>
     <td class="lunch-session">
         <div class="session-item">
           <span class="session-time">12:30 PM - 2:00 PM</span>
-          <span class="session-type">Lunch</span>
+          <a class="session-link" href="#tuesday-lunch-1230-1400">
+            <span class="session-type">Lunch</span>
+          </a>
         </div>
     </td>
     <td class="lunch-session">
         <div class="session-item">
           <span class="session-time">12:30 PM - 2:00 PM</span>
-          <span class="session-type">Lunch</span>
+          <a class="session-link" href="#wednesday-lunch-1230-1400">
+            <span class="session-type">Lunch</span>
+          </a>
         </div>
     </td>
     </tr>
@@ -133,37 +167,49 @@
     <td class="paper-sessions">
         <div class="session-item">
           <span class="session-time">2:15 PM - 3:30 PM</span>
-          <span class="session-code">Paper Session 2A</span>
-          <span class="session-name">Music Creation and  Performance</span>
+          <a class="session-link" href="#monday-paper-session-2a-music-creation-and-performance-1415-1530">
+            <span class="session-code">Paper Session 2A</span>
+            <span class="session-name">Music Creation and  Performance</span>
+          </a>
         </div>
         <div class="session-divider"></div>
         <div class="session-item">
-          <span class="session-code">Paper Session 2B</span>
-          <span class="session-name">Privacy and FATE</span>
+          <a class="session-link" href="#monday-paper-session-2b-privacy-and-fate-1415-1530">
+            <span class="session-code">Paper Session 2B</span>
+            <span class="session-name">Privacy and FATE</span>
+          </a>
         </div>
     </td>
     <td class="paper-sessions">
         <div class="session-item">
           <span class="session-time">2:00 PM - 3:30 PM</span>
-          <span class="session-code">Paper Session 6A</span>
-          <span class="session-name">Education and Learning</span>
+          <a class="session-link" href="#tuesday-paper-session-6a-education-and-learning-1400-1530">
+            <span class="session-code">Paper Session 6A</span>
+            <span class="session-name">Education and Learning</span>
+          </a>
         </div>
         <div class="session-divider"></div>
         <div class="session-item">
-          <span class="session-code">Paper Session 6B</span>
-          <span class="session-name">Power and Knowledge Production</span>
+          <a class="session-link" href="#tuesday-paper-session-6b-power-and-knowledge-production-1400-1530">
+            <span class="session-code">Paper Session 6B</span>
+            <span class="session-name">Power and Knowledge Production</span>
+          </a>
         </div>
     </td>
     <td class="paper-sessions">
         <div class="session-item">
           <span class="session-time">2:00 PM - 3:30 PM</span>
-          <span class="session-code">Paper Session 9A</span>
-          <span class="session-name">Work and Productivity</span>
+          <a class="session-link" href="#wednesday-paper-session-9a-work-and-productivity-1400-1530">
+            <span class="session-code">Paper Session 9A</span>
+            <span class="session-name">Work and Productivity</span>
+          </a>
         </div>
         <div class="session-divider"></div>
         <div class="session-item">
-          <span class="session-code">Paper Session 9B</span>
-          <span class="session-name">Accessible Interactions and Digital Content</span>
+          <a class="session-link" href="#wednesday-paper-session-9b-accessible-interactions-and-digital-content-1400-1530">
+            <span class="session-code">Paper Session 9B</span>
+            <span class="session-name">Accessible Interactions and Digital Content</span>
+          </a>
         </div>
     </td>
     </tr>
@@ -171,19 +217,25 @@
     <td class="break-session">
         <div class="session-item">
           <span class="session-time">3:30 PM - 4:15 PM</span>
-          <span class="session-type">Coffee Break and Poster Session A</span>
+          <a class="session-link" href="#monday-coffee-break-and-poster-session-a-1530-1615">
+            <span class="session-type">Coffee Break and Poster Session A</span>
+          </a>
         </div>
     </td>
     <td class="break-session">
         <div class="session-item">
           <span class="session-time">3:30 PM - 4:15 PM</span>
-          <span class="session-type">Coffee Break and Poster Session B</span>
+          <a class="session-link" href="#tuesday-coffee-break-and-poster-session-b-1530-1615">
+            <span class="session-type">Coffee Break and Poster Session B</span>
+          </a>
         </div>
     </td>
     <td class="break-session">
         <div class="session-item">
           <span class="session-time">3:30 PM - 4:15 PM</span>
-          <span class="session-type">Coffee Break and Poster Session C</span>
+          <a class="session-link" href="#wednesday-coffee-break-and-poster-session-c-1530-1615">
+            <span class="session-type">Coffee Break and Poster Session C</span>
+          </a>
         </div>
     </td>
     </tr>
@@ -191,25 +243,33 @@
     <td class="paper-sessions">
         <div class="session-item">
           <span class="session-time">4:15 PM - 5:30 PM</span>
-          <span class="session-code">Paper Session 3A</span>
-          <span class="session-name">Health and Wellness</span>
+          <a class="session-link" href="#monday-paper-session-3a-health-and-wellness-1615-1730">
+            <span class="session-code">Paper Session 3A</span>
+            <span class="session-name">Health and Wellness</span>
+          </a>
         </div>
         <div class="session-divider"></div>
         <div class="session-item">
-          <span class="session-code">Paper Session 3B</span>
-          <span class="session-name">Tactile and Nonvisual Data Representations</span>
+          <a class="session-link" href="#monday-paper-session-3b-tactile-and-nonvisual-data-representations-1615-1730">
+            <span class="session-code">Paper Session 3B</span>
+            <span class="session-name">Tactile and Nonvisual Data Representations</span>
+          </a>
         </div>
     </td>
     <td class="special-session">
         <div class="session-item">
           <span class="session-time">4:15 PM - 5:30 PM</span>
-          <span class="session-type">Student Research Competition</span>
+          <a class="session-link" href="#tuesday-student-research-competition-1615-1730">
+            <span class="session-type">Student Research Competition</span>
+          </a>
         </div>
     </td>
     <td class="closing-session">
         <div class="session-item">
           <span class="session-time">4:15 PM - 5:00 PM</span>
-          <span class="session-type">Closing Ceremony</span>
+          <a class="session-link" href="#wednesday-closing-ceremony-1615-1700">
+            <span class="session-type">Closing Ceremony</span>
+          </a>
         </div>
     </td>
     </tr>
@@ -223,7 +283,9 @@
     <td class="special-session">
         <div class="session-item">
           <span class="session-time">5:30 PM - 6:30 PM</span>
-          <span class="session-type">SIGACCESS Business Meeting</span>
+          <a class="session-link" href="#tuesday-sigaccess-business-meeting-1730-1830">
+            <span class="session-type">SIGACCESS Business Meeting</span>
+          </a>
         </div>
     </td>
     <td class="empty-cell"></td>

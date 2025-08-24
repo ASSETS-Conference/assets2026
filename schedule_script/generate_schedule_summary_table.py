@@ -8,8 +8,71 @@ import re
 from dataclasses import dataclass
 from datetime import datetime, time, date
 from typing import Dict, List, Tuple, Optional, Any
+import unicodedata
+
 
 # ---------------- Utilities ----------------
+
+def slugify_ascii(s: str) -> str:
+    if not s:
+        return ""
+    s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii")
+    s = s.lower()
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    s = s.strip("-")
+    s = re.sub(r"-{2,}", "-", s)
+    return s
+
+def _parse_single_time_to_24h_token(t: str):
+    if not isinstance(t, str):
+        return None
+    s = t.strip().lower()
+    m = re.match(r"^(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)?$", s)
+    if not m:
+        return None
+    hh = int(m.group(1))
+    mm = int(m.group(2) or "00")
+    ampm = (m.group(3) or "").replace(".", "")
+    if ampm in ("am", "pm"):
+        if hh == 12:
+            hh = 0 if ampm == "am" else 12
+        elif ampm == "pm":
+            hh += 12
+    mm = max(0, min(mm, 59))
+    return f"{hh:02d}{mm:02d}"
+
+def time_range_token_from_display(range_text: str) -> str:
+    """
+    Accepts the Table's rendered time strings like '11:30 AM - 12:45 PM'
+    and returns '1130-1245'. Also handles en/em dashes and single times.
+    """
+    if not isinstance(range_text, str):
+        return ""
+    s = range_text.strip()
+    if not s:
+        return ""
+    if s.upper() == "TBD":
+        return "tbd"
+
+    parts = re.split(r"\s*[–—-]\s*", s)
+    if len(parts) != 2:
+        tok = _parse_single_time_to_24h_token(s)
+        return tok or ""
+    start_raw, end_raw = parts[0], parts[1]
+
+    ampm_end = re.search(r"(?i)\b([AP]\.?M\.?)\b", end_raw or "")
+    if ampm_end and not re.search(r"(?i)\b([AP]\.?M\.?)\b", start_raw or ""):
+        start_raw = f"{start_raw} {ampm_end.group(1)}"
+
+    start_tok = _parse_single_time_to_24h_token(start_raw)
+    end_tok = _parse_single_time_to_24h_token(end_raw)
+    if start_tok and end_tok:
+        return f"{start_tok}-{end_tok}"
+    return slugify_ascii(s)
+
+def weekday_anchor_from_date(d: Optional[date]) -> str:
+    return (d.strftime("%A").lower() if d else "")
+
 
 _AMPM_RE = re.compile(r"\s*([AaPp][Mm])\s*$")
 
@@ -88,6 +151,17 @@ def human_day_label_from_date(d: Optional[date]) -> str:
     else:
         return f"{dayname}, {mon}. {d.strftime('%#d')}"
 
+# >>> Used ONLY for anchor ID (to match the detailed-page IDs) <<<
+def long_day_label_for_id(d: Optional[date]) -> str:
+    if not d:
+        return ""
+    # e.g., "Monday, October 27, 2025"
+    dayname = d.strftime("%A")
+    month = d.strftime("%B")
+    day = d.strftime("%-d") if sys.platform != "win32" else d.strftime("%#d")
+    year = d.strftime("%Y")
+    return f"{dayname}, {month} {day}, {year}"
+
 def escape_html(s: str) -> str:
     return (
         s.replace("&", "&amp;")
@@ -100,17 +174,50 @@ def escape_html(s: str) -> str:
 def indent_block(text: str, level: int = 1, indent: str = "  ") -> str:
     return "\n".join((indent * level) + line if line.strip() else line for line in text.splitlines())
 
+def slugify(text: str) -> str:
+    text = text.lower()
+    text = re.sub(r"[^a-z0-9]+", "-", text)
+    return text.strip("-")
+
+# Build a unique, full-schedule-compatible ID
+# Pattern: {weekday}-{session-type}-{optional-session-name}-{HHMM-HHMM or tbd}
+def make_fullschedule_anchor(day_anchor: str, time_text: str, session_type: str, session_name: str,
+                             registry: set) -> str:
+    st_slug = slugify_ascii(session_type or "")
+    sn_slug = slugify_ascii(session_name or "")
+    ttok = time_range_token_from_display(time_text or "")
+    parts = [p for p in [day_anchor, st_slug, sn_slug or None, ttok or None] if p]
+    base = "-".join(parts) if parts else (day_anchor or "timeslot")
+
+    anchor = base
+    i = 2
+    while anchor in registry:
+        anchor = f"{base}-x{i}"
+        i += 1
+    registry.add(anchor)
+    return anchor
+
+def session_anchor_href(s: Session, day_registry: set) -> str:
+    day_anchor = weekday_anchor_from_date(s.date_d)  # 'monday', 'tuesday', ...
+    # Displayed time string (e.g., '11:30 AM - 12:45 PM') -> consistent HHMM-HHMM token
+    time_text = format_time_range(s.start, s.end)
+    # Match full schedule: for papers use code+name; for non-papers use type only
+    session_type = s.id_type                     # papers: code (e.g., "Paper Session 1A"); non-papers: title ("Coffee Break")
+    session_name = s.name if s.code else ""      # only papers have a separate name
+
+    return "#" + make_fullschedule_anchor(day_anchor, time_text, session_type, session_name, day_registry)
+
 # ---------------- Data ----------------
 
 @dataclass
 class Session:
     date_d: Optional[date]
-    # Derived label like "Monday, Oct. 27"
+    # Derived label like "Monday, Oct. 27" (for display)
     day_label: str
     start: Optional[time]
     end: Optional[time]
-    title: str       # non-paper title (e.g., "Coffee Break & Poster Session A")
-    code: str        # "Paper Session 1A"
+    title: str       # non-paper title (e.g., "Coffee Break & Poster Session A") -> this is the *type* for non-papers
+    code: str        # "Paper Session 1A" (this is the *type* for papers)
     name: str        # "Inclusive Mixed Reality"
 
     @property
@@ -146,6 +253,19 @@ class Session:
     @property
     def is_afternoon(self) -> bool:
         return not self.is_morning and not self.is_lunch and not self.is_evening
+
+    # The *type* and *title* used for ID generation (mirrors detailed page logic)
+    @property
+    def id_type(self) -> str:
+        # Papers: type is the code ("Paper Session 1A"); non-papers: type is the title (e.g., "Coffee Break...")
+        return self.code if self.code else self.title
+
+    @property
+    def id_title(self) -> str:
+        # Papers: "{code}: {name}" ; Non-papers: just title
+        if self.code:
+            return f"{self.code}: {self.name}" if self.name else self.code
+        return self.title
 
 # ---------------- Core ----------------
 
@@ -268,39 +388,51 @@ def group_parallel(sessions: List[Session]) -> List[List[Session]]:
     groups.sort(key=lambda kv: kv[0])
     return [g for _, g in groups]
 
-def cell_html(group: List[Session]) -> str:
+
+def cell_html(group: List[Session], day_registry: set) -> str:
     css = group[0].css_class if group else "special-session"
     parts: List[str] = []
     for i, s in enumerate(group):
         show_time = (i == 0)
+        href = session_anchor_href(s, day_registry)
+
         if css == "paper-sessions" and s.code:
             if show_time:
                 parts.append(
                     "<div class=\"session-item\">\n"
                     f"  <span class=\"session-time\">{format_time_range(s.start, s.end)}</span>\n"
-                    f"  <span class=\"session-code\">{escape_html(s.code)}</span>\n"
-                    f"  <span class=\"session-name\">{escape_html(s.name)}</span>\n"
+                    f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
+                    f"    <span class=\"session-code\">{escape_html(s.code)}</span>\n"
+                    f"    <span class=\"session-name\">{escape_html(s.name)}</span>\n"
+                    f"  </a>\n"
                     "</div>"
                 )
             else:
                 parts.append(
                     "<div class=\"session-item\">\n"
-                    f"  <span class=\"session-code\">{escape_html(s.code)}</span>\n"
-                    f"  <span class=\"session-name\">{escape_html(s.name)}</span>\n"
+                    f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
+                    f"    <span class=\"session-code\">{escape_html(s.code)}</span>\n"
+                    f"    <span class=\"session-name\">{escape_html(s.name)}</span>\n"
+                    f"  </a>\n"
                     "</div>"
                 )
         else:
+            # Non-paper sessions: link the title/type text
             if show_time:
                 parts.append(
                     "<div class=\"session-item\">\n"
                     f"  <span class=\"session-time\">{format_time_range(s.start, s.end)}</span>\n"
-                    f"  <span class=\"session-type\">{escape_html(s.title)}</span>\n"
+                    f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
+                    f"    <span class=\"session-type\">{escape_html(s.title)}</span>\n"
+                    f"  </a>\n"
                     "</div>"
                 )
             else:
                 parts.append(
                     "<div class=\"session-item\">\n"
-                    f"  <span class=\"session-type\">{escape_html(s.title)}</span>\n"
+                    f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
+                    f"    <span class=\"session-type\">{escape_html(s.title)}</span>\n"
+                    f"  </a>\n"
                     "</div>"
                 )
         if i < len(group) - 1:
@@ -316,15 +448,19 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
         day_order.append((d0, label))
     ordered_keys = [lbl for (d0, lbl) in sorted(day_order, key=lambda x: (x[0] or date.min, x[1]))]
 
+    # Maintain a uniqueness registry per day label (mirrors full schedule's per-day uniqueness)
+    day_id_registries: Dict[str, set] = {k: set() for k in ordered_keys}
+
     headers = [day_buckets[k]["header"] for k in ordered_keys]  # type: ignore
     thead = "<thead>\n  <tr>\n" + "\n".join([f"    <th>{escape_html(str(h))}</th>" for h in headers]) + "\n  </tr>\n</thead>"
 
     def rows_for_block(block_key: str, mobile_header: Optional[str] = None) -> List[str]:
-        grouped_per_day: List[List[List[Session]]] = []
+        # keep (day_key, groups) so we can access the right registry
+        grouped_per_day: List[Tuple[str, List[List[Session]]]] = []
         max_len = 0
         for k in ordered_keys:
             groups = group_parallel(day_buckets[k][block_key])  # type: ignore
-            grouped_per_day.append(groups)
+            grouped_per_day.append((k, groups))
             max_len = max(max_len, len(groups))
 
         rows: List[str] = []
@@ -339,9 +475,9 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
 
         for i in range(max_len):
             tds: List[str] = []
-            for groups in grouped_per_day:
+            for k, groups in grouped_per_day:
                 if i < len(groups):
-                    tds.append(cell_html(groups[i]))
+                    tds.append(cell_html(groups[i], day_id_registries[k]))
                 else:
                     tds.append("<td class=\"empty-cell\"></td>")
             rows.append("  <tr>\n" + indent_block("\n".join(tds), 1) + "\n  </tr>")
@@ -358,9 +494,10 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
         lunches = day_buckets[k]["lunch"]  # type: ignore
         if lunches:
             lunch_group = [sorted(lunches, key=lambda x: (x.start or time(0,0), x.end or time(0,0)))[0]]
-            lunch_tds.append(cell_html(lunch_group))
+            lunch_tds.append(cell_html(lunch_group, day_id_registries[k]))
         else:
             lunch_tds.append("<td class=\"empty-cell\"></td>")
+
     body_rows.append("  <tr>\n" + indent_block("\n".join(lunch_tds), 1) + "\n  </tr>")
 
     # Afternoon
@@ -378,8 +515,9 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
             "</table>\n\n"
             "<!-- End of Schedule Table -->")
 
+
 def main():
-    ap = argparse.ArgumentParser(description="Autodetect and convert schedule CSV into ASSETS-style HTML table.")
+    ap = argparse.ArgumentParser(description="Autodetect and convert schedule CSV into ASSETS-style HTML table (with cross-links).")
     ap.add_argument("csv", help="Path to input CSV")
     ap.add_argument("-o", "--output", help="Write HTML to this file (default: stdout)")
     ap.add_argument("--encoding", default="utf-8", help="CSV file encoding (default: utf-8)")

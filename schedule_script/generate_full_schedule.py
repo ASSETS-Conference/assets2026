@@ -2,15 +2,13 @@
 """
 Generate the **Full Schedule** HTML sections from the ASSETS 2025 content CSV.
 
-This version parses titles and authors directly from each `Paper N` cell.
-Expected format inside a Paper cell:
+This version parses titles and authors directly from each `Paper N` cell and
+adds stable anchor IDs to each time-slot so you can cross-link from elsewhere.
 
-    (TACCESS) Paper Title
-    Author One; Author Two; Author Three
-
-- First non-empty line = title (may start with a tag in parentheses).
-- Remaining non-empty lines are joined and split on ';' into authors.
-- If no authors are present, the paper renders without an author list.
+Anchor ID pattern (example):
+  monday-paper-session-1a-inclusive-mixed-reality-0900-1045
+  tuesday-coffee-break-1030-1100
+If duplicates arise, a suffix -x2, -x3, ... is appended to ensure uniqueness.
 
 Usage:
     python generate_full_schedule.py /path/to/content.csv > full_schedule.html
@@ -19,7 +17,9 @@ Usage:
 import sys, re, argparse
 from pathlib import Path
 from datetime import datetime
+import math
 import pandas as pd
+import unicodedata
 
 # ---------------------------- Utilities ----------------------------
 
@@ -32,15 +32,28 @@ MONTH_NAMES = {
     7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"
 }
 
+def safe_cell_str(row, colname: str) -> str:
+    v = row.get(colname)
+    if v is None:
+        return ""
+    # Catch pandas NA/NaN
+    if pd.isna(v):
+        return ""
+    # Defensive: also handle plain float NaN
+    if isinstance(v, float) and math.isnan(v):
+        return ""
+    return str(v).strip()
+
 def parse_date_label(date_str: str) -> str:
     """Turn '10/27/2025' into 'Monday, October 27, 2025'."""
     date_str = str(date_str).strip()
+    dt = None
     for fmt in ("%m/%d/%Y","%Y-%m-%d","%m-%d-%Y"):
         try:
             dt = datetime.strptime(date_str, fmt)
             break
         except ValueError:
-            dt = None
+            pass
     if dt is None:
         return date_str
     weekday = WEEKDAY_NAMES[dt.weekday()]
@@ -55,7 +68,7 @@ def date_anchor_id(date_str: str) -> str:
             return WEEKDAY_NAMES[dt.weekday()].lower()
         except ValueError:
             continue
-    return re.sub(r"[^a-z0-9]+", "-", str(date_str).strip().lower()).strip("-")
+    return slugify(str(date_str).strip())
 
 def normalize_time_range(time_str: str) -> str:
     """Normalize '9:00AM-10:45AM' to '9:00 AM – 10:45 AM'; keep 'TBD' as-is."""
@@ -64,10 +77,88 @@ def normalize_time_range(time_str: str) -> str:
     t = time_str.strip()
     if t.upper() == "TBD":
         return "TBD"
+    # ensure spaces before AM/PM
     t = re.sub(r"(?i)\s*(AM|PM)", r" \1", t)
+    # normalize separators
     t = t.replace("-", " – ")
     t = re.sub(r"\s+", " ", t).strip()
     return t
+
+def html_escape(text: str) -> str:
+    return (text or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+def slugify(s: str) -> str:
+    """
+    ASCII slug: lowercase, strip accents, keep a–z0–9 and hyphens,
+    collapse whitespace and punctuation to single hyphen.
+    """
+    if not s:
+        return ""
+    s = unicodedata.normalize("NFKD", s)
+    s = s.encode("ascii", "ignore").decode("ascii")
+    s = s.lower()
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    s = s.strip("-")
+    s = re.sub(r"-{2,}", "-", s)
+    return s
+
+def _parse_single_time_to_24h_token(t: str):
+    """
+    Parse a single time like '9', '9:00', '9:00 AM', '14:15' -> '0900', '1415'.
+    Returns None if cannot parse.
+    """
+    if not isinstance(t, str):
+        return None
+    s = t.strip().lower()
+    # capture am/pm if present
+    m = re.match(r"^(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)?$", s)
+    if not m:
+        return None
+    hh = int(m.group(1))
+    mm = int(m.group(2) or "00")
+    ampm = (m.group(3) or "").replace(".", "")
+    if ampm in ("am", "pm"):
+        if hh == 12:
+            hh = 0 if ampm == "am" else 12
+        elif ampm == "pm":
+            hh += 12
+    # clamp minutes
+    mm = max(0, min(mm, 59))
+    return f"{hh:02d}{mm:02d}"
+
+def time_range_token(time_str: str) -> str:
+    """
+    Convert a possibly messy time range into HHMM-HHMM token; 'TBD' -> 'tbd'.
+    Accepts forms like:
+      '9:00 AM – 10:45 AM', '09:00-10:45', '9-10:45am', 'TBD'
+    """
+    if not isinstance(time_str, str):
+        return ""
+    s = time_str.strip()
+    if not s:
+        return ""
+    if s.upper() == "TBD":
+        return "tbd"
+
+    # try to split on en dash, em dash, or hyphen
+    parts = re.split(r"\s*[–—-]\s*", s)
+    if len(parts) != 2:
+        # not a proper range, try parse as single time
+        tok = _parse_single_time_to_24h_token(s)
+        return tok or ""
+    start_raw, end_raw = parts[0], parts[1]
+
+    # If AM/PM is only on the end, copy it to start for parsing convenience
+    ampm_end = re.search(r"(?i)\b([AP]\.?M\.?)\b", end_raw or "")
+    if ampm_end and not re.search(r"(?i)\b([AP]\.?M\.?)\b", start_raw or ""):
+        start_raw = f"{start_raw} {ampm_end.group(1)}"
+
+    start_tok = _parse_single_time_to_24h_token(start_raw)
+    end_tok = _parse_single_time_to_24h_token(end_raw)
+    if start_tok and end_tok:
+        return f"{start_tok}-{end_tok}"
+    # fallback
+    return slugify(s)
 
 def classify_slot(session_type: str) -> str:
     """Return a CSS class for the time-slot based on the Session Type string."""
@@ -90,9 +181,6 @@ def classify_slot(session_type: str) -> str:
     if "closing" in st:
         return "time-slot closing-slot"
     return "time-slot"
-
-def html_escape(text: str) -> str:
-    return (text or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 def extract_paper_tag_and_title(raw_title: str):
     """
@@ -142,6 +230,33 @@ def parse_paper_cell(cell_text: str):
     authors = [a.strip() for a in authors_blob.split(";") if a.strip()] if authors_blob else []
     return title_line, authors
 
+# ---------------------------- Slot ID generation ----------------------------
+
+def make_slot_id(day_anchor: str, time_text: str, session_type: str, session_name: str, registry: set) -> str:
+    """
+    Build a stable, readable, unique anchor ID for a time-slot.
+    Pattern: {day}-{session-type}-{session-name?}-{time-token}
+    Examples:
+      monday-paper-session-1a-inclusive-mixed-reality-0900-1045
+      tuesday-coffee-break-1030-1100
+      wednesday-keynote-opening-0900-1000
+    Uniqueness is enforced within the day via -x2, -x3... suffix.
+    """
+    st_slug = slugify(session_type or "")
+    sn_slug = slugify(session_name or "")
+    # Use normalized "pretty" time (already formatted) to extract a compact token
+    ttok = time_range_token(time_text or "")
+    parts = [p for p in [day_anchor, st_slug, sn_slug or None, ttok or None] if p]
+    base = "-".join(parts) if parts else day_anchor or "timeslot"
+    anchor = base
+    # Ensure uniqueness (within page: we track per-day in render_day_section)
+    i = 2
+    while anchor in registry:
+        anchor = f"{base}-x{i}"
+        i += 1
+    registry.add(anchor)
+    return anchor
+
 # ---------------------------- Rendering ----------------------------
 
 def render_paper_item_from_cell(cell_text: str):
@@ -170,14 +285,20 @@ def render_paper_list(row):
             papers.append(render_paper_item_from_cell(row[col]))
     return "\n".join(papers)
 
-def render_time_slot(row):
-    time_text = normalize_time_range(str(row.get("Time (MT) ", "") or row.get("Time (MT)", "")))
-    session_type = str(row.get("Session Type") or "").strip()
-    session_name = str(row.get("Session Name") or "").strip()
+def render_time_slot(row, day_anchor: str, id_registry: set):
+    # Time text as shown in UI
+    time_text = normalize_time_range(
+        safe_cell_str(row, "Time (MT) ") or safe_cell_str(row, "Time (MT)")
+    )
+    session_type = safe_cell_str(row, "Session Type")
+    session_name = safe_cell_str(row, "Session Name")
     slot_class = classify_slot(session_type)
 
+    # Build a stable, unique anchor id for this slot
+    slot_id = make_slot_id(day_anchor, time_text, session_type, session_name, id_registry)
+
     header = []
-    header.append(f'            <div class="{slot_class}">')
+    header.append(f'            <div id="{slot_id}" class="{slot_class}">')
     header.append('              <div class="time-slot-header">')
     header.append(f'                <span class="time-range">{html_escape(time_text or "TBD")}</span>')
     if session_type.lower().startswith("paper session"):
@@ -208,6 +329,10 @@ def render_time_slot(row):
 def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: str, next_anchor: str) -> str:
     label = parse_date_label(date_str)
     anchor = date_anchor_id(date_str)
+
+    # Track IDs within this day to prevent duplicates
+    id_registry = set()
+
     html = []
     html.append(f'          <!-- {label} -->')
     html.append(f'          <section class="day-schedule" id="{anchor}">')
@@ -226,7 +351,7 @@ def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: s
     html.append('            </div>')
 
     for _, r in rows_for_day.iterrows():
-        html.append(render_time_slot(r))
+        html.append(render_time_slot(r, anchor, id_registry))
 
     html.append('          </section>')
     return "\n".join(html)
@@ -234,7 +359,7 @@ def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: s
 # ---------------------------- Main ----------------------------
 
 def main():
-    ap = argparse.ArgumentParser(description="Generate Full Schedule HTML from content CSV (authors parsed in-cell).")
+    ap = argparse.ArgumentParser(description="Generate Full Schedule HTML from content CSV (authors parsed in-cell) with stable anchor IDs per time-slot.")
     ap.add_argument("csv", help="Path to content.csv")
     ap.add_argument("-o","--output", help="Write HTML to this file (defaults to stdout)")
     args = ap.parse_args()
@@ -246,6 +371,7 @@ def main():
         raise ValueError("CSV is missing required column 'Date'")
     df["Date"] = df["Date"].ffill()
 
+    # keep only rows that actually have a session
     df = df[df["Session Type"].notna() & (df["Session Type"].astype(str).str.strip() != "")].copy()
     days = [(date, sub) for date, sub in df.groupby("Date", sort=False)]
     anchors = [date_anchor_id(d) for d,_ in days]

@@ -1517,6 +1517,16 @@ ul.jennys-links {
   text-align: left;
 }
 
+.session-item a.session-link {
+  display: inline-block;
+  text-decoration-color: color-mix(in srgb, var(--text-color) 50%, transparent);
+}
+.session-item a.session-link:hover {
+  text-decoration-color: color-mix(in srgb, var(--text-color) 50%, transparent) !important;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 .sunday-table .session-type {
   font-weight: 600;
   color: var(--text-color);

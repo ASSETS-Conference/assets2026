@@ -7,19 +7,19 @@
                 <a href="#monday" class="day-nav-btn day-nav-next" title="Next day">›</a>
               </div>
             </div>
-            <div class="time-slot special-slot">
+            <div id="sunday-workshops" class="time-slot special-slot">
               <div class="time-slot-header">
                 <span class="time-range">Times are shared with invited attendees.</span>
                 <h4 class="slot-title">Workshops</h4>
               </div>
             </div>
-            <div class="time-slot special-slot">
+            <div id="sunday-doctoral-consortium" class="time-slot special-slot">
               <div class="time-slot-header">
                 <span class="time-range">Times are shared with invited attendees.</span>
                 <h4 class="slot-title">Doctoral Consortium</h4>
               </div>
             </div>
-            <div class="time-slot registration-slot">
+            <div id="sunday-registration-open-tbd" class="time-slot registration-slot">
               <div class="time-slot-header">
                 <span class="time-range">TBD</span>
                 <h4 class="slot-title">Registration Open</h4>
@@ -36,25 +36,25 @@
                 <a href="#tuesday" class="day-nav-btn day-nav-next" title="Next day">›</a>
               </div>
             </div>
-            <div class="time-slot registration-slot">
+            <div id="monday-registration-open-tbd" class="time-slot registration-slot">
               <div class="time-slot-header">
                 <span class="time-range">TBD</span>
                 <h4 class="slot-title">Registration Open</h4>
               </div>
             </div>
-            <div class="time-slot keynote-slot">
+            <div id="monday-conference-open-and-keynote-0900-1045" class="time-slot keynote-slot">
               <div class="time-slot-header">
                 <span class="time-range">9:00 AM – 10:45 AM</span>
                 <h4 class="slot-title">Conference Open and Keynote</h4>
               </div>
             </div>
-            <div class="time-slot break-slot">
+            <div id="monday-coffee-break-and-poster-session-a-1045-1130" class="time-slot break-slot">
               <div class="time-slot-header">
                 <span class="time-range">10:45 AM – 11:30 AM</span>
                 <h4 class="slot-title">Coffee Break and Poster Session A</h4>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="monday-paper-session-1a-inclusive-mixed-reality-1130-1245" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">11:30 AM – 12:45 PM</span>
                 <h4 class="slot-title">
@@ -115,7 +115,7 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="monday-paper-session-1b-fabrication-1130-1245" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">11:30 AM – 12:45 PM</span>
                 <h4 class="slot-title">
@@ -182,13 +182,13 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot lunch-slot">
+            <div id="monday-lunch-1245-1415" class="time-slot lunch-slot">
               <div class="time-slot-header">
                 <span class="time-range">12:45 PM – 2:15 PM</span>
                 <h4 class="slot-title">Lunch</h4>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="monday-paper-session-2a-music-creation-and-performance-1415-1530" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">2:15 PM – 3:30 PM</span>
                 <h4 class="slot-title">
@@ -246,7 +246,7 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="monday-paper-session-2b-privacy-and-fate-1415-1530" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">2:15 PM – 3:30 PM</span>
                 <h4 class="slot-title">
@@ -317,13 +317,13 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot break-slot">
+            <div id="monday-coffee-break-and-poster-session-a-1530-1615" class="time-slot break-slot">
               <div class="time-slot-header">
                 <span class="time-range">3:30 PM – 4:15 PM</span>
                 <h4 class="slot-title">Coffee Break and Poster Session A</h4>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="monday-paper-session-3a-health-and-wellness-1615-1730" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">4:15 PM – 5:30 PM</span>
                 <h4 class="slot-title">
@@ -384,7 +384,7 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="monday-paper-session-3b-tactile-and-nonvisual-data-representations-1615-1730" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">4:15 PM – 5:30 PM</span>
                 <h4 class="slot-title">
@@ -469,7 +469,7 @@
                 <a href="#wednesday" class="day-nav-btn day-nav-next" title="Next day">›</a>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="tuesday-paper-session-4a-daily-living-0900-1030" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">9:00 AM – 10:30 AM</span>
                 <h4 class="slot-title">
@@ -543,7 +543,7 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="tuesday-paper-session-4b-learner-experiences-0900-1030" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">9:00 AM – 10:30 AM</span>
                 <h4 class="slot-title">
@@ -613,13 +613,13 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot break-slot">
+            <div id="tuesday-coffee-break-and-poster-session-b-1030-1115" class="time-slot break-slot">
               <div class="time-slot-header">
                 <span class="time-range">10:30 AM – 11:15 AM</span>
                 <h4 class="slot-title">Coffee Break and Poster Session B</h4>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="tuesday-paper-session-5a-creativity-and-content-creation-1115-1230" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">11:15 AM – 12:30 PM</span>
                 <h4 class="slot-title">
@@ -684,7 +684,7 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="tuesday-paper-session-5b-perspective-and-communication-1115-1230" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">11:15 AM – 12:30 PM</span>
                 <h4 class="slot-title">
@@ -753,13 +753,13 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot lunch-slot">
+            <div id="tuesday-lunch-1230-1400" class="time-slot lunch-slot">
               <div class="time-slot-header">
                 <span class="time-range">12:30 PM – 2:00 PM</span>
                 <h4 class="slot-title">Lunch</h4>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="tuesday-paper-session-6a-education-and-learning-1400-1530" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">2:00 PM – 3:30 PM</span>
                 <h4 class="slot-title">
@@ -834,7 +834,7 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="tuesday-paper-session-6b-power-and-knowledge-production-1400-1530" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">2:00 PM – 3:30 PM</span>
                 <h4 class="slot-title">
@@ -913,19 +913,19 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot break-slot">
+            <div id="tuesday-coffee-break-and-poster-session-b-1530-1615" class="time-slot break-slot">
               <div class="time-slot-header">
                 <span class="time-range">3:30 PM – 4:15 PM</span>
                 <h4 class="slot-title">Coffee Break and Poster Session B</h4>
               </div>
             </div>
-            <div class="time-slot special-slot">
+            <div id="tuesday-student-research-competition-1615-1730" class="time-slot special-slot">
               <div class="time-slot-header">
                 <span class="time-range">4:15 PM – 5:30 PM</span>
                 <h4 class="slot-title">Student Research Competition</h4>
               </div>
             </div>
-            <div class="time-slot special-slot">
+            <div id="tuesday-sigaccess-business-meeting-1730-1830" class="time-slot special-slot">
               <div class="time-slot-header">
                 <span class="time-range">5:30 PM – 6:30 PM</span>
                 <h4 class="slot-title">SIGACCESS Business Meeting</h4>
@@ -942,7 +942,7 @@
                 <a href="#" class="day-nav-btn day-nav-next day-nav-disabled" title="Next day">›</a>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="wednesday-paper-session-7a-guidelines-measurements-and-taxonomies-0900-1030" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">9:00 AM – 10:30 AM</span>
                 <h4 class="slot-title">
@@ -1016,7 +1016,7 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="wednesday-paper-session-7b-information-access-0900-1030" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">9:00 AM – 10:30 AM</span>
                 <h4 class="slot-title">
@@ -1088,13 +1088,13 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot break-slot">
+            <div id="wednesday-coffee-break-and-poster-session-c-1030-1115" class="time-slot break-slot">
               <div class="time-slot-header">
                 <span class="time-range">10:30 AM – 11:15 AM</span>
                 <h4 class="slot-title">Coffee Break and Poster Session C</h4>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="wednesday-paper-session-8a-communication-and-social-connection-1115-1230" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">11:15 AM – 12:30 PM</span>
                 <h4 class="slot-title">
@@ -1160,7 +1160,7 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="wednesday-paper-session-8b-explorations-in-disability-accessibility-and-technology-1115-1230" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">11:15 AM – 12:30 PM</span>
                 <h4 class="slot-title">
@@ -1231,13 +1231,13 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot lunch-slot">
+            <div id="wednesday-lunch-1230-1400" class="time-slot lunch-slot">
               <div class="time-slot-header">
                 <span class="time-range">12:30 PM – 2:00 PM</span>
                 <h4 class="slot-title">Lunch</h4>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="wednesday-paper-session-9a-work-and-productivity-1400-1530" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">2:00 PM – 3:30 PM</span>
                 <h4 class="slot-title">
@@ -1319,7 +1319,7 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot paper-sessions">
+            <div id="wednesday-paper-session-9b-accessible-interactions-and-digital-content-1400-1530" class="time-slot paper-sessions">
               <div class="time-slot-header">
                 <span class="time-range">2:00 PM – 3:30 PM</span>
                 <h4 class="slot-title">
@@ -1390,13 +1390,13 @@
                 </div>
               </div>
             </div>
-            <div class="time-slot break-slot">
+            <div id="wednesday-coffee-break-and-poster-session-c-1530-1615" class="time-slot break-slot">
               <div class="time-slot-header">
                 <span class="time-range">3:30 PM – 4:15 PM</span>
                 <h4 class="slot-title">Coffee Break and Poster Session C</h4>
               </div>
             </div>
-            <div class="time-slot closing-slot">
+            <div id="wednesday-closing-ceremony-1615-1700" class="time-slot closing-slot">
               <div class="time-slot-header">
                 <span class="time-range">4:15 PM – 5:00 PM</span>
                 <h4 class="slot-title">Closing Ceremony</h4>
