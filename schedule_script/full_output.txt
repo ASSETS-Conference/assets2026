@@ -1,340 +1,9 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Schedule / Assets 2025</title>
-
-    <meta
-      name="description"
-      content="The 27th International ACM SIGACCESS Conference on Computers and Accessibility"
-    />
-    <meta name="keywords" content="Accessibility, Technology, Conference, Assets 2025" />
-    <meta name="author" content="ACM SIGACCESS" />
-
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-
-    <!-- Preload stylesheets -->
-    <link rel="preload" href="reset.css" as="style" />
-    <link rel="preload" href="styles.css?v=COMMIT_HASH" as="style" />
-
-    <!-- Load stylesheets -->
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="styles.css?v=COMMIT_HASH" />
-
-    <link rel="preload" href="setup.js?v=COMMIT_HASH" as="script" />
-    <script src="setup.js?v=COMMIT_HASH" defer></script>
-  </head>
-  <body>
-    <nav id="nav-container" data-active="program"></nav>
-
-    <main class="content-block-container">
-      <div class="grid-helper">
-        <div class="text-block">
-          <h1>Schedule</h1>
-          <div class="schedule-header" id="schedule-glance">
-            <h2>ASSETS 2025 at a glance</h2>
-            <a href="#full-schedule" class="schedule-link">View full schedule →</a>
-          </div>
-
-          <!-- Registration Table -->
-          <table class="schedule-table registration-table">
-            <thead>
-              <tr>
-                <th>Registration</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="registration-event">
-                  <div class="session-item">
-                    <span class="session-time">Sunday and Monday, TBD</span>
-                    <span class="session-type">Conference Registration</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- Sunday Events Table -->
-          <table class="schedule-table sunday-table">
-            <thead>
-              <tr>
-                <th>Sunday, Oct. 26, 2025</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="sunday-event">
-                  <div class="session-item">
-                    <span class="session-time">Times are shared with invited attendees</span>
-                    <span class="session-type">Workshops</span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="sunday-event">
-                  <div class="session-item">
-                    <span class="session-time">Times are shared with invited attendees</span>
-                    <span class="session-type">Doctoral Consortium</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- Start of Schedule Table -->
-
-          <table class="schedule-table">
-            <thead>
-              <tr>
-                <th>Monday, Oct. 27</th>
-                <th>Tuesday, Oct. 28</th>
-                <th>Wednesday, Oct. 29</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="mobile-section-header">
-                <td colspan="3">
-                  <h3>Morning Schedule</h3>
-                </td>
-              </tr>
-              <tr>
-                <td class="conference-opening">
-                  <div class="session-item">
-                    <span class="session-time">9:00 AM - 10:45 AM</span>
-                    <span class="session-type">Conference Open and Keynote</span>
-                  </div>
-                </td>
-                <td class="paper-sessions">
-                  <div class="session-item">
-                    <span class="session-time">9:00 AM - 10:30 AM</span>
-                    <span class="session-code">Paper Session 4A</span>
-                    <span class="session-name">Daily Living</span>
-                  </div>
-                  <div class="session-divider"></div>
-                  <div class="session-item">
-                    <span class="session-code">Paper Session 4B</span>
-                    <span class="session-name">Learner Experiences</span>
-                  </div>
-                </td>
-                <td class="paper-sessions">
-                  <div class="session-item">
-                    <span class="session-time">9:00 AM - 10:30 AM</span>
-                    <span class="session-code">Paper Session 7A</span>
-                    <span class="session-name">Guidelines, Measurements and Taxonomies</span>
-                  </div>
-                  <div class="session-divider"></div>
-                  <div class="session-item">
-                    <span class="session-code">Paper Session 7B</span>
-                    <span class="session-name">Information Access</span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="break-session">
-                  <div class="session-item">
-                    <span class="session-time">10:45 AM - 11:30 AM</span>
-                    <span class="session-type">Coffee Break and Poster Session A</span>
-                  </div>
-                </td>
-                <td class="break-session">
-                  <div class="session-item">
-                    <span class="session-time">10:30 AM - 11:15 AM</span>
-                    <span class="session-type">Coffee Break and Poster Session B</span>
-                  </div>
-                </td>
-                <td class="break-session">
-                  <div class="session-item">
-                    <span class="session-time">10:30 AM - 11:15 AM</span>
-                    <span class="session-type">Coffee Break and Poster Session C</span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="paper-sessions">
-                  <div class="session-item">
-                    <span class="session-time">11:30 AM - 12:45 PM</span>
-                    <span class="session-code">Paper Session 1A</span>
-                    <span class="session-name">Inclusive Mixed Reality</span>
-                  </div>
-                  <div class="session-divider"></div>
-                  <div class="session-item">
-                    <span class="session-code">Paper Session 1B</span>
-                    <span class="session-name">Fabrication</span>
-                  </div>
-                </td>
-                <td class="paper-sessions">
-                  <div class="session-item">
-                    <span class="session-time">11:15 AM - 12:30 PM</span>
-                    <span class="session-code">Paper Session 5A</span>
-                    <span class="session-name">Creativity and Content Creation</span>
-                  </div>
-                  <div class="session-divider"></div>
-                  <div class="session-item">
-                    <span class="session-code">Paper Session 5B</span>
-                    <span class="session-name">Perspective and Communication</span>
-                  </div>
-                </td>
-                <td class="paper-sessions">
-                  <div class="session-item">
-                    <span class="session-time">11:15 AM - 12:30 PM</span>
-                    <span class="session-code">Paper Session 8A</span>
-                    <span class="session-name">Communication and Social Connection</span>
-                  </div>
-                  <div class="session-divider"></div>
-                  <div class="session-item">
-                    <span class="session-code">Paper Session 8B</span>
-                    <span class="session-name"
-                      >Explorations in Disability, Accessibility, and Technology</span
-                    >
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="lunch-session">
-                  <div class="session-item">
-                    <span class="session-time">12:45 PM - 2:15 PM</span>
-                    <span class="session-type">Lunch</span>
-                  </div>
-                </td>
-                <td class="lunch-session">
-                  <div class="session-item">
-                    <span class="session-time">12:30 PM - 2:00 PM</span>
-                    <span class="session-type">Lunch</span>
-                  </div>
-                </td>
-                <td class="lunch-session">
-                  <div class="session-item">
-                    <span class="session-time">12:30 PM - 2:00 PM</span>
-                    <span class="session-type">Lunch</span>
-                  </div>
-                </td>
-              </tr>
-              <tr class="mobile-section-header">
-                <td colspan="3">
-                  <h3>Afternoon Schedule</h3>
-                </td>
-              </tr>
-              <tr>
-                <td class="paper-sessions">
-                  <div class="session-item">
-                    <span class="session-time">2:15 PM - 3:30 PM</span>
-                    <span class="session-code">Paper Session 2A</span>
-                    <span class="session-name">Music Creation and Performance</span>
-                  </div>
-                  <div class="session-divider"></div>
-                  <div class="session-item">
-                    <span class="session-code">Paper Session 2B</span>
-                    <span class="session-name">Privacy and FATE</span>
-                  </div>
-                </td>
-                <td class="paper-sessions">
-                  <div class="session-item">
-                    <span class="session-time">2:00 PM - 3:30 PM</span>
-                    <span class="session-code">Paper Session 6A</span>
-                    <span class="session-name">Education and Learning</span>
-                  </div>
-                  <div class="session-divider"></div>
-                  <div class="session-item">
-                    <span class="session-code">Paper Session 6B</span>
-                    <span class="session-name">Power and Knowledge Production</span>
-                  </div>
-                </td>
-                <td class="paper-sessions">
-                  <div class="session-item">
-                    <span class="session-time">2:00 PM - 3:30 PM</span>
-                    <span class="session-code">Paper Session 9A</span>
-                    <span class="session-name">Work and Productivity</span>
-                  </div>
-                  <div class="session-divider"></div>
-                  <div class="session-item">
-                    <span class="session-code">Paper Session 9B</span>
-                    <span class="session-name">Accessible Interactions and Digital Content</span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="break-session">
-                  <div class="session-item">
-                    <span class="session-time">3:30 PM - 4:15 PM</span>
-                    <span class="session-type">Coffee Break and Poster Session A</span>
-                  </div>
-                </td>
-                <td class="break-session">
-                  <div class="session-item">
-                    <span class="session-time">3:30 PM - 4:15 PM</span>
-                    <span class="session-type">Coffee Break and Poster Session B</span>
-                  </div>
-                </td>
-                <td class="break-session">
-                  <div class="session-item">
-                    <span class="session-time">3:30 PM - 4:15 PM</span>
-                    <span class="session-type">Coffee Break and Poster Session C</span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="paper-sessions">
-                  <div class="session-item">
-                    <span class="session-time">4:15 PM - 5:30 PM</span>
-                    <span class="session-code">Paper Session 3A</span>
-                    <span class="session-name">Health and Wellness</span>
-                  </div>
-                  <div class="session-divider"></div>
-                  <div class="session-item">
-                    <span class="session-code">Paper Session 3B</span>
-                    <span class="session-name">Tactile and Nonvisual Data Representations</span>
-                  </div>
-                </td>
-                <td class="special-session">
-                  <div class="session-item">
-                    <span class="session-time">4:15 PM - 5:30 PM</span>
-                    <span class="session-type">Student Research Competition</span>
-                  </div>
-                </td>
-                <td class="closing-session">
-                  <div class="session-item">
-                    <span class="session-time">4:15 PM - 5:00 PM</span>
-                    <span class="session-type">Closing Ceremony</span>
-                  </div>
-                </td>
-              </tr>
-              <tr class="mobile-section-header">
-                <td colspan="3">
-                  <h3>Evening Schedule</h3>
-                </td>
-              </tr>
-              <tr>
-                <td class="empty-cell"></td>
-                <td class="special-session">
-                  <div class="session-item">
-                    <span class="session-time">5:30 PM - 6:30 PM</span>
-                    <span class="session-type">SIGACCESS Business Meeting</span>
-                  </div>
-                </td>
-                <td class="empty-cell"></td>
-              </tr>
-            </tbody>
-          </table>
-
-          <!-- End of Schedule Table -->
-
-          <div class="schedule-header">
-            <h2 id="full-schedule">ASSETS 2025 full schedule</h2>
-            <a href="#schedule-glance" class="schedule-link">← View schedule summary</a>
-          </div>
-
-          <!-- Start of full schedule -->
-
           <!-- Sunday, October 26, 2025 -->
           <section class="day-schedule" id="sunday">
             <div class="day-header-container">
               <h3 class="day-header">Sunday, October 26, 2025</h3>
               <div class="day-navigation">
-                <a href="#" class="day-nav-btn day-nav-prev day-nav-disabled" title="Previous day"
-                  >‹</a
-                >
+                <a href="#" class="day-nav-btn day-nav-prev day-nav-disabled" title="Previous day">‹</a>
                 <a href="#monday" class="day-nav-btn day-nav-next" title="Next day">›</a>
               </div>
             </div>
@@ -393,14 +62,11 @@
                   <span class="session-topic">Inclusive Mixed Reality</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Designing for Attention: Evaluating an Affordable Immersive VR Platform for
-                      Neurodiverse Children
-                    </h6>
+                    <h6 class="paper-title">Designing for Attention: Evaluating an Affordable Immersive VR Platform for Neurodiverse Children</h6>
                     <ul class="author-list">
                       <li>Nicolò La Porta</li>
                       <li>Francesca Fusco</li>
@@ -408,10 +74,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Smart Glasses for CVI: Co-Designing Extended Reality Solutions to Support
-                      Environmental Perception by People with Cerebral Visual Impairment
-                    </h6>
+                    <h6 class="paper-title">Smart Glasses for CVI: Co-Designing Extended Reality Solutions to Support Environmental Perception by People with Cerebral Visual Impairment</h6>
                     <ul class="author-list">
                       <li>Bhanuka Gamage</li>
                       <li>Nicola McDowell</li>
@@ -424,20 +87,14 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      From Screen Reading to “Scene Reading” in SceneVR: Touch-Based Interaction
-                      Techniques for Use in Virtual Reality by Blind and Low-Vision Users
-                    </h6>
+                    <h6 class="paper-title">From Screen Reading to “Scene Reading” in SceneVR: Touch-Based Interaction Techniques for Use in Virtual Reality by Blind and Low-Vision Users</h6>
                     <ul class="author-list">
                       <li>Melanie Jo Kneitmix</li>
                       <li>Jacob O Wobbrock</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      How Accessible are Virtual Reality Freehand Gestures? Understanding Barriers
-                      for Users with Upper Limb Motor Impairments
-                    </h6>
+                    <h6 class="paper-title">How Accessible are Virtual Reality Freehand Gestures? Understanding Barriers for Users with Upper Limb Motor Impairments</h6>
                     <ul class="author-list">
                       <li>Lauren Pococke</li>
                       <li>Crescent Jicol</li>
@@ -446,10 +103,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Understanding Accessibility for Physically Disabled Users in VR: Interplay of
-                      Physical, Digital, and Experiential Layers
-                    </h6>
+                    <h6 class="paper-title">Understanding Accessibility for Physically Disabled Users in VR: Interplay of Physical, Digital, and Experiential Layers</h6>
                     <ul class="author-list">
                       <li>Marvin Wolf</li>
                       <li>Kathrin Gerling</li>
@@ -469,27 +123,21 @@
                   <span class="session-topic">Fabrication</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
                     <div class="paper-tags">
                       <span class="paper-tag taccess-tag">TACCESS Paper</span>
                     </div>
-                    <h6 class="paper-title">
-                      Making and Accessibility: A Systematic Literature Review on the Multilayered
-                      Dimensions of Accessible Making
-                    </h6>
+                    <h6 class="paper-title">Making and Accessibility: A Systematic Literature Review on the Multilayered Dimensions of Accessible Making</h6>
                     <ul class="author-list">
                       <li>Saquib Sarwar</li>
                       <li>David Wilson</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Exploring AI-Fabrication in Shaping the Future of DIY-AT Design: Insights from
-                      Makers
-                    </h6>
+                    <h6 class="paper-title">Exploring AI-Fabrication in Shaping the Future of DIY-AT Design: Insights from Makers</h6>
                     <ul class="author-list">
                       <li>Leila Aflatoony</li>
                       <li>Mixuan Li</li>
@@ -504,10 +152,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag er-tag">Experience Report</span>
                     </div>
-                    <h6 class="paper-title">
-                      “It only needs to work for one of u”: Rethinking DIY Deaf Tech Through
-                      Situated Co-Design
-                    </h6>
+                    <h6 class="paper-title">“It only needs to work for one of u”: Rethinking DIY Deaf Tech Through Situated Co-Design</h6>
                     <ul class="author-list">
                       <li>Shuxu Huffman</li>
                       <li>Robin Angelini</li>
@@ -516,11 +161,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Small Devices, Large Changes: Investigating the Impact of a
-                      University-Government 3D-Printed Assistive Technology Program on Residents
-                      with Disabilities
-                    </h6>
+                    <h6 class="paper-title">Small Devices, Large Changes: Investigating the Impact of a University-Government 3D-Printed Assistive Technology Program on Residents with Disabilities</h6>
                     <ul class="author-list">
                       <li>Krystal Yangmengzi Zhang</li>
                       <li>Erin Higgins</li>
@@ -529,10 +170,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Designing an Accessible Mobile Makerspace with an Intellectual Disability
-                      Support Organisation: Insights from a Co-Design Approach
-                    </h6>
+                    <h6 class="paper-title">Designing an Accessible Mobile Makerspace with an Intellectual Disability Support Organisation: Insights from a Co-Design Approach</h6>
                     <ul class="author-list">
                       <li>Jacqueline Johnstone</li>
                       <li>Madhuka Nadeeshani</li>
@@ -555,17 +193,14 @@
                 <span class="time-range">2:15 PM – 3:30 PM</span>
                 <h4 class="slot-title">
                   <span class="session-number">Paper Session 2A</span>
-                  <span class="session-topic">Music Creation and Performance</span>
+                  <span class="session-topic">Music Creation and  Performance</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Accessibility and Social Inclusivity: A Literature Review of Music Technology
-                      for Blind and Low Vision People
-                    </h6>
+                    <h6 class="paper-title">Accessibility and Social Inclusivity: A Literature Review of Music Technology for Blind and Low Vision People</h6>
                     <ul class="author-list">
                       <li>Shumeng Zhang</li>
                       <li>Raul Masu</li>
@@ -574,10 +209,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Vibration Or Voice? Enhancing EQ Information Accessibility for Blind Music
-                      Producers with Haptics
-                    </h6>
+                    <h6 class="paper-title">Vibration Or Voice? Enhancing EQ Information Accessibility for Blind Music Producers with Haptics</h6>
                     <ul class="author-list">
                       <li>Christina Karpodini</li>
                       <li>Tychonas Michailidis</li>
@@ -587,10 +219,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      XRMusic4VIP: Enabling Simultaneous Sheet Music Reading and Playing for
-                      Visually Impaired Musicians through Extended Reality
-                    </h6>
+                    <h6 class="paper-title">XRMusic4VIP: Enabling Simultaneous Sheet Music Reading and Playing for Visually Impaired Musicians through Extended Reality</h6>
                     <ul class="author-list">
                       <li>Julia Anken</li>
                       <li>Delia Blaess</li>
@@ -598,20 +227,14 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Access Beyond the Score: Understanding Notation Needs and Workflows of Low
-                      Vision Musicians
-                    </h6>
+                    <h6 class="paper-title">Access Beyond the Score: Understanding Notation Needs and Workflows of Low Vision Musicians</h6>
                     <ul class="author-list">
                       <li>William Christopher Payne</li>
                       <li>Yu Lee An</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Sonic Agency: A Group Autoethnography of Technology-mediated Performance
-                      Practice by Deaf and Hard of Hearing Musicians
-                    </h6>
+                    <h6 class="paper-title">Sonic Agency: A Group Autoethnography of Technology-mediated Performance Practice by Deaf and Hard of Hearing Musicians</h6>
                     <ul class="author-list">
                       <li>Doga Cavdir</li>
                       <li>Dillion Simone</li>
@@ -631,14 +254,11 @@
                   <span class="session-topic">Privacy and FATE</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Toward a taxonomy of negative outcomes from the use of AI-driven systems for
-                      people with disabilities
-                    </h6>
+                    <h6 class="paper-title">Toward a taxonomy of negative outcomes from the use of AI-driven systems for people with disabilities</h6>
                     <ul class="author-list">
                       <li>Krishna Venkatasubramanian</li>
                       <li>Haven Hardie</li>
@@ -660,10 +280,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      “Before, I Asked My Mom, Now I Ask ChatGPT”: Visual Privacy Management with
-                      Generative AI for Blind and Low-Vision People
-                    </h6>
+                    <h6 class="paper-title">“Before, I Asked My Mom, Now I Ask ChatGPT”: Visual Privacy Management with Generative AI for Blind and Low-Vision People</h6>
                     <ul class="author-list">
                       <li>Tanusree Sharma</li>
                       <li>Yu-Yun Tseng</li>
@@ -676,10 +293,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Trying to Piece It Together: Exploring Accessible Error Detection in Emerging
-                      Privacy Techniques With Blind People
-                    </h6>
+                    <h6 class="paper-title">Trying to Piece It Together: Exploring Accessible Error Detection in Emerging Privacy Techniques With Blind People</h6>
                     <ul class="author-list">
                       <li>Rahaf Alharbi</li>
                       <li>Angela D Cheong</li>
@@ -692,9 +306,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      How Can Assistance and Its Disclosure Promote Fairness in Inclusive Esports?
-                    </h6>
+                    <h6 class="paper-title">How Can Assistance and Its Disclosure Promote Fairness in Inclusive Esports?</h6>
                     <ul class="author-list">
                       <li>Shuto Sako</li>
                       <li>Tomoki Ikeda</li>
@@ -719,14 +331,11 @@
                   <span class="session-topic">Health and Wellness</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Co-Designing Culturally Grounded Mobile Health Games for Hypertension
-                      Management in Indigenous Communities
-                    </h6>
+                    <h6 class="paper-title">Co-Designing Culturally Grounded Mobile Health Games for Hypertension Management in Indigenous Communities</h6>
                     <ul class="author-list">
                       <li>Alison Graham</li>
                       <li>Tochukwu Arinze Ikwunne</li>
@@ -734,11 +343,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Designing with Tensions: Understanding Professionals’ Needs in Integrating AI
-                      Chatbots for Wheelchair Assessment Services in Low- and Middle-Income
-                      Countries
-                    </h6>
+                    <h6 class="paper-title">Designing with Tensions: Understanding Professionals’ Needs in Integrating AI Chatbots for Wheelchair Assessment Services in Low- and Middle-Income Countries</h6>
                     <ul class="author-list">
                       <li>Wen Mo</li>
                       <li>Aneesha Singh</li>
@@ -750,19 +355,13 @@
                     <div class="paper-tags">
                       <span class="paper-tag er-tag">Experience Report</span>
                     </div>
-                    <h6 class="paper-title">
-                      Executive Dysfunction by Design: A Cognitive Accessibility Analysis of AI
-                      Support vs. Healthcare Barriers
-                    </h6>
+                    <h6 class="paper-title">Executive Dysfunction by Design: A Cognitive Accessibility Analysis of AI Support vs. Healthcare Barriers</h6>
                     <ul class="author-list">
                       <li>Meredith Moore</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      It was Mentally Painful to Try and Stop: Design Opportunities for Just-in-Time
-                      Interventions for People with Obsessive-Compulsive Disorder in the Real World
-                    </h6>
+                    <h6 class="paper-title">It was Mentally Painful to Try and Stop: Design Opportunities for Just-in-Time Interventions for People with Obsessive-Compulsive Disorder in the Real World</h6>
                     <ul class="author-list">
                       <li>Ru Wang</li>
                       <li>Kexin Zhang</li>
@@ -772,10 +371,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      PunchPulse: A Physically Demanding Virtual Reality Boxing Game Designed with,
-                      for and by Blind and Low-Vision Players
-                    </h6>
+                    <h6 class="paper-title">PunchPulse: A Physically Demanding Virtual Reality Boxing Game Designed with, for and by Blind and Low-Vision Players</h6>
                     <ul class="author-list">
                       <li>Sanchita S Kamath</li>
                       <li>Omar Khan</li>
@@ -796,14 +392,11 @@
                   <span class="session-topic">Tactile and Nonvisual Data Representations</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      A Low-Fidelity Prototyping Method for Blind Users: A Case Study on Designing
-                      Two-Dimensional Tactile Displays
-                    </h6>
+                    <h6 class="paper-title">A Low-Fidelity Prototyping Method for Blind Users: A Case Study on Designing Two-Dimensional Tactile Displays</h6>
                     <ul class="author-list">
                       <li>Sara Alzalabny</li>
                       <li>Karin Müller</li>
@@ -814,9 +407,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Beyond Beautiful: Embroidering Legible and Expressive Tactile Graphics
-                    </h6>
+                    <h6 class="paper-title">Beyond Beautiful: Embroidering Legible and Expressive Tactile Graphics</h6>
                     <ul class="author-list">
                       <li>Margaret Ellen Seehorn</li>
                       <li>Claris Winston</li>
@@ -832,9 +423,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Benthic: Perceptually Congruent Structures for Accessible Charts and Diagrams
-                    </h6>
+                    <h6 class="paper-title">Benthic: Perceptually Congruent Structures for Accessible Charts and Diagrams</h6>
                     <ul class="author-list">
                       <li>Catherine Mei</li>
                       <li>Josh Pollock</li>
@@ -844,10 +433,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Leveraging Dynamic Audio-Tactile UIs to Assist Visually Impaired Users in
-                      Exploring Line Charts through Tactile Graphic Readers
-                    </h6>
+                    <h6 class="paper-title">Leveraging Dynamic Audio-Tactile UIs to Assist Visually Impaired Users in Exploring Line Charts through Tactile Graphic Readers</h6>
                     <ul class="author-list">
                       <li>Gaspar Ramôa</li>
                       <li>Karin Müller</li>
@@ -857,10 +443,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      Tactile Data Comics: Combining Step-by-step Presentation of Tactile Graphics
-                      with Verbal Narration for the Blind and Visually Impaired
-                    </h6>
+                    <h6 class="paper-title">Tactile Data Comics: Combining Step-by-step Presentation of Tactile Graphics with Verbal Narration for the Blind and Visually Impaired</h6>
                     <ul class="author-list">
                       <li>Yang Jiao</li>
                       <li>Ruoting Sun</li>
@@ -894,27 +477,21 @@
                   <span class="session-topic">Daily Living</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      Characterizing Smart Home Technology Usage Among Users with Disabilities
-                      through Reddit
-                    </h6>
+                    <h6 class="paper-title">Characterizing Smart Home Technology Usage Among Users with Disabilities through Reddit</h6>
                     <ul class="author-list">
                       <li>Rebecca Moore</li>
                       <li>Jason Wiese</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Exploring Shared Augmented Reality for Low-Vision Training of Activities of
-                      Daily Living
-                    </h6>
+                    <h6 class="paper-title">Exploring Shared Augmented Reality for Low-Vision Training of Activities of Daily Living</h6>
                     <ul class="author-list">
                       <li>Yong-Joon Thoo</li>
                       <li>Karim Aebischer</li>
@@ -923,10 +500,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      More than One Step at a Time: Designing Procedural Feedback for Non-visual
-                      Makeup Routines
-                    </h6>
+                    <h6 class="paper-title">More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines</h6>
                     <ul class="author-list">
                       <li>Franklin Mingzhe Li</li>
                       <li>Akihiko Oharazawa</li>
@@ -938,10 +512,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Exploring Object Status Recognition for Recipe Progress Tracking in Non-Visual
-                      Cooking
-                    </h6>
+                    <h6 class="paper-title">Exploring Object Status Recognition for Recipe Progress Tracking in Non-Visual Cooking</h6>
                     <ul class="author-list">
                       <li>Franklin Mingzhe Li</li>
                       <li>Kaitlyn Ng</li>
@@ -953,21 +524,14 @@
                     <div class="paper-tags">
                       <span class="paper-tag er-tag">Experience Report</span>
                     </div>
-                    <h6 class="paper-title">
-                      Check Now, Can You See It?: Exploring Voice and Video-Capable Language Models
-                      for Identifying and Spatially Locating Items of Interest for Blind and
-                      Low-Vision Travelers
-                    </h6>
+                    <h6 class="paper-title">Check Now, Can You See It?: Exploring Voice and Video-Capable Language Models for Identifying and Spatially Locating Items of Interest for Blind and Low-Vision Travelers</h6>
                     <ul class="author-list">
                       <li>Aziz N Zeidieh</li>
                       <li>JooYoung Seo</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      “Where Can I Park?” Understanding Human Perspectives and Scalably Detecting
-                      Disability Parking from Aerial Imagery
-                    </h6>
+                    <h6 class="paper-title">“Where Can I Park?” Understanding Human Perspectives and Scalably Detecting Disability Parking from Aerial Imagery</h6>
                     <ul class="author-list">
                       <li>Jared Hwang</li>
                       <li>Chu Li</li>
@@ -987,26 +551,20 @@
                   <span class="session-topic">Learner Experiences</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
                     <div class="paper-tags">
                       <span class="paper-tag taccess-tag">TACCESS Paper</span>
                     </div>
-                    <h6 class="paper-title">
-                      Exploring Blind and Low-Vision Youth’s Digital Access Needs in School: Toward
-                      Accessible Instructional Technologies
-                    </h6>
+                    <h6 class="paper-title">Exploring Blind and Low-Vision Youth’s Digital Access Needs in School: Toward Accessible Instructional Technologies</h6>
                     <ul class="author-list">
                       <li>Natalie L Shaheen</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Beyond Individual Accommodations: The Collaborative Practices of ADHD Students
-                      in Post-Secondary Education
-                    </h6>
+                    <h6 class="paper-title">Beyond Individual Accommodations: The Collaborative Practices of ADHD Students in Post-Secondary Education</h6>
                     <ul class="author-list">
                       <li>Vitica X Arnold</li>
                       <li>Aehong Min</li>
@@ -1017,9 +575,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Rethinking Productivity with GenAI: A Neurodivergent Students’ Perspective
-                    </h6>
+                    <h6 class="paper-title">Rethinking Productivity with GenAI: A Neurodivergent Students’ Perspective</h6>
                     <ul class="author-list">
                       <li>Hira Jamshed</li>
                       <li>Mustafa Naseem</li>
@@ -1028,10 +584,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Navigating STEM Doctoral Programs with ADHD: Barriers, Workflow Challenges,
-                      and Adaptive Strategies
-                    </h6>
+                    <h6 class="paper-title">Navigating STEM Doctoral Programs with ADHD: Barriers, Workflow Challenges, and Adaptive Strategies</h6>
                     <ul class="author-list">
                       <li>Paul Ezeamii</li>
                       <li>Kristen Shinohara</li>
@@ -1041,9 +594,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag er-tag">Experience Report</span>
                     </div>
-                    <h6 class="paper-title">
-                      Life as an International Computer Science PhD Student with Cerebral Palsy
-                    </h6>
+                    <h6 class="paper-title">Life as an International Computer Science PhD Student with Cerebral Palsy</h6>
                     <ul class="author-list">
                       <li>Tianchi Mo</li>
                       <li>Humphrey Curtis</li>
@@ -1051,10 +602,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      “I Felt Like I Was in a Fishbowl”: Lived Experience with Telepresence and
-                      Non-Visible Disabilities in Higher Education
-                    </h6>
+                    <h6 class="paper-title">“I Felt Like I Was in a Fishbowl”: Lived Experience with Telepresence and Non-Visible Disabilities in Higher Education</h6>
                     <ul class="author-list">
                       <li>Hanlin Zhang</li>
                       <li>Yifan Feng</li>
@@ -1079,14 +627,11 @@
                   <span class="session-topic">Creativity and Content Creation</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Expanding Norms, Negotiating Bodies: How Artists with Disabilities Perceive
-                      and Use Creative Tools
-                    </h6>
+                    <h6 class="paper-title">Expanding Norms, Negotiating Bodies: How Artists with Disabilities Perceive and Use Creative Tools</h6>
                     <ul class="author-list">
                       <li>Miriam Brody</li>
                       <li>Izabella Rodrigues</li>
@@ -1095,10 +640,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Understanding the Video Content Creation Journey of Creators with Sensory
-                      Impairment in Kenya
-                    </h6>
+                    <h6 class="paper-title">Understanding the Video Content Creation Journey of Creators with Sensory Impairment in Kenya</h6>
                     <ul class="author-list">
                       <li>Lan Xiao</li>
                       <li>Maryam Bandukda</li>
@@ -1108,10 +650,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      VizXpress: Towards Expressive Visual Content by Blind Creators Through AI
-                      Support
-                    </h6>
+                    <h6 class="paper-title">VizXpress: Towards Expressive Visual Content by Blind Creators Through AI Support</h6>
                     <ul class="author-list">
                       <li>Lotus Zhang</li>
                       <li>Zhuohao (Jerry) Zhang</li>
@@ -1123,10 +662,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      GestureVoice: Enabling Multimodal Text Editing for Blind Users Using Gestures
-                      and Voice
-                    </h6>
+                    <h6 class="paper-title">GestureVoice: Enabling Multimodal Text Editing for Blind Users Using Gestures and Voice</h6>
                     <ul class="author-list">
                       <li>Prerna Khanna</li>
                       <li>Monalika Padma Reddy</li>
@@ -1136,10 +672,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      In Sync: Exploration of a Multi-sensory Artefact for Dance Accessibility with
-                      People who are Blind or Have Low Vision and Dance Teachers
-                    </h6>
+                    <h6 class="paper-title">In Sync: Exploration of a Multi-sensory Artefact for Dance Accessibility with People who are Blind or Have Low Vision and Dance Teachers</h6>
                     <ul class="author-list">
                       <li>Madhuka Thisuri De Silva</li>
                       <li>Jim Smiley</li>
@@ -1159,17 +692,14 @@
                   <span class="session-topic">Perspective and Communication</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      NeuroBridge: Using Generative AI to Bridge Cross-neurotype Communication
-                      Differences through Neurotypical Perspective-taking
-                    </h6>
+                    <h6 class="paper-title">NeuroBridge: Using Generative AI to Bridge Cross-neurotype Communication Differences through Neurotypical Perspective-taking</h6>
                     <ul class="author-list">
                       <li>Rukhshan Haroon</li>
                       <li>Kyle Wigdor</li>
@@ -1180,10 +710,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Helping or Homogenizing? GenAI as a Design Partner to Pre-Service SLPs for
-                      Just-in-Time Programming of AAC
-                    </h6>
+                    <h6 class="paper-title">Helping or Homogenizing? GenAI as a Design Partner to Pre-Service SLPs for Just-in-Time Programming of AAC</h6>
                     <ul class="author-list">
                       <li>Cynthia Zastudil</li>
                       <li>Christine Holyfield</li>
@@ -1196,10 +723,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      “An Old Bastard in Bright Orange Satin!”: Zuzenna’s Aphasia Diary And Lessons
-                      Learned from DIY Augmentative and Alternative Communication
-                    </h6>
+                    <h6 class="paper-title">“An Old Bastard in Bright Orange Satin!”: Zuzenna’s Aphasia Diary And Lessons Learned from DIY Augmentative and Alternative Communication</h6>
                     <ul class="author-list">
                       <li>Humphrey Curtis</li>
                       <li>Filip Bircanin</li>
@@ -1207,10 +731,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      One Does Not Simply ‘Mm-hmm’: Exploring Backchanneling in the AAC
-                      Micro-Culture
-                    </h6>
+                    <h6 class="paper-title">One Does Not Simply ‘Mm-hmm’: Exploring Backchanneling in the AAC Micro-Culture</h6>
                     <ul class="author-list">
                       <li>Tobias M Weinberg</li>
                       <li>Claire O’Connor</li>
@@ -1220,9 +741,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Exploring the Usability of Gaze-based Mobile Communication in Ghana
-                    </h6>
+                    <h6 class="paper-title">Exploring the Usability of Gaze-based Mobile Communication in Ghana</h6>
                     <ul class="author-list">
                       <li>Victoria Austin</li>
                       <li>Gifty Ayoka</li>
@@ -1248,14 +767,11 @@
                   <span class="session-topic">Education and Learning</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      CoSignPlay: A Collaborative Approach to Learning Non-Manual Signs in ASL for
-                      Hearing Families with Deaf Children
-                    </h6>
+                    <h6 class="paper-title">CoSignPlay: A Collaborative Approach to Learning Non-Manual Signs in ASL for Hearing Families with Deaf Children</h6>
                     <ul class="author-list">
                       <li>Xuanyu Liu</li>
                       <li>Hsin-Le Cheng</li>
@@ -1265,10 +781,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Investigating “Touch and Talk” for Blind and Low Vision People: Science
-                      Communication Assistance Through Exploring Multiple Tactile Objects
-                    </h6>
+                    <h6 class="paper-title">Investigating “Touch and Talk” for Blind and Low Vision People: Science Communication Assistance Through Exploring Multiple Tactile Objects</h6>
                     <ul class="author-list">
                       <li>Ayaka Tsutsui</li>
                       <li>Xiyue Wang</li>
@@ -1280,10 +793,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      Engaging Visually Impaired People in Science Museums Through an Immersive
-                      Workshop: Practices, Challenges, and Opportunities
-                    </h6>
+                    <h6 class="paper-title">Engaging Visually Impaired People in Science Museums Through an Immersive Workshop: Practices, Challenges, and Opportunities</h6>
                     <ul class="author-list">
                       <li>Xiyue Wang</li>
                       <li>Seita Kayukawa</li>
@@ -1292,10 +802,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Generative AI for Teachers with Vision Impairments in the Global South: A
-                      Bridge Too Far?
-                    </h6>
+                    <h6 class="paper-title">Generative AI for Teachers with Vision Impairments in the Global South: A Bridge Too Far?</h6>
                     <ul class="author-list">
                       <li>Manohar Swaminathan</li>
                       <li>Tarini Naik</li>
@@ -1305,10 +812,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      VeasyGuide: Personalized Visual Guidance for Low-vision Learners on Instructor
-                      Actions in Presentation Videos
-                    </h6>
+                    <h6 class="paper-title">VeasyGuide: Personalized Visual Guidance for Low-vision Learners on Instructor Actions in Presentation Videos</h6>
                     <ul class="author-list">
                       <li>Yotam Sechayk</li>
                       <li>Ariel Shamir</li>
@@ -1317,10 +821,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Making Lecture Videos Accessible for Students who are Blind or have Low Vision
-                      through AI-Assisted Navigation and Visual Question Answering
-                    </h6>
+                    <h6 class="paper-title">Making Lecture Videos Accessible for Students who are Blind or have Low Vision through AI-Assisted Navigation and Visual Question Answering</h6>
                     <ul class="author-list">
                       <li>Katharina Anderer</li>
                       <li>Karin Müller</li>
@@ -1341,14 +842,11 @@
                   <span class="session-topic">Power and Knowledge Production</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Minor Resistance: The Everyday Politics and Power Dynamics of Assistive
-                      Technology Adoption
-                    </h6>
+                    <h6 class="paper-title">Minor Resistance: The Everyday Politics and Power Dynamics of Assistive Technology Adoption</h6>
                     <ul class="author-list">
                       <li>Stacy Hsueh</li>
                       <li>Danielle Van Dusen</li>
@@ -1360,10 +858,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag er-tag">Experience Report</span>
                     </div>
-                    <h6 class="paper-title">
-                      Designing Through Lived Experience: Reflections on Control, Embodiment, and
-                      Social Bias in Accessibility Research
-                    </h6>
+                    <h6 class="paper-title">Designing Through Lived Experience: Reflections on Control, Embodiment, and Social Bias in Accessibility Research</h6>
                     <ul class="author-list">
                       <li>Atieh Taheri</li>
                       <li>Misha Sra</li>
@@ -1372,10 +867,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      The Fears, The Hopes, The Oscillations: A Critical Analysis of Tech Startups
-                      Targeting Autism
-                    </h6>
+                    <h6 class="paper-title">The Fears, The Hopes, The Oscillations: A Critical Analysis of Tech Startups Targeting Autism</h6>
                     <ul class="author-list">
                       <li>Yihe Wang</li>
                       <li>Bhavani Seetharaman</li>
@@ -1385,9 +877,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Exploring Collaboration to Center the Deaf Community in Sign Language AI
-                    </h6>
+                    <h6 class="paper-title">Exploring Collaboration to Center the Deaf Community in Sign Language AI</h6>
                     <ul class="author-list">
                       <li>Rie Kamikubo</li>
                       <li>Abraham Glasser</li>
@@ -1401,10 +891,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag er-tag">Experience Report</span>
                     </div>
-                    <h6 class="paper-title">
-                      The blind leading the blind; designing a co-creation workshop for visually
-                      impaired and sighted participants by a visually impaired researcher
-                    </h6>
+                    <h6 class="paper-title">The blind leading the blind; designing a co-creation workshop for visually impaired and sighted participants by a visually impaired researcher</h6>
                     <ul class="author-list">
                       <li>Peter A Hayton</li>
                       <li>Alexander Wilson</li>
@@ -1414,10 +901,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Crippin’ WhatsApp’s Interaction Design: Learnings from the blind/visually
-                      impaired users of India
-                    </h6>
+                    <h6 class="paper-title">Crippin’ WhatsApp’s Interaction Design: Learnings from the blind/visually impaired users of India</h6>
                     <ul class="author-list">
                       <li>Hrittika Bhowmick</li>
                       <li>Atharva Shrivastava</li>
@@ -1466,17 +950,14 @@
                   <span class="session-topic">Guidelines, Measurements and Taxonomies</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      Do you overreact to pressure, blow things out of proportion?: An ADHD-Centered
-                      Critical Review of Emotional Dysregulation Measures
-                    </h6>
+                    <h6 class="paper-title">Do you overreact to pressure, blow things out of proportion?: An ADHD-Centered Critical Review of Emotional Dysregulation Measures</h6>
                     <ul class="author-list">
                       <li>Deepak Giri</li>
                       <li>Júlia Hellín López</li>
@@ -1488,10 +969,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag taccess-tag">TACCESS Paper</span>
                     </div>
-                    <h6 class="paper-title">
-                      Social Media Apps: A Paradigm for Examining Usability of Mobile Apps for
-                      Working Age Adults with Mild-Moderate Cognitive Disabilities
-                    </h6>
+                    <h6 class="paper-title">Social Media Apps: A Paradigm for Examining Usability of Mobile Apps for Working Age Adults with Mild-Moderate Cognitive Disabilities</h6>
                     <ul class="author-list">
                       <li>Morris Huang</li>
                       <li>Greg McGrew</li>
@@ -1502,20 +980,14 @@
                     <div class="paper-tags">
                       <span class="paper-tag taccess-tag">TACCESS Paper</span>
                     </div>
-                    <h6 class="paper-title">
-                      International Guidelines for Photosensitive Epilepsy: Gap Analysis and
-                      Recommendations
-                    </h6>
+                    <h6 class="paper-title">International Guidelines for Photosensitive Epilepsy: Gap Analysis and Recommendations</h6>
                     <ul class="author-list">
                       <li>J Bern Jordan</li>
                       <li>Gregg C Vanderheiden</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Benchmarking PDF Accessibility Evaluation: A Dataset and Framework for
-                      Assessing Automated and LLM-Based Approaches for Accessibility Testing
-                    </h6>
+                    <h6 class="paper-title">Benchmarking PDF Accessibility Evaluation: A Dataset and Framework for Assessing Automated and LLM-Based Approaches for Accessibility Testing</h6>
                     <ul class="author-list">
                       <li>Anukriti Kumar</li>
                       <li>Tanushree Padath</li>
@@ -1523,9 +995,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Characterizing Visual Intents for People with Low Vision through Eye Tracking
-                    </h6>
+                    <h6 class="paper-title">Characterizing Visual Intents for People with Low Vision through Eye Tracking</h6>
                     <ul class="author-list">
                       <li>Ru Wang</li>
                       <li>Ruijia Chen</li>
@@ -1536,10 +1006,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Surfacing Variations to Calibrate Perceived Reliability of MLLM-generated
-                      Image Descriptions
-                    </h6>
+                    <h6 class="paper-title">Surfacing Variations to Calibrate Perceived Reliability of MLLM-generated Image Descriptions</h6>
                     <ul class="author-list">
                       <li>Meng Chen</li>
                       <li>Akhil Iyer</li>
@@ -1557,37 +1024,28 @@
                   <span class="session-topic">Information Access</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      A Review of 25 Years of Human-Computer Interaction Research on Reading Support
-                      Technologies for People with Disabilities Published in the ACM Digital Library
-                    </h6>
+                    <h6 class="paper-title">A Review of 25 Years of Human-Computer Interaction Research on Reading Support Technologies for People with Disabilities Published in the ACM Digital Library</h6>
                     <ul class="author-list">
                       <li>Oliver Alonzo</li>
                       <li>Saad Hassan</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      SoundNarratives: Rich Auditory Scene Descriptions to Support Deaf and Hard of
-                      Hearing People
-                    </h6>
+                    <h6 class="paper-title">SoundNarratives: Rich Auditory Scene Descriptions to Support Deaf and Hard of Hearing People</h6>
                     <ul class="author-list">
                       <li>Liang-Yuan Wu</li>
                       <li>Dhruv Jain</li>
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      FocusView: Understanding and Customizing Informational Video Watching
-                      Experiences for Viewers with ADHD
-                    </h6>
+                    <h6 class="paper-title">FocusView: Understanding and Customizing Informational Video Watching Experiences for Viewers with ADHD</h6>
                     <ul class="author-list">
                       <li>Hanxiu ‘Hazel’ Zhu</li>
                       <li>Ruijia Chen</li>
@@ -1595,10 +1053,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Characterizing Collective Efforts in Content Sharing and Quality Control for
-                      ADHD-relevant Content on Video-sharing Platforms
-                    </h6>
+                    <h6 class="paper-title">Characterizing Collective Efforts in Content Sharing and Quality Control for ADHD-relevant Content on Video-sharing Platforms</h6>
                     <ul class="author-list">
                       <li>Hanxiu ‘Hazel’ Zhu</li>
                       <li>Avanthika Senthil Kumar</li>
@@ -1609,10 +1064,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Probing the Gaps in ChatGPT’s Live Video Chat for Real-World Assistance for
-                      People who are Blind or Visually Impaired
-                    </h6>
+                    <h6 class="paper-title">Probing the Gaps in ChatGPT’s Live Video Chat for Real-World Assistance for People who are Blind or Visually Impaired</h6>
                     <ul class="author-list">
                       <li>Ruei-Che Chang</li>
                       <li>Rosiana Natalie</li>
@@ -1625,10 +1077,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag taccess-tag">TACCESS Paper</span>
                     </div>
-                    <h6 class="paper-title">
-                      Image Recognition Tools for Blind and Visually Impaired Users: An Emphasis on
-                      the Design Considerations
-                    </h6>
+                    <h6 class="paper-title">Image Recognition Tools for Blind and Visually Impaired Users: An Emphasis on the Design Considerations</h6>
                     <ul class="author-list">
                       <li>Sandra Fernando</li>
                       <li>Chiemela Ndukwe</li>
@@ -1653,14 +1102,11 @@
                   <span class="session-topic">Communication and Social Connection</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      CuCap: Comparative Analysis of Customized Captioning between North American
-                      and South Korean d/Deaf and Hard-of-Hearing Users
-                    </h6>
+                    <h6 class="paper-title">CuCap: Comparative Analysis of Customized Captioning between North American and South Korean d/Deaf and Hard-of-Hearing Users</h6>
                     <ul class="author-list">
                       <li>Caluã de Lacerda Pataca</li>
                       <li>SooYeon Ahn</li>
@@ -1676,9 +1122,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      CARTGPT: Real-Time Correction of CART Captions Using Large Language Models
-                    </h6>
+                    <h6 class="paper-title">CARTGPT: Real-Time Correction of CART Captions Using Large Language Models</h6>
                     <ul class="author-list">
                       <li>Liang-Yuan Wu</li>
                       <li>Andrea Kleiver</li>
@@ -1686,9 +1130,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      CapTune: Adapting Non-Speech Captions With Anchored Generative Models
-                    </h6>
+                    <h6 class="paper-title">CapTune: Adapting Non-Speech Captions With Anchored Generative Models</h6>
                     <ul class="author-list">
                       <li>Jeremy Zhengqi Huang</li>
                       <li>Caluã de Lacerda Pataca</li>
@@ -1697,10 +1139,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      I Want to Connect, But...: Exploring Socially Isolated Older Adults’ Views on
-                      Social Engagement and Technology for Connecting
-                    </h6>
+                    <h6 class="paper-title">I Want to Connect, But...: Exploring Socially Isolated Older Adults’ Views on Social Engagement and Technology for Connecting</h6>
                     <ul class="author-list">
                       <li>Chia Hsin (Josette) Lee</li>
                       <li>Rachana Nataraj</li>
@@ -1708,9 +1147,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Understanding How Visually Impaired Players Socialize in Mobile Games
-                    </h6>
+                    <h6 class="paper-title">Understanding How Visually Impaired Players Socialize in Mobile Games</h6>
                     <ul class="author-list">
                       <li>Zihe Ran</li>
                       <li>Xiyu Li</li>
@@ -1728,18 +1165,14 @@
                 <span class="time-range">11:15 AM – 12:30 PM</span>
                 <h4 class="slot-title">
                   <span class="session-number">Paper Session 8B</span>
-                  <span class="session-topic"
-                    >Explorations in Disability, Accessibility, and Technology</span
-                  >
+                  <span class="session-topic">Explorations in Disability, Accessibility, and Technology</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Modeling Accessibility: Characterizing What We Mean by “Accessible”
-                    </h6>
+                    <h6 class="paper-title">Modeling Accessibility: Characterizing What We Mean by “Accessible”</h6>
                     <ul class="author-list">
                       <li>Kelly Avery Mack</li>
                       <li>Jesse J Martinez</li>
@@ -1753,10 +1186,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Exploring Disability Culture Through Accounts of Disabled Innovators of
-                      Accessibility Technology
-                    </h6>
+                    <h6 class="paper-title">Exploring Disability Culture Through Accounts of Disabled Innovators of Accessibility Technology</h6>
                     <ul class="author-list">
                       <li>Aashaka Desai</li>
                       <li>Jennifer Mankoff</li>
@@ -1767,10 +1197,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag er-tag">Experience Report</span>
                     </div>
-                    <h6 class="paper-title">
-                      Temp access: Reflecting on multimodal GAI as an accessibility technology for
-                      temporary disability
-                    </h6>
+                    <h6 class="paper-title">Temp access: Reflecting on multimodal GAI as an accessibility technology for temporary disability</h6>
                     <ul class="author-list">
                       <li>Kate S Glazko</li>
                     </ul>
@@ -1779,10 +1206,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag taccess-tag">TACCESS Paper</span>
                     </div>
-                    <h6 class="paper-title">
-                      Conversational Voice User Interfaces Supporting Individuals with Down
-                      Syndrome: A Literature Review
-                    </h6>
+                    <h6 class="paper-title">Conversational Voice User Interfaces Supporting Individuals with Down Syndrome: A Literature Review</h6>
                     <ul class="author-list">
                       <li>Franceli L Cibrian</li>
                       <li>Concepción Valdez</li>
@@ -1791,11 +1215,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Toward a Multi-layer Framework to Assess the Quality of Life Impact of
-                      Smartphones as Assistive Technology for People with Sensory Disabilities in
-                      Kenya
-                    </h6>
+                    <h6 class="paper-title">Toward a Multi-layer Framework to Assess the Quality of Life Impact of Smartphones as Assistive Technology for People with Sensory Disabilities in Kenya</h6>
                     <ul class="author-list">
                       <li>Maryam Bandukda</li>
                       <li>Lan Xiao</li>
@@ -1825,17 +1245,14 @@
                   <span class="session-topic">Work and Productivity</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
                     <div class="paper-tags">
                       <span class="paper-tag honorable-tag">Honorable Mention</span>
                     </div>
-                    <h6 class="paper-title">
-                      “As Someone Who is Disabled, I am so thankful for Sex Work”: Alternative
-                      Approaches to Access Among Disabled Sex-Workers
-                    </h6>
+                    <h6 class="paper-title">“As Someone Who is Disabled, I am so thankful for Sex Work”: Alternative Approaches to Access Among Disabled Sex-Workers</h6>
                     <ul class="author-list">
                       <li>Jay Rodolitz</li>
                       <li>Vaughn Hamilton</li>
@@ -1845,10 +1262,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Disclosure of Neurodivergence in Software Workplaces: a Mixed Methods Study of
-                      Forum and Survey Perspectives
-                    </h6>
+                    <h6 class="paper-title">Disclosure of Neurodivergence in Software Workplaces: a Mixed Methods Study of Forum and Survey Perspectives</h6>
                     <ul class="author-list">
                       <li>Kaia Newman</li>
                       <li>Sarah Snay</li>
@@ -1858,10 +1272,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Understanding Human-AI Misalignment in LLM-Based Job-Seeking Support for
-                      Neurodivergent Users
-                    </h6>
+                    <h6 class="paper-title">Understanding Human-AI Misalignment in LLM-Based Job-Seeking Support for Neurodivergent Users</h6>
                     <ul class="author-list">
                       <li>Kaely Hall</li>
                       <li>Marcus Ma</li>
@@ -1871,9 +1282,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      A11yShape: AI-Assisted 3-D Modeling for Blind and Low-Vision Programmers
-                    </h6>
+                    <h6 class="paper-title">A11yShape: AI-Assisted 3-D Modeling for Blind and Low-Vision Programmers</h6>
                     <ul class="author-list">
                       <li>Zhuohao (Jerry) Zhang</li>
                       <li>Haichang Li</li>
@@ -1889,10 +1298,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Beyond Accessibility: Understanding the Ease of Use and Impacts of Digital
-                      Collaboration Tools for Blind and Low Vision Workers
-                    </h6>
+                    <h6 class="paper-title">Beyond Accessibility: Understanding the Ease of Use and Impacts of Digital Collaboration Tools for Blind and Low Vision Workers</h6>
                     <ul class="author-list">
                       <li>Taslima Akter</li>
                       <li>Aparajita S Marathe</li>
@@ -1904,10 +1310,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag er-tag">Experience Report</span>
                     </div>
-                    <h6 class="paper-title">
-                      “Can you put this on Overleaf?”: Reflections on collaborative writing by a
-                      blind and sighted researcher
-                    </h6>
+                    <h6 class="paper-title">“Can you put this on Overleaf?”: Reflections on collaborative writing by a blind and sighted researcher</h6>
                     <ul class="author-list">
                       <li>O Aishwarya</li>
                       <li>Kartik Joshi</li>
@@ -1924,13 +1327,11 @@
                   <span class="session-topic">Accessible Interactions and Digital Content</span>
                 </h4>
               </div>
-
+              
               <div class="program-block">
                 <div class="paper-list">
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      DescribePro: Collaborative Audio Description with Human-AI Interaction
-                    </h6>
+                    <h6 class="paper-title">DescribePro: Collaborative Audio Description with Human-AI Interaction</h6>
                     <ul class="author-list">
                       <li>Maryam S Cheema</li>
                       <li>Sina Elahimanesh</li>
@@ -1940,10 +1341,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      From Cluttered to Clear: Improving the Web Accessibility Design for Screen
-                      Reader Users in E-commerce With Generative
-                    </h6>
+                    <h6 class="paper-title">From Cluttered to Clear: Improving the Web Accessibility Design for Screen Reader Users in E-commerce With Generative</h6>
                     <ul class="author-list">
                       <li>AI Yaman Yu</li>
                       <li>Bektur Ryskeldiev</li>
@@ -1953,10 +1351,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      AccessGuru: Leveraging LLMs to Detect and Correct Web Accessibility Violations
-                      in HTML Code
-                    </h6>
+                    <h6 class="paper-title">AccessGuru: Leveraging LLMs to Detect and Correct Web Accessibility Violations in HTML Code</h6>
                     <ul class="author-list">
                       <li>Nadeen Fathallah</li>
                       <li>Daniel Hernández</li>
@@ -1964,9 +1359,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Task Mode: Dynamic Filtering for Task-Specific Web Navigation using LLMs
-                    </h6>
+                    <h6 class="paper-title">Task Mode: Dynamic Filtering for Task-Specific Web Navigation using LLMs</h6>
                     <ul class="author-list">
                       <li>Ananya Gubbi Mohanbabu</li>
                       <li>Yotam Sechayk</li>
@@ -1977,10 +1370,7 @@
                     <div class="paper-tags">
                       <span class="paper-tag taccess-tag">TACCESS Paper</span>
                     </div>
-                    <h6 class="paper-title">
-                      MouseClicker: Exploring Tactile Feedback and Physical Agency for People with
-                      Hand Motor Impairments
-                    </h6>
+                    <h6 class="paper-title">MouseClicker: Exploring Tactile Feedback and Physical Agency for People with Hand Motor Impairments</h6>
                     <ul class="author-list">
                       <li>Atieh Taheri</li>
                       <li>Carlos Gilberto Gomez-Monroy</li>
@@ -1989,10 +1379,7 @@
                     </ul>
                   </div>
                   <div class="paper-item">
-                    <h6 class="paper-title">
-                      Designing for Colour Vision Deficiency: A Scoping Review of Resources That
-                      Support Designers in Choosing Accessible Colours
-                    </h6>
+                    <h6 class="paper-title">Designing for Colour Vision Deficiency: A Scoping Review of Resources That Support Designers in Choosing Accessible Colours</h6>
                     <ul class="author-list">
                       <li>Connor Geddes</li>
                       <li>Edward Curran Eggertson</li>
@@ -2016,31 +1403,3 @@
               </div>
             </div>
           </section>
-
-          <!-- End of full schedule -->
-        </div>
-      </div>
-    </main>
-
-    <div id="footer-container"></div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // Mobile responsiveness for schedule table
-        document.querySelectorAll('table.schedule-table').forEach((table) => {
-          const headers = Array.from(table.querySelectorAll('thead th')).map((th) =>
-            th.textContent.trim()
-          )
-
-          table.querySelectorAll('tbody tr').forEach((row) => {
-            row.querySelectorAll('td').forEach((cell, index) => {
-              if (headers[index]) {
-                cell.setAttribute('data-label', headers[index])
-              }
-            })
-          })
-        })
-      })
-    </script>
-  </body>
-</html>
