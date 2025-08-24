@@ -1295,7 +1295,8 @@ ul.jennys-links {
   grid-template-rows: repeat(3, auto);
   gap: 0.5rem;
 }
-.accepted-paper + .accepted-paper {
+
+.accepted-paper {
   margin-top: 4rem;
 }
 
@@ -1316,6 +1317,8 @@ ul.jennys-links {
   color: var(--accent-color2);
   line-height: 1;
   border-radius: 0.25rem;
+
+  display: none;
 }
 
 .accepted-paper .author-list,
@@ -1335,6 +1338,9 @@ ul.jennys-links {
 
 .author-list li:not(:last-child)::after {
   content: ', ';
+}
+.author-list li:nth-last-child(2):first-child::after {
+  content: ''; /* cancel the comma */
 }
 
 .author-list li:last-child::before {
