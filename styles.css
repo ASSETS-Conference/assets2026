@@ -1813,11 +1813,6 @@ ul.jennys-links {
   background-color: color-mix(in srgb, var(--accent-color2), transparent 85%);
 }
 
-.time-slot.lunch-slot .slot-title,
-.time-slot.lunch-slot .time-range {
-  color: var(--light-text);
-}
-
 .time-slot.break-slot {
   background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
 }
@@ -1849,8 +1844,12 @@ ul.jennys-links {
 }
 
 .time-slot.lunch-slot .time-slot-header {
-  background-color: color-mix(in srgb, var(--text-color), transparent 10%);
-  color: var(--light-text);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 10%);
+}
+
+.time-slot.lunch-slot .slot-title,
+.time-slot.lunch-slot .time-range {
+  color: var(--inverted-text);
 }
 
 .time-slot,
@@ -1870,7 +1869,6 @@ ul.jennys-links {
 .slot-title {
   margin: 0;
   font-size: 1.25rem;
-  color: var(--dark-text);
 }
 
 .program-block {
@@ -1905,6 +1903,7 @@ ul.jennys-links {
 
 .paper-item .author-list {
   padding: 0;
+  font-size: 0.9rem;
   --bullet-margin: 0;
 }
 
