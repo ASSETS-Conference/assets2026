@@ -1310,7 +1310,8 @@ ul.jennys-links {
   border-radius: 0.25rem;
 }
 
-.accepted-paper .author-list {
+.accepted-paper .author-list,
+.paper-item .author-list {
   grid-row: 3;
   list-style: none;
 
@@ -1456,8 +1457,13 @@ ul.jennys-links {
 }
 
 .schedule-table .lunch-session {
-  background-color: color-mix(in srgb, var(--text-color), transparent 96%);
+  background-color: color-mix(in srgb, var(--text-color), transparent 10%);
+  color: var(--light-text);
   text-align: left;
+}
+
+.schedule-table .lunch-session .session-type {
+  color: var(--light-text);
 }
 
 .schedule-table .conference-opening {
@@ -1717,5 +1723,195 @@ ul.jennys-links {
 
   .schedule-table .closing-session {
     background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+  }
+}
+
+/* Full Schedule Styles */
+.day-schedule {
+  margin-bottom: 3rem;
+}
+
+.day-header {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  padding-inline: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color);
+  z-index: 2;
+}
+
+.time-slot {
+  margin-bottom: 2rem;
+  border: 1px solid color-mix(in srgb, var(--light-text) 30%, transparent);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 97%);
+}
+
+.time-slot.lunch-slot {
+  background-color: color-mix(in srgb, var(--text-color), transparent 10%);
+}
+.time-slot.lunch-slot .slot-title,
+.time-slot.lunch-slot .time-range {
+  color: var(--light-text);
+}
+
+.time-slot.break-slot {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
+}
+
+.time-slot.keynote-slot {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
+}
+
+.time-slot.special-slot {
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 94%);
+}
+
+.time-slot.closing-slot {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.time-slot.registration-slot {
+  background-color: color-mix(in srgb, var(--text-color), transparent 98%);
+}
+
+.time-slot-header {
+  padding: 1rem;
+  background-color: inherit;
+  z-index: 1;
+}
+
+.time-range {
+  font-family: 'Drafting', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.slot-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--dark-text);
+}
+
+.program-block {
+  padding: 1rem;
+}
+
+.session-header {
+  font-size: 1.1rem;
+  color: var(--accent-color2);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.paper-list {
+  margin-bottom: 2rem;
+}
+
+.paper-list:last-child {
+  margin-bottom: 0;
+}
+
+.paper-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--dark-text) 40%, transparent);
+}
+
+.paper-item:first-of-type {
+  border-top: 1px solid color-mix(in srgb, var(--dark-text) 40%, transparent);
+  padding-top: 1.5rem;
+}
+
+.paper-item .author-list {
+  padding: 0;
+  --bullet-margin: 0;
+}
+
+.paper-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.paper-tags {
+  margin-bottom: 0.5rem;
+}
+
+.paper-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 0.5rem;
+}
+
+.paper-tag.honorable-tag {
+  background-color: color-mix(in srgb, var(--accent-color) 20%, transparent);
+  color: var(--accent-color);
+}
+
+.paper-tag.taccess-tag {
+  background-color: color-mix(in srgb, var(--accent-color2) 20%, transparent);
+  color: var(--accent-color2);
+}
+
+.paper-tag.er-tag {
+  background-color: color-mix(in srgb, var(--light-text) 30%, transparent);
+  color: var(--dark-text);
+}
+
+.paper-tag.short-tag {
+  background-color: color-mix(in srgb, var(--light-text) 25%, transparent);
+  color: var(--medium-text);
+}
+
+.paper-title {
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--dark-text);
+}
+
+/* Responsive Design for Full Schedule */
+@media (max-width: 768px) {
+  .day-schedule {
+    margin-bottom: 2rem;
+  }
+
+  .day-header {
+    font-size: 1.3rem;
+  }
+
+  .time-slot-header {
+    padding: 0.75rem;
+  }
+
+  .slot-title {
+    font-size: 1.1rem;
+  }
+
+  .program-block {
+    padding: 1rem;
+  }
+
+  .session-header {
+    font-size: 1rem;
+  }
+
+  .paper-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
   }
 }
