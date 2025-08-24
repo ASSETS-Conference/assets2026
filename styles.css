@@ -12,7 +12,15 @@
   --light-text: white;
 
   --content-width: 1280px;
+  --day-header-height: 2rem;
 }
+
+@media (max-width: 768px) {
+  :root {
+    --day-header-height: 1.5rem;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #003b1f;
@@ -1742,19 +1750,17 @@ ul.jennys-links {
   top: 0;
   background-color: var(--bg-color);
   z-index: 2;
+  height: var(--day-header-height);
 }
 
 .time-slot {
   margin-bottom: 2rem;
   border: 1px solid color-mix(in srgb, var(--light-text) 30%, transparent);
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow: visible;
   background-color: color-mix(in srgb, var(--accent-color2), transparent 97%);
 }
 
-.time-slot.lunch-slot {
-  background-color: color-mix(in srgb, var(--text-color), transparent 10%);
-}
 .time-slot.lunch-slot .slot-title,
 .time-slot.lunch-slot .time-range {
   color: var(--light-text);
@@ -1782,8 +1788,23 @@ ul.jennys-links {
 
 .time-slot-header {
   padding: 1rem;
-  background-color: inherit;
+  background-color: var(--bg-color);
   z-index: 1;
+  position: sticky;
+  top: var(--day-header-height);
+  z-index: 1;
+  border-bottom: 1px solid color-mix(in srgb, var(--text-color) 30%, transparent);
+}
+
+.time-slot.lunch-slot .time-slot-header {
+  background-color: color-mix(in srgb, var(--text-color), transparent 10%);
+  color: var(--light-text);
+}
+
+.time-slot,
+.paper-item,
+.program-block {
+  scroll-margin-top: calc(var(--day-header-height) + 0.5rem);
 }
 
 .time-range {
@@ -1802,6 +1823,11 @@ ul.jennys-links {
 
 .program-block {
   padding: 1rem;
+  overflow: hidden;
+
+  border-top: 1px solid color-mix(in srgb, var(--dark-text) 40%, transparent);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .session-header {
@@ -1823,11 +1849,6 @@ ul.jennys-links {
   margin-bottom: 1.5rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid color-mix(in srgb, var(--dark-text) 40%, transparent);
-}
-
-.paper-item:first-of-type {
-  border-top: 1px solid color-mix(in srgb, var(--dark-text) 40%, transparent);
-  padding-top: 1.5rem;
 }
 
 .paper-item .author-list {
@@ -1914,4 +1935,13 @@ ul.jennys-links {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
   }
+}
+
+.session-number {
+  font-weight: 800;
+  color: var(--accent-color2);
+}
+
+.session-topic {
+  font-style: italic;
 }
