@@ -1343,7 +1343,7 @@ ul.jennys-links {
   content: ''; /* cancel the comma */
 }
 
-.author-list li:last-child::before {
+.author-list li:last-child::before:not(:first-child) {
   content: 'and ';
 }
 
