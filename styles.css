@@ -1934,7 +1934,9 @@ ul.jennys-links {
 }
 
 .paper-tag {
-  display: inline-block;
+  display: flex;
+  width: max-content;
+  margin-bottom: 0.25rem;
   font-size: 0.9rem;
   font-weight: 500;
   padding: 0.25rem 0.5rem;
@@ -1946,7 +1948,6 @@ ul.jennys-links {
 }
 
 .paper-tag.honorable-tag {
-  display: inline-flex;
   align-items: center;
   gap: 0.25rem;
   padding-left: 0.25rem;

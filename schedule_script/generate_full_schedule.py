@@ -262,20 +262,28 @@ def make_slot_id(day_anchor: str, time_text: str, session_type: str, session_nam
 def render_paper_item_from_cell(cell_text: str):
     title_raw, authors_list = parse_paper_cell(cell_text)
     tag_class, tag_label, clean_title = extract_paper_tag_and_title(title_raw)
+
     parts = []
     parts.append('                  <div class="paper-item">')
+
+    # Heading: prepend any tag pill(s) INSIDE the <h6>
+    parts.append('                    <h6 class="paper-title">')
     if tag_class and tag_label:
-        parts.append('                    <div class="paper-tags">')
         parts.append(f'                      <span class="paper-tag {tag_class}">{html_escape(tag_label)}</span>')
-        parts.append('                    </div>')
-    parts.append(f'                    <h6 class="paper-title">{html_escape(clean_title)}</h6>')
+    parts.append(f'                      {html_escape(clean_title)}')
+    parts.append('                    </h6>')
+
     if authors_list:
         parts.append('                    <ul class="author-list">')
         for a in authors_list:
             parts.append(f'                      <li>{html_escape(a)}</li>')
         parts.append('                    </ul>')
+
     parts.append('                  </div>')
     return "\n".join(parts)
+
+
+
 
 def render_paper_list(row):
     papers = []
