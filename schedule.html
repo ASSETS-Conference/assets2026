@@ -2238,24 +2238,5 @@
     </main>
 
     <div id="footer-container"></div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // Mobile responsiveness for schedule table
-        document.querySelectorAll('table.schedule-table').forEach((table) => {
-          const headers = Array.from(table.querySelectorAll('thead th')).map((th) =>
-            th.textContent.trim()
-          )
-
-          table.querySelectorAll('tbody tr').forEach((row) => {
-            row.querySelectorAll('td').forEach((cell, index) => {
-              if (headers[index]) {
-                cell.setAttribute('data-label', headers[index])
-              }
-            })
-          })
-        })
-      })
-    </script>
   </body>
 </html>
