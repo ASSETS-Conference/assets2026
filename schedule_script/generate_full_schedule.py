@@ -32,6 +32,10 @@ MONTH_NAMES = {
     7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"
 }
 
+# Abbreviations for short date label
+WEEKDAY_ABBR = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+MONTH_ABBR = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+
 def safe_cell_str(row, colname: str) -> str:
     v = row.get(colname)
     if v is None:
@@ -43,6 +47,38 @@ def safe_cell_str(row, colname: str) -> str:
     if isinstance(v, float) and math.isnan(v):
         return ""
     return str(v).strip()
+
+def _parse_date_any(date_str: str):
+    s = str(date_str).strip()
+    for fmt in ("%m/%d/%Y","%Y-%m-%d","%m-%d-%Y"):
+        try:
+            return datetime.strptime(s, fmt)
+        except ValueError:
+            pass
+    return None
+
+def parse_date_label_short(date_str: str) -> str:
+    """
+    Turn '10/27/2025' into 'Mon Oct 27 ’25' (note the curly apostrophe).
+    Falls back to the original string if parsing fails.
+    """
+    dt = _parse_date_any(date_str)
+    if not dt:
+        return str(date_str).strip()
+    wd = WEEKDAY_ABBR[dt.weekday()]
+    mo = MONTH_ABBR[dt.month - 1]
+    yr2 = dt.year % 100
+    return f"{wd} {mo} {dt.day} \u2019{yr2:02d}"
+
+def date_iso_attr(date_str: str) -> str:
+    """
+    ISO-8601 date for <time datetime="..."> attribute, e.g., '2025-10-27'.
+    Falls back to the input string if parsing fails.
+    """
+    dt = _parse_date_any(date_str)
+    if not dt:
+        return str(date_str).strip()
+    return dt.strftime("%Y-%m-%d")
 
 def parse_date_label(date_str: str) -> str:
     """Turn '10/27/2025' into 'Monday, October 27, 2025'."""
@@ -345,7 +381,14 @@ def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: s
     html.append(f'          <!-- {label} -->')
     html.append(f'          <section class="day-schedule" id="{anchor}">')
     html.append('            <div class="day-header-container">')
-    html.append(f'              <h3 class="day-header">{label}</h3>')
+    label_short = parse_date_label_short(date_str)
+    iso_attr = date_iso_attr(date_str)
+    html.append('              <h3 class="day-header">')
+    html.append(f'                <time datetime="{iso_attr}">')
+    html.append(f'                  <span class="date-long">{label}</span>')
+    html.append(f'                  <span class="date-short">{label_short}</span>')
+    html.append('                </time>')
+    html.append('              </h3>')
     html.append('              <div class="day-navigation">')
     if prev_anchor:
         html.append(f'                <a href="#{prev_anchor}" class="day-nav-btn day-nav-prev" title="Previous day">‹</a>')

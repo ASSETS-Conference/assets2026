@@ -17,7 +17,7 @@
 
 @media (max-width: 768px) {
   :root {
-    --day-header-height: 1.5rem;
+    --day-header-height: 2rem;
   }
 }
 
@@ -1394,6 +1394,9 @@ ul.jennys-links {
   font-size: 0.85rem;
   text-align: left;
   table-layout: fixed;
+  z-index: 2;
+  position: relative;
+  background-color: var(--bg-color);
 }
 
 .schedule-table th,
@@ -1756,6 +1759,9 @@ ul.jennys-links {
 /* Full Schedule Styles */
 .day-schedule {
   margin-bottom: 3rem;
+  z-index: 2;
+  position: relative;
+  background-color: var(--bg-color);
 }
 
 .day-header {
@@ -1769,7 +1775,25 @@ ul.jennys-links {
   top: 0;
   background-color: var(--bg-color);
   z-index: 2;
-  height: var(--day-header-height);
+}
+
+/* default: show long, hide short */
+.date-long {
+  display: inline;
+}
+.date-short {
+  display: none;
+  padding-left: 0.75rem;
+}
+
+/* on small screens, swap them */
+@media (max-width: 768px) {
+  .date-long {
+    display: none;
+  }
+  .date-short {
+    display: inline;
+  }
 }
 
 .day-header-container {
@@ -1779,7 +1803,8 @@ ul.jennys-links {
   position: sticky;
   top: 0;
   background-color: var(--bg-color);
-  z-index: 2;
+  z-index: 3;
+  height: var(--day-header-height);
   border-bottom: 2px solid var(--accent-color);
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
@@ -1858,7 +1883,7 @@ ul.jennys-links {
   z-index: 1;
   position: sticky;
   top: var(--day-header-height);
-  z-index: 1;
+  z-index: 2;
   border-bottom: 1px solid color-mix(in srgb, var(--text-color) 30%, transparent);
 }
 
@@ -1994,16 +2019,13 @@ ul.jennys-links {
     font-size: 1.3rem;
   }
 
-  .time-slot-header {
+  .time-slot-header,
+  .program-block {
     padding: 0.75rem;
   }
 
   .slot-title {
     font-size: 1.1rem;
-  }
-
-  .program-block {
-    padding: 1rem;
   }
 
   .session-header {
@@ -2013,6 +2035,13 @@ ul.jennys-links {
   .paper-item {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
+  }
+
+  .time-range {
+    margin: 0;
+  }
+  .slot-title {
+    line-height: 1.3;
   }
 }
 
