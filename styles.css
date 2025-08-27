@@ -1636,7 +1636,7 @@ ul.jennys-links {
   .registration-table tr {
     background-color: color-mix(in srgb, var(--accent-color2), transparent 96%);
     margin-bottom: 2rem;
-    border-radius: 0 0 0.5rem 0.5rem;
+    border-radius: 0.5rem;
   }
 
   .registration-table .registration-event {
@@ -1650,8 +1650,8 @@ ul.jennys-links {
   /* Show and style mobile section headers */
   .schedule-table .mobile-section-header {
     display: block;
-    background-color: var(--accent-color2);
-    color: var(--light-text);
+    background-color: var(--text-color);
+    color: var(--inverted-text);
     margin-bottom: 2rem;
     border-radius: 0.5rem;
     text-align: left;
@@ -1823,6 +1823,8 @@ ul.jennys-links {
   display: flex;
   gap: 1rem;
   align-items: center;
+  position: relative;
+  top: 0.125rem;
 }
 
 .day-nav-btn {
@@ -1831,7 +1833,7 @@ ul.jennys-links {
   justify-content: center;
   width: 3rem;
   height: 1.5rem;
-  background-color: color-mix(in srgb, var(--inverted-text) 20%, transparent);
+  background-color: color-mix(in srgb, var(--inverted-text) 50%, transparent);
   color: var(--accent-color) !important;
 
   text-decoration: none;
@@ -2052,4 +2054,504 @@ ul.jennys-links {
 
 .session-topic {
   font-style: italic;
+}
+
+/* ================================
+   DIV-BASED SCHEDULE GRID (A11y)
+   Column-major layout
+   ================================ */
+
+.schedule-grid {
+  width: 100%;
+  margin-block: 2rem;
+  font-family: 'Drafting', sans-serif;
+  font-size: 0.85rem;
+  position: relative;
+  z-index: 2;
+  background-color: var(--bg-color);
+
+  /* Column-major: the grid itself defines the columns */
+  display: grid;
+  grid-template-columns: repeat(var(--day-count, 5), 1fr);
+  grid-auto-rows: auto;
+  gap: 0; /* borders meet cleanly */
+}
+
+/* Header “cells” placed at grid-row: 1 */
+.schedule-grid-th {
+  padding: 0.75rem;
+  background-color: var(--accent-color2);
+  color: var(--light-text);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--text-color), transparent 80%);
+}
+
+/* Body cells */
+.schedule-grid-td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-right: 1px solid color-mix(in srgb, var(--text-color), transparent 80%);
+  border-bottom: 1px solid color-mix(in srgb, var(--text-color), transparent 80%);
+}
+
+/* First column left border (no row wrapper, so do it per cell) */
+.schedule-grid > .schedule-grid-th[style*='grid-column:1'],
+.schedule-grid > .schedule-grid-td[style*='grid-column:1'] {
+  border-left: 1px solid color-mix(in srgb, var(--text-color), transparent 80%);
+}
+
+/* Category backgrounds (carry-overs) */
+.schedule-grid-td.paper-sessions {
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 97%);
+}
+.schedule-grid-td.break-session {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
+  text-align: left;
+}
+.schedule-grid-td.lunch-session {
+  background-color: color-mix(in srgb, var(--text-color), transparent 10%);
+  color: var(--light-text);
+  text-align: left;
+}
+.schedule-grid-td.lunch-session .session-type {
+  color: var(--light-text);
+}
+.schedule-grid-td.conference-opening {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
+  text-align: left;
+}
+.schedule-grid-td.special-session {
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 94%);
+  text-align: left;
+}
+.schedule-grid-td.closing-session {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  text-align: left;
+}
+.schedule-grid-td.empty-cell {
+  background-color: color-mix(in srgb, var(--text-color), transparent 98%);
+}
+
+/* Inner content (same look as before) */
+.schedule-grid-td .session-item {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.schedule-grid-td .session-item:last-child {
+  margin-bottom: 0;
+}
+.schedule-grid-td .session-code {
+  font-weight: 580;
+  color: var(--accent-color2);
+  display: block;
+  font-size: 0.85rem;
+}
+.schedule-grid-td .session-name {
+  display: block;
+  font-style: italic;
+  font-weight: 450;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+.schedule-grid-td .session-type {
+  font-weight: 600;
+  color: var(--accent-color);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.schedule-grid-td .session-time {
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'Drafting', sans-serif;
+}
+.schedule-grid-td .session-divider {
+  height: 1px;
+  background-color: color-mix(in srgb, var(--text-color), transparent 85%);
+  margin: 0.75rem 0;
+}
+
+/* (Optional) Mobile section header, if you emit one separately */
+.schedule-grid .mobile-section-header {
+  display: none;
+}
+
+/* Mobile: stack to one column; keep sticky header feel */
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-grid-th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .schedule-grid-td {
+    border-left: 1px solid color-mix(in srgb, var(--text-color), transparent 90%);
+    margin-bottom: 0 !important;
+    padding: 1rem;
+  }
+
+  /* Tweak inner sizes to match your prior mobile table styles */
+  .schedule-grid-td .session-code {
+    font-size: 0.9rem;
+  }
+  .schedule-grid-td .session-name {
+    font-size: 0.95rem;
+  }
+  .schedule-grid-td .session-type {
+    font-size: 0.95rem;
+  }
+  .schedule-grid-td .session-time {
+    font-size: 0.8rem;
+  }
+  .schedule-grid-td .session-divider {
+    margin: 1rem 0;
+  }
+}
+
+/* Dark mode tweaks */
+@media (prefers-color-scheme: dark) {
+  .schedule-grid-td {
+    border-color: color-mix(in srgb, var(--text-color), transparent 85%);
+  }
+  .schedule-grid-td.paper-sessions {
+    background-color: color-mix(in srgb, var(--accent-color2), transparent 95%);
+  }
+  .schedule-grid-td.break-session {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 94%);
+  }
+  .schedule-grid-td.lunch-session {
+    background-color: color-mix(in srgb, var(--text-color), transparent 94%);
+  }
+  .schedule-grid-td.conference-opening {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 88%);
+  }
+  .schedule-grid-td.special-session {
+    background-color: color-mix(in srgb, var(--accent-color2), transparent 90%);
+  }
+  .schedule-grid-td.closing-session {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+  }
+}
+
+.schedule-grid {
+  --day-count: 5;
+} /* default */
+.schedule-grid.daycount-1 {
+  --day-count: 1;
+}
+.schedule-grid.daycount-2 {
+  --day-count: 2;
+}
+.schedule-grid.daycount-3 {
+  --day-count: 3;
+}
+.schedule-grid.daycount-4 {
+  --day-count: 4;
+}
+.schedule-grid.daycount-5 {
+  --day-count: 5;
+}
+.schedule-grid.daycount-6 {
+  --day-count: 6;
+}
+.schedule-grid.daycount-7 {
+  --day-count: 7;
+}
+
+/* Use --day-count to define columns */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--day-count), 1fr);
+  grid-auto-rows: auto;
+}
+
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+  .schedule-grid > .schedule-grid-th,
+  .schedule-grid > .schedule-grid-td {
+    grid-column: 1 / -1; /* stack; ignore gc-* */
+    grid-row: auto; /* let rows flow; ignore gr-* */
+  }
+  /* optional: hide purely decorative empty placeholders on mobile */
+  .schedule-grid > .empty-cell {
+    display: none;
+  }
+}
+
+/* ==============
+   Column-major grid (no inline styles)
+   ============== */
+
+/* Container */
+.schedule-grid {
+  --day-count: 5; /* default; overridden by .daycount-* below */
+  display: grid;
+  grid-template-columns: repeat(var(--day-count), 1fr);
+  grid-auto-rows: auto;
+  gap: 0;
+}
+
+/* Optional: day count helpers (so you can output class="schedule-grid daycount-3") */
+.schedule-grid.daycount-1 {
+  --day-count: 1;
+}
+.schedule-grid.daycount-2 {
+  --day-count: 2;
+}
+.schedule-grid.daycount-3 {
+  --day-count: 3;
+}
+.schedule-grid.daycount-4 {
+  --day-count: 4;
+}
+.schedule-grid.daycount-5 {
+  --day-count: 5;
+}
+.schedule-grid.daycount-6 {
+  --day-count: 6;
+}
+.schedule-grid.daycount-7 {
+  --day-count: 7;
+}
+
+/* Header cells */
+.schedule-grid-th {
+  padding: 0.75rem;
+  background-color: var(--accent-color2);
+  color: var(--light-text);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--text-color), transparent 80%);
+}
+
+/* Body cells */
+.schedule-grid-td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-right: 1px solid color-mix(in srgb, var(--text-color), transparent 80%);
+  border-bottom: 1px solid color-mix(in srgb, var(--text-color), transparent 80%);
+}
+
+/* First column left border (class-based now, not [style*=]) */
+.schedule-grid > .gc-1 {
+  border-left: 1px solid color-mix(in srgb, var(--text-color), transparent 80%);
+}
+
+/* ---- Position helpers ---- */
+/* Columns (extend if you ever have >7 days) */
+.schedule-grid .gc-1 {
+  grid-column: 1;
+}
+.schedule-grid .gc-2 {
+  grid-column: 2;
+}
+.schedule-grid .gc-3 {
+  grid-column: 3;
+}
+.schedule-grid .gc-4 {
+  grid-column: 4;
+}
+.schedule-grid .gc-5 {
+  grid-column: 5;
+}
+.schedule-grid .gc-6 {
+  grid-column: 6;
+}
+.schedule-grid .gc-7 {
+  grid-column: 7;
+}
+
+/* Rows (safe upper bound; extend if needed) */
+.schedule-grid .gr-1 {
+  grid-row: 1;
+}
+.schedule-grid .gr-2 {
+  grid-row: 2;
+}
+.schedule-grid .gr-3 {
+  grid-row: 3;
+}
+.schedule-grid .gr-4 {
+  grid-row: 4;
+}
+.schedule-grid .gr-5 {
+  grid-row: 5;
+}
+.schedule-grid .gr-6 {
+  grid-row: 6;
+}
+.schedule-grid .gr-7 {
+  grid-row: 7;
+}
+.schedule-grid .gr-8 {
+  grid-row: 8;
+}
+.schedule-grid .gr-9 {
+  grid-row: 9;
+}
+.schedule-grid .gr-10 {
+  grid-row: 10;
+}
+.schedule-grid .gr-11 {
+  grid-row: 11;
+}
+.schedule-grid .gr-12 {
+  grid-row: 12;
+}
+.schedule-grid .gr-13 {
+  grid-row: 13;
+}
+.schedule-grid .gr-14 {
+  grid-row: 14;
+}
+.schedule-grid .gr-15 {
+  grid-row: 15;
+}
+.schedule-grid .gr-16 {
+  grid-row: 16;
+}
+.schedule-grid .gr-17 {
+  grid-row: 17;
+}
+.schedule-grid .gr-18 {
+  grid-row: 18;
+}
+.schedule-grid .gr-19 {
+  grid-row: 19;
+}
+.schedule-grid .gr-20 {
+  grid-row: 20;
+}
+
+/* Category backgrounds (same as before) */
+.schedule-grid-td.paper-sessions {
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 97%);
+}
+.schedule-grid-td.break-session {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
+  text-align: left;
+}
+.schedule-grid-td.lunch-session {
+  background-color: color-mix(in srgb, var(--text-color), transparent 10%);
+  color: var(--light-text);
+  text-align: left;
+}
+.schedule-grid-td.lunch-session .session-type {
+  color: var(--light-text);
+}
+.schedule-grid-td.conference-opening {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
+  text-align: left;
+}
+.schedule-grid-td.special-session {
+  background-color: color-mix(in srgb, var(--accent-color2), transparent 94%);
+  text-align: left;
+}
+.schedule-grid-td.closing-session {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  text-align: left;
+}
+.schedule-grid-td.empty-cell {
+  background-color: color-mix(in srgb, var(--text-color), transparent 98%);
+}
+
+/* Inner content */
+.schedule-grid-td .session-item {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.schedule-grid-td .session-item:last-child {
+  margin-bottom: 0;
+}
+.schedule-grid-td .session-code {
+  font-weight: 580;
+  color: var(--accent-color2);
+  display: block;
+  font-size: 0.85rem;
+}
+.schedule-grid-td .session-name {
+  display: block;
+  font-style: italic;
+  font-weight: 450;
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+.schedule-grid-td .session-type {
+  font-weight: 600;
+  color: var(--accent-color);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.schedule-grid-td .session-time {
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: 'Drafting', sans-serif;
+}
+.schedule-grid-td .session-divider {
+  height: 1px;
+  background-color: color-mix(in srgb, var(--text-color), transparent 85%);
+  margin: 0.75rem 0;
+}
+
+/* Mobile: stack to one column and ignore gc-/gr- placement */
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+  }
+  .schedule-grid > .schedule-grid-th,
+  .schedule-grid > .schedule-grid-td {
+    grid-column: 1 / -1; /* stack */
+    grid-row: auto; /* flow */
+  }
+  .schedule-grid > .empty-cell {
+    display: none;
+  }
+  .schedule-grid-th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    margin-top: 1rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  .schedule-grid-td {
+    border-left: 1px solid color-mix(in srgb, var(--text-color), transparent 90%);
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+}
+
+/* Dark mode tweaks (unchanged) */
+@media (prefers-color-scheme: dark) {
+  .schedule-grid-td {
+    border-color: color-mix(in srgb, var(--text-color), transparent 85%);
+  }
+  .schedule-grid-td.paper-sessions {
+    background-color: color-mix(in srgb, var(--accent-color2), transparent 95%);
+  }
+  .schedule-grid-td.break-session {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 94%);
+  }
+  .schedule-grid-td.lunch-session {
+    background-color: color-mix(in srgb, var(--text-color), transparent 94%);
+  }
+  .schedule-grid-td.conference-opening {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 88%);
+  }
+  .schedule-grid-td.special-session {
+    background-color: color-mix(in srgb, var(--accent-color2), transparent 90%);
+  }
+  .schedule-grid-td.closing-session {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
+  }
 }

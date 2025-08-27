@@ -389,8 +389,26 @@ def group_parallel(sessions: List[Session]) -> List[List[Session]]:
     return [g for _, g in groups]
 
 
-def cell_html(group: List[Session], day_registry: set) -> str:
+def cell_div_html(group: List[Session], day_registry: set, day_label: str) -> str:
+    """
+    Returns a <div class="schedule-grid-td ...">…</div> cell for the div-based grid layout.
+    Adds aria-labels so SR users get: "Monday, 11:30 AM – 12:45 PM: Paper Session 1A — Inclusive Mixed Reality"
+    """
     css = group[0].css_class if group else "special-session"
+    time_text = format_time_range(group[0].start, group[0].end) if group else ""
+    # Build a brief, friendly ARIA label for the whole cell
+    def _aria_for_session(s: Session) -> str:
+        if s.code:
+            # Papers
+            if s.name:
+                return f"{s.code} — {s.name}"
+            return s.code
+        # Non-papers
+        return s.title
+
+    aria_label_items = [ _aria_for_session(s) for s in group ]
+    aria_label = f"{day_label}, {time_text}: " + " | ".join([x for x in aria_label_items if x])
+
     parts: List[str] = []
     for i, s in enumerate(group):
         show_time = (i == 0)
@@ -400,7 +418,7 @@ def cell_html(group: List[Session], day_registry: set) -> str:
             if show_time:
                 parts.append(
                     "<div class=\"session-item\">\n"
-                    f"  <span class=\"session-time\">{format_time_range(s.start, s.end)}</span>\n"
+                    f"  <span class=\"session-time\">{escape_html(time_text)}</span>\n"
                     f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
                     f"    <span class=\"session-code\">{escape_html(s.code)}</span>\n"
                     f"    <span class=\"session-name\">{escape_html(s.name)}</span>\n"
@@ -417,11 +435,11 @@ def cell_html(group: List[Session], day_registry: set) -> str:
                     "</div>"
                 )
         else:
-            # Non-paper sessions: link the title/type text
+            # Non-paper sessions
             if show_time:
                 parts.append(
                     "<div class=\"session-item\">\n"
-                    f"  <span class=\"session-time\">{format_time_range(s.start, s.end)}</span>\n"
+                    f"  <span class=\"session-time\">{escape_html(time_text)}</span>\n"
                     f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
                     f"    <span class=\"session-type\">{escape_html(s.title)}</span>\n"
                     f"  </a>\n"
@@ -437,10 +455,19 @@ def cell_html(group: List[Session], day_registry: set) -> str:
                 )
         if i < len(group) - 1:
             parts.append("<div class=\"session-divider\"></div>")
-    return "<td class=\"" + css + "\">\n" + indent_block("\n".join(parts), 2) + "\n</td>"
+
+    return (
+        f"<div class=\"schedule-grid-td {css}\" role=\"gridcell\" aria-label=\"{escape_html(aria_label)}\">\n"
+        + indent_block("\n".join(parts), 1)
+        + "\n</div>"
+    )
 
 def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
-    # Order columns strictly by calendar date (Mon→Tue→Wed)
+    """
+    Column-major DOM (day-by-day reading order) with NO inline grid placement.
+    Cells get classes 'gc-{col}' (grid column) and 'gr-{row}' (grid row).
+    """
+    # 1) Order days Monday→… by actual date
     day_order: List[Tuple[Optional[date], str]] = []
     for label, dct in day_buckets.items():
         any_list = dct["morning"] or dct["lunch"] or dct["afternoon"] or dct["evening"]  # type: ignore
@@ -448,72 +475,106 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
         day_order.append((d0, label))
     ordered_keys = [lbl for (d0, lbl) in sorted(day_order, key=lambda x: (x[0] or date.min, x[1]))]
 
-    # Maintain a uniqueness registry per day label (mirrors full schedule's per-day uniqueness)
+    # 2) Per-day registries for unique anchor IDs
     day_id_registries: Dict[str, set] = {k: set() for k in ordered_keys}
 
-    headers = [day_buckets[k]["header"] for k in ordered_keys]  # type: ignore
-    thead = "<thead>\n  <tr>\n" + "\n".join([f"    <th>{escape_html(str(h))}</th>" for h in headers]) + "\n  </tr>\n</thead>"
+    # 3) Pre-compute parallel groups per section for row alignment
+    mornings = {k: group_parallel(day_buckets[k]["morning"]) for k in ordered_keys}  # type: ignore
+    afternoons = {k: group_parallel(day_buckets[k]["afternoon"]) for k in ordered_keys}  # type: ignore
+    evenings = {k: group_parallel(day_buckets[k]["evening"]) for k in ordered_keys}  # type: ignore
 
-    def rows_for_block(block_key: str, mobile_header: Optional[str] = None) -> List[str]:
-        # keep (day_key, groups) so we can access the right registry
-        grouped_per_day: List[Tuple[str, List[List[Session]]]] = []
-        max_len = 0
-        for k in ordered_keys:
-            groups = group_parallel(day_buckets[k][block_key])  # type: ignore
-            grouped_per_day.append((k, groups))
-            max_len = max(max_len, len(groups))
+    morning_max = max((len(v) for v in mornings.values()), default=0)
+    afternoon_max = max((len(v) for v in afternoons.values()), default=0)
+    evening_max = max((len(v) for v in evenings.values()), default=0)
 
-        rows: List[str] = []
-        if mobile_header:
-            rows.append(
-                "  <tr class=\"mobile-section-header\">\n"
-                f"    <td colspan=\"{len(ordered_keys)}\">\n"
-                f"      <h3>{escape_html(mobile_header)}</h3>\n"
-                "    </td>\n"
-                "  </tr>"
-            )
+    # We always reserve exactly one lunch row for alignment
+    LUNCH_ROWS = 1
 
-        for i in range(max_len):
-            tds: List[str] = []
-            for k, groups in grouped_per_day:
-                if i < len(groups):
-                    tds.append(cell_html(groups[i], day_id_registries[k]))
-                else:
-                    tds.append("<td class=\"empty-cell\"></td>")
-            rows.append("  <tr>\n" + indent_block("\n".join(tds), 1) + "\n  </tr>")
-        return rows
+    # 4) Row indices (1-based for CSS grid lines)
+    # row 1 = column headers
+    ROW_HEADER = 1
+    ROW_MORNING_START = ROW_HEADER + 1
+    ROW_LUNCH = ROW_MORNING_START + morning_max
+    ROW_AFTERNOON_START = ROW_LUNCH + LUNCH_ROWS
+    ROW_EVENING_START = ROW_AFTERNOON_START + afternoon_max
 
-    body_rows: List[str] = []
+    # Helper: add gc/gr classes into the opening <div class="schedule-grid-td ...">
+    def _add_pos_classes(cell_html: str, col: int, row: int) -> str:
+        return re.sub(
+            r'^<div class="schedule-grid-td([^"]*)"',
+            lambda m: f'<div class="schedule-grid-td{m.group(1)} gc-{col} gr-{row}"',
+            cell_html,
+            count=1
+        )
 
-    # Morning
-    body_rows += rows_for_block("morning", mobile_header="Morning Schedule")
+    cells: List[str] = []
 
-    # Lunch row (first lunch per day)
-    lunch_tds: List[str] = []
-    for k in ordered_keys:
+    # 5) Emit per-day in DOM order (column-major)
+    for col_idx, k in enumerate(ordered_keys, start=1):
+        header_text = str(day_buckets[k]["header"])  # type: ignore
+        # Column header cell (top row)
+        cells.append(
+            f'<div class="schedule-grid-th gc-{col_idx} gr-{ROW_HEADER}" role="columnheader">{escape_html(header_text)}</div>'
+        )
+
+        # Morning rows
+        mgroups = mornings[k]
+        for r in range(morning_max):
+            row_line = ROW_MORNING_START + r
+            if r < len(mgroups) and mgroups[r]:
+                cell = cell_div_html(mgroups[r], day_id_registries[k], k)
+                cells.append(_add_pos_classes(cell, col_idx, row_line))
+            else:
+                cells.append(
+                    f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{row_line}" role="gridcell" aria-label="Empty"></div>'
+                )
+
+        # Lunch row (first lunch per day if present)
         lunches = day_buckets[k]["lunch"]  # type: ignore
         if lunches:
             lunch_group = [sorted(lunches, key=lambda x: (x.start or time(0,0), x.end or time(0,0)))[0]]
-            lunch_tds.append(cell_html(lunch_group, day_id_registries[k]))
+            cell = cell_div_html(lunch_group, day_id_registries[k], k)
+            cells.append(_add_pos_classes(cell, col_idx, ROW_LUNCH))
         else:
-            lunch_tds.append("<td class=\"empty-cell\"></td>")
+            cells.append(
+                f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{ROW_LUNCH}" role="gridcell" aria-label="No lunch slot"></div>'
+            )
 
-    body_rows.append("  <tr>\n" + indent_block("\n".join(lunch_tds), 1) + "\n  </tr>")
+        # Afternoon rows
+        agroups = afternoons[k]
+        for r in range(afternoon_max):
+            row_line = ROW_AFTERNOON_START + r
+            if r < len(agroups) and agroups[r]:
+                cell = cell_div_html(agroups[r], day_id_registries[k], k)
+                cells.append(_add_pos_classes(cell, col_idx, row_line))
+            else:
+                cells.append(
+                    f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{row_line}" role="gridcell" aria-label="Empty"></div>'
+                )
 
-    # Afternoon
-    body_rows += rows_for_block("afternoon", mobile_header="Afternoon Schedule")
+        # Evening rows (only if any day has them)
+        if evening_max:
+            egroups = evenings[k]
+            for r in range(evening_max):
+                row_line = ROW_EVENING_START + r
+                if r < len(egroups) and egroups[r]:
+                    cell = cell_div_html(egroups[r], day_id_registries[k], k)
+                    cells.append(_add_pos_classes(cell, col_idx, row_line))
+                else:
+                    cells.append(
+                        f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{row_line}" role="gridcell" aria-label="Empty"></div>'
+                    )
 
-    # Evening (with header)
-    if any(day_buckets[k]["evening"] for k in ordered_keys):  # type: ignore
-        body_rows += rows_for_block("evening", mobile_header="Evening Schedule")
+    # 6) Wrap (no inline --day-count; optional convenience class instead)
+    daycount_class = f"daycount-{len(ordered_keys)}"
+    return (
+        "<!-- Start of Schedule Grid (column-major DOM) -->\n\n"
+        f'<div class="schedule-grid {daycount_class}" role="grid" aria-label="Summarized schedule">\n'
+        + indent_block("\n".join(cells), 1)
+        + "\n</div>\n\n"
+        "<!-- End of Schedule Grid -->"
+    )
 
-    tbody = "<tbody>\n" + "\n".join(body_rows) + "\n</tbody>"
-    return ("<!-- Start of Schedule Table -->\n\n"
-            "<table class=\"schedule-table\">\n"
-            + indent_block(thead, 1) + "\n"
-            + indent_block(tbody, 1) + "\n"
-            "</table>\n\n"
-            "<!-- End of Schedule Table -->")
 
 
 def main():
