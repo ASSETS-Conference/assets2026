@@ -53,7 +53,7 @@ nav {
   --menu-height: 4rem;
   --menu-padding: 2rem;
 
-  padding: max(2rem, 2vw) max(2rem, 50vw - var(--content-width) / 2);
+  padding: max(var(--menu-padding), 2vw) max(var(--menu-padding), 50vw - var(--content-width) / 2);
 
   display: grid;
   align-items: center;
@@ -94,6 +94,9 @@ nav {
 }
 
 @media only screen and (max-width: 768px) {
+  nav {
+    --menu-padding: 1rem;
+  }
   #nav-logo img {
     width: 18rem;
   }
@@ -490,7 +493,7 @@ body.menu-open {
 
 @media only screen and (max-width: 768px) {
   .content-block-container {
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 }
 
