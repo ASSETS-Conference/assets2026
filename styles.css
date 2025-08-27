@@ -1827,6 +1827,12 @@ ul.jennys-links {
   top: 0.125rem;
 }
 
+@media screen and (max-width: 768px) {
+  .day-navigation {
+    gap: 0.5rem;
+  }
+}
+
 .day-nav-btn {
   display: inline-flex;
   align-items: center;
