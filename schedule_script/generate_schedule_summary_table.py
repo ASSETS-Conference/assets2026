@@ -392,21 +392,23 @@ def group_parallel(sessions: List[Session]) -> List[List[Session]]:
 def cell_div_html(group: List[Session], day_registry: set, day_label: str) -> str:
     """
     Returns a <div class="schedule-grid-td ...">…</div> cell for the div-based grid layout.
-    Adds aria-labels so SR users get: "Monday, 11:30 AM – 12:45 PM: Paper Session 1A — Inclusive Mixed Reality"
+    Adds accessible heading structure inside the cell:
+      - <h3 class="time-heading"> for the time range
+      - <h4 class="session-heading"> wrapping the session title
+    Keeps existing aria-label summaries and visual classes.
     """
     css = group[0].css_class if group else "special-session"
     time_text = format_time_range(group[0].start, group[0].end) if group else ""
-    # Build a brief, friendly ARIA label for the whole cell
+
+    # Build a brief, friendly ARIA label for the whole cell (kept)
     def _aria_for_session(s: Session) -> str:
         if s.code:
-            # Papers
             if s.name:
                 return f"{s.code} — {s.name}"
             return s.code
-        # Non-papers
         return s.title
 
-    aria_label_items = [ _aria_for_session(s) for s in group ]
+    aria_label_items = [_aria_for_session(s) for s in group]
     aria_label = f"{day_label}, {time_text}: " + " | ".join([x for x in aria_label_items if x])
 
     parts: List[str] = []
@@ -414,58 +416,63 @@ def cell_div_html(group: List[Session], day_registry: set, day_label: str) -> st
         show_time = (i == 0)
         href = session_anchor_href(s, day_registry)
 
+        # Time as an h3 once per cell
+        time_h3 = (
+            f'<h3 class="time-heading">{escape_html(time_text)}</h3>'
+            if show_time and time_text else ""
+        )
+
         if css == "paper-sessions" and s.code:
-            if show_time:
-                parts.append(
-                    "<div class=\"session-item\">\n"
-                    f"  <span class=\"session-time\">{escape_html(time_text)}</span>\n"
-                    f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
-                    f"    <span class=\"session-code\">{escape_html(s.code)}</span>\n"
-                    f"    <span class=\"session-name\">{escape_html(s.name)}</span>\n"
-                    f"  </a>\n"
-                    "</div>"
-                )
-            else:
-                parts.append(
-                    "<div class=\"session-item\">\n"
-                    f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
-                    f"    <span class=\"session-code\">{escape_html(s.code)}</span>\n"
-                    f"    <span class=\"session-name\">{escape_html(s.name)}</span>\n"
-                    f"  </a>\n"
-                    "</div>"
-                )
+            # Paper sessions: h4 wraps code+name
+            session_h4 = (
+                '<h4 class="session-heading">'
+                f'<span class="session-code">{escape_html(s.code)}</span>'
+                f'<span class="session-name">{escape_html(s.name)}</span>'
+                '</h4>'
+            )
+            parts.append(
+                "<div class=\"session-item\">\n"
+                f"{time_h3}"
+                f"  <a class=\"session-link\" href=\"{escape_html(href)}\""
+                f"     aria-label=\"{escape_html(time_text + ', ' if time_text else '')}{escape_html(s.code + (': ' + s.name if s.name else ''))}\">\n"
+                f"    {session_h4}\n"
+                "  </a>\n"
+                "</div>"
+            )
         else:
-            # Non-paper sessions
-            if show_time:
-                parts.append(
-                    "<div class=\"session-item\">\n"
-                    f"  <span class=\"session-time\">{escape_html(time_text)}</span>\n"
-                    f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
-                    f"    <span class=\"session-type\">{escape_html(s.title)}</span>\n"
-                    f"  </a>\n"
-                    "</div>"
-                )
-            else:
-                parts.append(
-                    "<div class=\"session-item\">\n"
-                    f"  <a class=\"session-link\" href=\"{escape_html(href)}\">\n"
-                    f"    <span class=\"session-type\">{escape_html(s.title)}</span>\n"
-                    f"  </a>\n"
-                    "</div>"
-                )
+            # Non-paper sessions: h4 wraps the title
+            session_h4 = (
+                '<h4 class="session-heading">'
+                f'<span class="session-type">{escape_html(s.title)}</span>'
+                '</h4>'
+            )
+            parts.append(
+                "<div class=\"session-item\">\n"
+                f"{time_h3}"
+                f"  <a class=\"session-link\" href=\"{escape_html(href)}\""
+                f"     aria-label=\"{escape_html(time_text + ', ' if time_text else '')}{escape_html(s.title)}\">\n"
+                f"    {session_h4}\n"
+                "  </a>\n"
+                "</div>"
+            )
+
         if i < len(group) - 1:
             parts.append("<div class=\"session-divider\"></div>")
 
+    # Note: remove role=\"gridcell\" (not needed; semantic headings carry structure)
     return (
-        f"<div class=\"schedule-grid-td {css}\" role=\"gridcell\" aria-label=\"{escape_html(aria_label)}\">\n"
+        f"<div class=\"schedule-grid-td {css}\" aria-label=\"{escape_html(aria_label)}\">\n"
         + indent_block("\n".join(parts), 1)
         + "\n</div>"
     )
 
+
 def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
     """
     Column-major DOM (day-by-day reading order) with NO inline grid placement.
-    Cells get classes 'gc-{col}' (grid column) and 'gr-{row}' (grid row).
+    Adds semantic headings:
+      - Each day header cell contains <h2 class="day-heading">
+    Removes ARIA grid roles so screen readers treat this as regular content.
     """
     # 1) Order days Monday→… by actual date
     day_order: List[Tuple[Optional[date], str]] = []
@@ -491,14 +498,13 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
     LUNCH_ROWS = 1
 
     # 4) Row indices (1-based for CSS grid lines)
-    # row 1 = column headers
     ROW_HEADER = 1
     ROW_MORNING_START = ROW_HEADER + 1
     ROW_LUNCH = ROW_MORNING_START + morning_max
     ROW_AFTERNOON_START = ROW_LUNCH + LUNCH_ROWS
     ROW_EVENING_START = ROW_AFTERNOON_START + afternoon_max
 
-    # Helper: add gc/gr classes into the opening <div class="schedule-grid-td ...">
+    # Helper: add gc/gr classes into opening cell tag
     def _add_pos_classes(cell_html: str, col: int, row: int) -> str:
         return re.sub(
             r'^<div class="schedule-grid-td([^"]*)"',
@@ -512,9 +518,12 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
     # 5) Emit per-day in DOM order (column-major)
     for col_idx, k in enumerate(ordered_keys, start=1):
         header_text = str(day_buckets[k]["header"])  # type: ignore
-        # Column header cell (top row)
+
+        # Day header cell with an actual <h2>
         cells.append(
-            f'<div class="schedule-grid-th gc-{col_idx} gr-{ROW_HEADER}" role="columnheader">{escape_html(header_text)}</div>'
+            f'<div class="schedule-grid-th gc-{col_idx} gr-{ROW_HEADER}">'
+            f'<h2 class="day-heading">{escape_html(header_text)}</h2>'
+            f'</div>'
         )
 
         # Morning rows
@@ -526,7 +535,7 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
                 cells.append(_add_pos_classes(cell, col_idx, row_line))
             else:
                 cells.append(
-                    f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{row_line}" role="gridcell" aria-label="Empty"></div>'
+                    f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{row_line}" aria-label="Empty"></div>'
                 )
 
         # Lunch row (first lunch per day if present)
@@ -537,7 +546,7 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
             cells.append(_add_pos_classes(cell, col_idx, ROW_LUNCH))
         else:
             cells.append(
-                f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{ROW_LUNCH}" role="gridcell" aria-label="No lunch slot"></div>'
+                f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{ROW_LUNCH}" aria-label="No lunch slot"></div>'
             )
 
         # Afternoon rows
@@ -549,10 +558,10 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
                 cells.append(_add_pos_classes(cell, col_idx, row_line))
             else:
                 cells.append(
-                    f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{row_line}" role="gridcell" aria-label="Empty"></div>'
+                    f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{row_line}" aria-label="Empty"></div>'
                 )
 
-        # Evening rows (only if any day has them)
+        # Evenings (if any)
         if evening_max:
             egroups = evenings[k]
             for r in range(evening_max):
@@ -562,19 +571,19 @@ def render_table(day_buckets: Dict[str, Dict[str, List[Session]]]) -> str:
                     cells.append(_add_pos_classes(cell, col_idx, row_line))
                 else:
                     cells.append(
-                        f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{row_line}" role="gridcell" aria-label="Empty"></div>'
+                        f'<div class="schedule-grid-td empty-cell gc-{col_idx} gr-{row_line}" aria-label="Empty"></div>'
                     )
 
-    # 6) Wrap (no inline --day-count; optional convenience class instead)
     daycount_class = f"daycount-{len(ordered_keys)}"
+
+    # NOTE: removed role="grid" (semantic headings make this navigable)
     return (
         "<!-- Start of Schedule Grid (column-major DOM) -->\n\n"
-        f'<div class="schedule-grid {daycount_class}" role="grid" aria-label="Summarized schedule">\n'
+        f'<div class="schedule-grid {daycount_class}" aria-label="Summarized schedule">\n'
         + indent_block("\n".join(cells), 1)
         + "\n</div>\n\n"
         "<!-- End of Schedule Grid -->"
     )
-
 
 
 def main():

@@ -2556,3 +2556,22 @@ ul.jennys-links {
     background-color: color-mix(in srgb, var(--accent-color), transparent 85%);
   }
 }
+
+div h2.day-heading {
+  margin: 0;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--light-text);
+}
+div h3.time-heading {
+  margin: 0 0 0.5rem 0;
+  font-family: 'Drafting', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+div h4.session-heading {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  line-height: 1.3;
+}
