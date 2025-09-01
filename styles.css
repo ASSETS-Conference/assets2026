@@ -2179,7 +2179,6 @@ ul.jennys-links {
   margin: 0.75rem 0;
 }
 
-/* (Optional) Mobile section header, if you emit one separately */
 .schedule-grid .mobile-section-header {
   display: none;
 }
@@ -2203,7 +2202,6 @@ ul.jennys-links {
     padding: 1rem;
   }
 
-  /* Tweak inner sizes to match your prior mobile table styles */
   .schedule-grid-td .session-code {
     font-size: 0.9rem;
   }
@@ -2306,7 +2304,6 @@ ul.jennys-links {
   gap: 0;
 }
 
-/* Optional: day count helpers (so you can output class="schedule-grid daycount-3") */
 .schedule-grid.daycount-1 {
   --day-count: 1;
 }
@@ -2353,7 +2350,6 @@ ul.jennys-links {
 }
 
 /* ---- Position helpers ---- */
-/* Columns (extend if you ever have >7 days) */
 .schedule-grid .gc-1 {
   grid-column: 1;
 }
@@ -2438,7 +2434,6 @@ ul.jennys-links {
   grid-row: 20;
 }
 
-/* Category backgrounds (same as before) */
 .schedule-grid-td.paper-sessions {
   background-color: color-mix(in srgb, var(--accent-color2), transparent 97%);
 }
