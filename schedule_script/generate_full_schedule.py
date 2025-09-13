@@ -2,17 +2,16 @@
 """
 Generate the **Full Schedule** HTML sections from the ASSETS 2025 content CSV.
 
-This version parses titles and authors directly from each `Paper N` cell and
-adds stable anchor IDs to each time-slot so you can cross-link from elsewhere.
-
-Anchor ID pattern (example):
-  monday-paper-session-1a-inclusive-mixed-reality-0900-1045
-  tuesday-coffee-break-1030-1100
-If duplicates arise, a suffix -x2, -x3, ... is appended to ensure uniqueness.
+Now supports plugging in day-specific Poster Session CSVs (Posters, Demos,
+Doctoral Consortium), grouped and rendered inside the Poster Session slot.
 
 Usage:
     python generate_full_schedule.py /path/to/content.csv > full_schedule.html
-    python generate_full_schedule.py /path/to/content.csv -o full_schedule.html
+    python generate_full_schedule.py /path/to/content.csv \
+        --poster-csv monday=/path/to/Posters-Monday.csv \
+        --poster-csv tuesday=/path/to/Posters-Tuesday.csv \
+        --poster-csv wednesday=/path/to/Posters-Wednesday.csv \
+        -o full_schedule.html
 """
 import sys, re, argparse
 from pathlib import Path
@@ -32,7 +31,6 @@ MONTH_NAMES = {
     7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"
 }
 
-# Abbreviations for short date label
 WEEKDAY_ABBR = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
 MONTH_ABBR = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
 
@@ -40,10 +38,8 @@ def safe_cell_str(row, colname: str) -> str:
     v = row.get(colname)
     if v is None:
         return ""
-    # Catch pandas NA/NaN
     if pd.isna(v):
         return ""
-    # Defensive: also handle plain float NaN
     if isinstance(v, float) and math.isnan(v):
         return ""
     return str(v).strip()
@@ -58,10 +54,6 @@ def _parse_date_any(date_str: str):
     return None
 
 def parse_date_label_short(date_str: str) -> str:
-    """
-    Turn '10/27/2025' into 'Mon Oct 27 ’25' (note the curly apostrophe).
-    Falls back to the original string if parsing fails.
-    """
     dt = _parse_date_any(date_str)
     if not dt:
         return str(date_str).strip()
@@ -71,17 +63,12 @@ def parse_date_label_short(date_str: str) -> str:
     return f"{wd} {mo} {dt.day} \u2019{yr2:02d}"
 
 def date_iso_attr(date_str: str) -> str:
-    """
-    ISO-8601 date for <time datetime="..."> attribute, e.g., '2025-10-27'.
-    Falls back to the input string if parsing fails.
-    """
     dt = _parse_date_any(date_str)
     if not dt:
         return str(date_str).strip()
     return dt.strftime("%Y-%m-%d")
 
 def parse_date_label(date_str: str) -> str:
-    """Turn '10/27/2025' into 'Monday, October 27, 2025'."""
     date_str = str(date_str).strip()
     dt = None
     for fmt in ("%m/%d/%Y","%Y-%m-%d","%m-%d-%Y"):
@@ -97,7 +84,6 @@ def parse_date_label(date_str: str) -> str:
     return f"{weekday}, {month} {dt.day}, {dt.year}"
 
 def date_anchor_id(date_str: str) -> str:
-    """Map a date to an anchor id used in your HTML ('monday', 'tuesday', ...)."""
     for fmt in ("%m/%d/%Y","%Y-%m-%d","%m-%d-%Y"):
         try:
             dt = datetime.strptime(str(date_str).strip(), fmt)
@@ -107,15 +93,12 @@ def date_anchor_id(date_str: str) -> str:
     return slugify(str(date_str).strip())
 
 def normalize_time_range(time_str: str) -> str:
-    """Normalize '9:00AM-10:45AM' to '9:00 AM – 10:45 AM'; keep 'TBD' as-is."""
     if not isinstance(time_str, str):
         return ""
     t = time_str.strip()
     if t.upper() == "TBD":
         return "TBD"
-    # ensure spaces before AM/PM
     t = re.sub(r"(?i)\s*(AM|PM)", r" \1", t)
-    # normalize separators
     t = t.replace("-", " – ")
     t = re.sub(r"\s+", " ", t).strip()
     return t
@@ -124,10 +107,6 @@ def html_escape(text: str) -> str:
     return (text or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 def slugify(s: str) -> str:
-    """
-    ASCII slug: lowercase, strip accents, keep a–z0–9 and hyphens,
-    collapse whitespace and punctuation to single hyphen.
-    """
     if not s:
         return ""
     s = unicodedata.normalize("NFKD", s)
@@ -139,14 +118,9 @@ def slugify(s: str) -> str:
     return s
 
 def _parse_single_time_to_24h_token(t: str):
-    """
-    Parse a single time like '9', '9:00', '9:00 AM', '14:15' -> '0900', '1415'.
-    Returns None if cannot parse.
-    """
     if not isinstance(t, str):
         return None
     s = t.strip().lower()
-    # capture am/pm if present
     m = re.match(r"^(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)?$", s)
     if not m:
         return None
@@ -158,16 +132,10 @@ def _parse_single_time_to_24h_token(t: str):
             hh = 0 if ampm == "am" else 12
         elif ampm == "pm":
             hh += 12
-    # clamp minutes
     mm = max(0, min(mm, 59))
     return f"{hh:02d}{mm:02d}"
 
 def time_range_token(time_str: str) -> str:
-    """
-    Convert a possibly messy time range into HHMM-HHMM token; 'TBD' -> 'tbd'.
-    Accepts forms like:
-      '9:00 AM – 10:45 AM', '09:00-10:45', '9-10:45am', 'TBD'
-    """
     if not isinstance(time_str, str):
         return ""
     s = time_str.strip()
@@ -175,29 +143,21 @@ def time_range_token(time_str: str) -> str:
         return ""
     if s.upper() == "TBD":
         return "tbd"
-
-    # try to split on en dash, em dash, or hyphen
     parts = re.split(r"\s*[–—-]\s*", s)
     if len(parts) != 2:
-        # not a proper range, try parse as single time
         tok = _parse_single_time_to_24h_token(s)
         return tok or ""
     start_raw, end_raw = parts[0], parts[1]
-
-    # If AM/PM is only on the end, copy it to start for parsing convenience
     ampm_end = re.search(r"(?i)\b([AP]\.?M\.?)\b", end_raw or "")
     if ampm_end and not re.search(r"(?i)\b([AP]\.?M\.?)\b", start_raw or ""):
         start_raw = f"{start_raw} {ampm_end.group(1)}"
-
     start_tok = _parse_single_time_to_24h_token(start_raw)
     end_tok = _parse_single_time_to_24h_token(end_raw)
     if start_tok and end_tok:
         return f"{start_tok}-{end_tok}"
-    # fallback
     return slugify(s)
 
 def classify_slot(session_type: str) -> str:
-    """Return a CSS class for the time-slot based on the Session Type string."""
     if not isinstance(session_type, str):
         return "time-slot"
     st = session_type.strip().lower()
@@ -219,11 +179,6 @@ def classify_slot(session_type: str) -> str:
     return "time-slot"
 
 def extract_paper_tag_and_title(raw_title: str):
-    """
-    Titles may begin with a tag in parentheses:
-      (TACCESS) ... / (ER) ... / (Short Paper) ... / (Honorable Mention) ...
-    Returns (tag_class, tag_label, clean_title).
-    """
     tag_class, tag_label = None, None
     title = (raw_title or "").strip()
     m = re.match(r"^\(([^)]+)\)\s*(.*)$", title)
@@ -246,11 +201,6 @@ def extract_paper_tag_and_title(raw_title: str):
     return tag_class, tag_label, title
 
 def parse_paper_cell(cell_text: str):
-    """
-    Parse a Paper cell into (title, authors_list).
-    - First non-empty line is title (may include tag).
-    - Remaining lines (or part after a separator) are authors.
-    """
     if not isinstance(cell_text, str):
         return "", []
     lines = [ln.strip() for ln in cell_text.splitlines() if ln.strip()]
@@ -263,29 +213,171 @@ def parse_paper_cell(cell_text: str):
             if sep in title_line:
                 title_line, authors_blob = [part.strip() for part in title_line.split(sep, 1)]
                 break
-    authors = [a.strip() for a in authors_blob.split(";") if a.strip()] if authors_blob else []
+    authors = [a.strip() for a in re.split(r";", authors_blob) if a.strip()] if authors_blob else []
     return title_line, authors
+
+# ---------------------------- Posters ingestion ----------------------------
+
+POSTER_TYPE_ORDER = ["posters", "demos", "doctoral consortium"]
+
+def _norm_col(df, targets):
+    """Find first matching column (case/space-insensitive); return its name or None."""
+    norm = {re.sub(r"\s+", "", c.strip().lower()): c for c in df.columns}
+    for t in targets:
+        key = re.sub(r"\s+", "", t.strip().lower())
+        if key in norm:
+            return norm[key]
+    return None
+
+def _split_authors(auth_blob: str):
+    if not isinstance(auth_blob, str) or not auth_blob.strip():
+        return []
+    s = auth_blob.strip()
+    if ";" in s:
+        parts = [p.strip() for p in s.split(";")]
+    else:
+        # Split on commas not inside (...)
+        parts = [p.strip() for p in re.split(r",(?![^()]*\))", s)]
+    return [p for p in parts if p]
+
+
+
+def load_posters_csv(path: str) -> pd.DataFrame:
+    """
+    Load a poster CSV and return a tidy DF with columns:
+      Presentation Type (forward-filled), Title, Authors
+    Accepts flexible column headers.
+    """
+    df = pd.read_csv(path)
+    # Flexible headers
+    type_col = _norm_col(df, ["Presentation Type", "Type", "Category"])
+    title_col = _norm_col(df, ["Title", "Paper Title", "Work Title", "Demo Title"])
+    authors_col = _norm_col(df, ["Authors", "Author(s)", "Author List"])
+
+    if not title_col:
+        raise ValueError(f"{path}: could not find a Title column")
+    if not type_col:
+        # If type is truly absent, assume all are Posters
+        df["Presentation Type"] = "Posters"
+        type_col = "Presentation Type"
+    # Forward-fill type (only first row in block has it)
+    df[type_col] = df[type_col].ffill()
+
+    # Normalize & trim
+    out = pd.DataFrame({
+        "Presentation Type": df[type_col].astype(str).str.strip(),
+        "Title": df[title_col].astype(str).str.strip(),
+        "Authors": df[authors_col].astype(str).fillna("").str.strip() if authors_col else ""
+    })
+    # Drop empty titles
+    out = out[out["Title"].astype(str).str.strip() != ""].copy()
+    return out
+
+def normalize_type_label(t: str) -> str:
+    """Canonical labels for grouping/order."""
+    key = (t or "").strip().lower()
+    if key.startswith("poster"):
+        return "Posters"
+    if key.startswith("demo"):
+        return "Demos"
+    if key == "src" or "student research competition" in key:
+        return "Student Research Competition"
+    if key == "dc" or key.startswith("doctoral"):
+        return "Doctoral Consortium"
+    return t.strip().title() if t else "Posters"
+
+
+# Robustly capture "(...)" at end, including nested parentheses
+AFFIL_RE = re.compile(r"^(?P<name>.*?)\s*\((?P<aff>.*)\)\s*$")
+
+def render_author_li(author_text: str) -> str:
+    a = (author_text or "").strip()
+    if not a:
+        return ""
+    m = AFFIL_RE.match(a)
+    if m:
+        name = html_escape(m.group("name").strip().strip(",;"))
+        aff  = html_escape((m.group("aff") or "").strip())
+        if aff:
+            # NOTE: space is inside the affiliation span
+            return f'                      <li>{name}<span class="affiliation"> {aff}</span></li>'
+        # If empty parens somehow, fall through to plain name
+        a = name
+    return f'                      <li>{html_escape(a)}</li>'
+
+
+
+def render_poster_item(title: str, authors_blob: str) -> str:
+    authors = _split_authors(authors_blob)
+    parts = []
+    parts.append('                  <div class="paper-item">')
+    parts.append('                    <h6 class="paper-title">')
+    parts.append(f'                      {html_escape(title)}')
+    parts.append('                    </h6>')
+    if authors:
+        parts.append('                    <!-- prettier-ignore -->')
+        parts.append('                    <ul class="author-list">')
+        for a in authors:
+            parts.append(render_author_li(a))
+        parts.append('                    </ul>')
+    parts.append('                  </div>')
+    return "\n".join(parts)
+
+def render_posters_block(df_posters: pd.DataFrame) -> str:
+    """
+    Render grouped Posters/SRC/Demos/DC inside a <div class="program-block posters-block">.
+    """
+    if df_posters is None or df_posters.empty:
+        return ""
+    df = df_posters.copy()
+    df["__Type"] = df["Presentation Type"].map(normalize_type_label)
+
+    # Preserve first-seen order but prefer canonical sequence
+    seen = []
+    for t in df["__Type"]:
+        if t not in seen:
+            seen.append(t)
+    preferred_order = ["Posters", "Student Research Competition", "Demos", "Doctoral Consortium"]
+    preferred = [lbl for lbl in preferred_order if lbl in seen]
+    others = [lbl for lbl in seen if lbl not in preferred]
+    ordered_types = preferred + others
+
+    groups_html = []
+    for t in ordered_types:
+        sub = df[df["__Type"] == t]
+        if sub.empty:
+            continue
+        items = []
+        for _, r in sub.iterrows():
+            items.append(render_poster_item(r.get("Title",""), r.get("Authors","")))
+        group_html = [
+            '                <div class="poster-group">',
+            f'                  <h5 class="poster-group-title">{html_escape(t)}</h5>',
+            '                  <div class="paper-list">',
+            "\n".join(items),
+            '                  </div>',
+            '                </div>'
+        ]
+        groups_html.append("\n".join(group_html))
+
+    if not groups_html:
+        return ""
+    return "\n".join([
+        '              <div class="program-block posters-block">',
+        "\n".join(groups_html),
+        '              </div>'
+    ])
+
 
 # ---------------------------- Slot ID generation ----------------------------
 
 def make_slot_id(day_anchor: str, time_text: str, session_type: str, session_name: str, registry: set) -> str:
-    """
-    Build a stable, readable, unique anchor ID for a time-slot.
-    Pattern: {day}-{session-type}-{session-name?}-{time-token}
-    Examples:
-      monday-paper-session-1a-inclusive-mixed-reality-0900-1045
-      tuesday-coffee-break-1030-1100
-      wednesday-keynote-opening-0900-1000
-    Uniqueness is enforced within the day via -x2, -x3... suffix.
-    """
     st_slug = slugify(session_type or "")
     sn_slug = slugify(session_name or "")
-    # Use normalized "pretty" time (already formatted) to extract a compact token
     ttok = time_range_token(time_text or "")
     parts = [p for p in [day_anchor, st_slug, sn_slug or None, ttok or None] if p]
     base = "-".join(parts) if parts else day_anchor or "timeslot"
     anchor = base
-    # Ensure uniqueness (within page: we track per-day in render_day_section)
     i = 2
     while anchor in registry:
         anchor = f"{base}-x{i}"
@@ -301,36 +393,29 @@ def render_paper_item_from_cell(cell_text: str):
 
     parts = []
     parts.append('                  <div class="paper-item">')
-
-    # Heading: prepend any tag pill(s) INSIDE the <h6>
     parts.append('                    <h6 class="paper-title">')
     if tag_class and tag_label:
         parts.append(f'                      <span class="paper-tag {tag_class}">{html_escape(tag_label)}</span>')
     parts.append(f'                      {html_escape(clean_title)}')
     parts.append('                    </h6>')
-
     if authors_list:
+        parts.append('                    <!-- prettier-ignore -->')
         parts.append('                    <ul class="author-list">')
         for a in authors_list:
-            parts.append(f'                      <li>{html_escape(a)}</li>')
+            parts.append(render_author_li(a))
         parts.append('                    </ul>')
-
     parts.append('                  </div>')
     return "\n".join(parts)
 
-
-
-
 def render_paper_list(row):
     papers = []
-    for i in range(1, 50):  # future-proof upper bound
+    for i in range(1, 50):
         col = f"Paper {i}"
         if col in row and isinstance(row[col], str) and row[col].strip():
             papers.append(render_paper_item_from_cell(row[col]))
     return "\n".join(papers)
 
-def render_time_slot(row, day_anchor: str, id_registry: set):
-    # Time text as shown in UI
+def render_time_slot(row, day_anchor: str, id_registry: set, posters_by_day: dict):
     time_text = normalize_time_range(
         safe_cell_str(row, "Time (MT) ") or safe_cell_str(row, "Time (MT)")
     )
@@ -338,7 +423,6 @@ def render_time_slot(row, day_anchor: str, id_registry: set):
     session_name = safe_cell_str(row, "Session Name")
     slot_class = classify_slot(session_type)
 
-    # Build a stable, unique anchor id for this slot
     slot_id = make_slot_id(day_anchor, time_text, session_type, session_name, id_registry)
 
     header = []
@@ -354,27 +438,34 @@ def render_time_slot(row, day_anchor: str, id_registry: set):
         header.append(f'                <h4 class="slot-title">{html_escape(session_type)}</h4>')
     header.append('              </div>')
 
-    block = ""
+    blocks = []
+
+    # Papers block
     if session_type.lower().startswith("paper session"):
         paper_html = render_paper_list(row)
         if paper_html:
-            block = "\n".join([
-                "              ",
+            blocks.append("\n".join([
                 '              <div class="program-block">',
                 '                <div class="paper-list">',
                 paper_html,
                 '                </div>',
                 '              </div>'
-            ])
+            ]))
+
+    # Posters block (if this is a Poster Session and we have a CSV for the day)
+    if "poster session" in (session_type or "").strip().lower():
+        df_posters = posters_by_day.get(day_anchor)
+        posters_html = render_posters_block(df_posters) if df_posters is not None else ""
+        if posters_html:
+            blocks.append(posters_html)
 
     footer = ["            </div>"]
-    return "\n".join(header + ([block] if block else []) + footer)
+    return "\n".join(header + blocks + footer)
 
-def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: str, next_anchor: str) -> str:
+def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: str, next_anchor: str, posters_by_day: dict) -> str:
     label = parse_date_label(date_str)
     anchor = date_anchor_id(date_str)
 
-    # Track IDs within this day to prevent duplicates
     id_registry = set()
 
     html = []
@@ -402,19 +493,47 @@ def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: s
     html.append('            </div>')
 
     for _, r in rows_for_day.iterrows():
-        html.append(render_time_slot(r, anchor, id_registry))
+        html.append(render_time_slot(r, anchor, id_registry, posters_by_day))
 
     html.append('          </section>')
     return "\n".join(html)
 
 # ---------------------------- Main ----------------------------
 
+def parse_poster_args(items):
+    """
+    Parse repeated --poster-csv DAY=PATH pairs into {day_anchor: DataFrame}.
+    DAY is one of monday/tuesday/wednesday/thursday/friday/saturday/sunday (case-insensitive).
+    """
+    mapping = {}
+    if not items:
+        return mapping
+    for it in items:
+        if "=" not in it:
+            raise ValueError(f"--poster-csv must be DAY=PATH, got: {it}")
+        day, path = it.split("=", 1)
+        day_key = day.strip().lower()
+        day_key = re.sub(r"[^a-z]", "", day_key)
+        if day_key not in ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]:
+            raise ValueError(f"Unrecognized DAY for --poster-csv: {day}")
+        dfp = load_posters_csv(path.strip())
+        mapping[day_key] = dfp
+    return mapping
+
 def main():
-    ap = argparse.ArgumentParser(description="Generate Full Schedule HTML from content CSV (authors parsed in-cell) with stable anchor IDs per time-slot.")
+    ap = argparse.ArgumentParser(description="Generate Full Schedule HTML from content CSV (authors parsed in-cell) with stable anchor IDs per time-slot. Supports Poster Session CSVs via --poster-csv DAY=PATH.")
     ap.add_argument("csv", help="Path to content.csv")
     ap.add_argument("-o","--output", help="Write HTML to this file (defaults to stdout)")
+    ap.add_argument("--poster-csv", action="append", default=[],
+                    help="Attach a poster CSV to a weekday, e.g., --poster-csv monday=/path/to/Posters-Monday.csv (repeatable)")
     args = ap.parse_args()
 
+    # Load poster CSVs (optional)
+    posters_map = parse_poster_args(args.poster_csv)  # day_name -> df
+    # We'll map day anchor names ('monday', ...) to DFs directly
+    posters_by_day = dict(posters_map)
+
+    # Load main schedule
     df = pd.read_csv(args.csv)
     if "Time (MT) " not in df.columns and "Time (MT)" in df.columns:
         df["Time (MT) "] = df["Time (MT)"]
@@ -422,7 +541,6 @@ def main():
         raise ValueError("CSV is missing required column 'Date'")
     df["Date"] = df["Date"].ffill()
 
-    # keep only rows that actually have a session
     df = df[df["Session Type"].notna() & (df["Session Type"].astype(str).str.strip() != "")].copy()
     days = [(date, sub) for date, sub in df.groupby("Date", sort=False)]
     anchors = [date_anchor_id(d) for d,_ in days]
@@ -431,7 +549,7 @@ def main():
     for i, (date, sub) in enumerate(days):
         prev_a = anchors[i-1] if i > 0 else None
         next_a = anchors[i+1] if i+1 < len(anchors) else None
-        out_lines.append(render_day_section(date, sub, prev_a, next_a))
+        out_lines.append(render_day_section(date, sub, prev_a, next_a, posters_by_day))
 
     html = "\n\n".join(out_lines)
     if args.output:
