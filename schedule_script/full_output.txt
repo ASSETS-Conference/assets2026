@@ -113,40 +113,6 @@
                   </div>
                   <div class="paper-item">
                     <h6 class="paper-title">
-                      Can Role-Based LLM Dialogue Improve Understanding of Accessibility Issues?
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Akihiro Miyata<span class="affiliation"> Nihon University</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      An Initial Exploration of Low-Cost VR for People With Mobility Disability
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Anna Steffens<span class="affiliation"> Karlsruhe Institute of Technology (KIT)</span></li>
-                      <li>Dmitry Alexandrovsky<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
-                      <li>Kathrin Gerling<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
-                      <li>Marvin Wolf<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      MVAuLT: Authoring Interpretive Alt Text for Music Videos
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Vera L. Zhong<span class="affiliation"> University of California, Santa Cruz</span></li>
-                      <li>Ace S. Chen<span class="affiliation"> University of California, Santa Cruz</span></li>
-                      <li>Dipika Rajesh<span class="affiliation"> University of California, Santa Cruz</span></li>
-                      <li>Madison Gruender<span class="affiliation"> University of California, Santa Cruz</span></li>
-                      <li>Kathryn E. Ringland<span class="affiliation"> University of California, Santa Cruz</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
                       Can Generative AI Create Accessible Websites?
                     </h6>
                     <!-- prettier-ignore -->
@@ -255,6 +221,56 @@
                   </div>
                 </div>
                 <div class="poster-group">
+                  <h5 class="poster-group-title">Student Research Competition</h5>
+                  <div class="paper-list">
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      &quot;I can’t just Google it&quot;: Technology Needs of Adult Braille Learners
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Quan Zhou</li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Designing Accessible Calendar Tools for Blind and Low-Vision Users
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Mr. Mahmut Erdemli</li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      AmblyOverlay: An Input-Transparent Assistive Overlay for Binocular Visual Therapy and Dichoptic Filtering
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Pooja Thaker</li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Enhancing Accessibility in Webtoons: Investigating Audio Effect Placement Strategies for Visually Impaired Users
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Heewon Lee</li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      SignStreamNet: Streaming Sign Language Video-to-Text Translation for Accessibility
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Warfa Ahmed</li>
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+                <div class="poster-group">
                   <h5 class="poster-group-title">Demos</h5>
                   <div class="paper-list">
                   <div class="paper-item">
@@ -286,18 +302,6 @@
                   </div>
                   <div class="paper-item">
                     <h6 class="paper-title">
-                      A Customizable AI-Powered Automatic Text Simplification Tool for Supporting In-Situ Text Comprehension
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Nazmun Nahar Khanom<span class="affiliation"> Tulane University</span></li>
-                      <li>Aaron Gershkovich<span class="affiliation"> Tulane University</span></li>
-                      <li>Oliver Alonzo<span class="affiliation"> DePaul University</span></li>
-                      <li>Saad Hassan<span class="affiliation"> Tulane University</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
                       Explore, Listen, Inspect: Supporting Multimodal Interaction with 3D Surface and Point Data Visualizations
                     </h6>
                     <!-- prettier-ignore -->
@@ -318,20 +322,6 @@
                       <li>Mert Baska<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
                       <li>Kathrin Gerling<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
                       <li>Dmitry Alexandrovsky<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      EchoMall: Prototyping GenAI-powered Vision-Free Online Shopping Experience for Blind and Low-Vision Customers
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Kaiyuan Tang<span class="affiliation"> University College London</span></li>
-                      <li>Kerui Chen<span class="affiliation"> University College London</span></li>
-                      <li>tian qing<span class="affiliation"> University College London</span></li>
-                      <li>Zhou Jiang<span class="affiliation"> University College London</span></li>
-                      <li>Qiuyu Lin<span class="affiliation"> University College London</span></li>
-                      <li>Tianming Xu<span class="affiliation"> University College London</span></li>
                     </ul>
                   </div>
                   <div class="paper-item">
@@ -838,40 +828,6 @@
                   </div>
                   <div class="paper-item">
                     <h6 class="paper-title">
-                      Can Role-Based LLM Dialogue Improve Understanding of Accessibility Issues?
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Akihiro Miyata<span class="affiliation"> Nihon University</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      An Initial Exploration of Low-Cost VR for People With Mobility Disability
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Anna Steffens<span class="affiliation"> Karlsruhe Institute of Technology (KIT)</span></li>
-                      <li>Dmitry Alexandrovsky<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
-                      <li>Kathrin Gerling<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
-                      <li>Marvin Wolf<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      MVAuLT: Authoring Interpretive Alt Text for Music Videos
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Vera L. Zhong<span class="affiliation"> University of California, Santa Cruz</span></li>
-                      <li>Ace S. Chen<span class="affiliation"> University of California, Santa Cruz</span></li>
-                      <li>Dipika Rajesh<span class="affiliation"> University of California, Santa Cruz</span></li>
-                      <li>Madison Gruender<span class="affiliation"> University of California, Santa Cruz</span></li>
-                      <li>Kathryn E. Ringland<span class="affiliation"> University of California, Santa Cruz</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
                       Can Generative AI Create Accessible Websites?
                     </h6>
                     <!-- prettier-ignore -->
@@ -980,6 +936,56 @@
                   </div>
                 </div>
                 <div class="poster-group">
+                  <h5 class="poster-group-title">Student Research Competition</h5>
+                  <div class="paper-list">
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      &quot;I can’t just Google it&quot;: Technology Needs of Adult Braille Learners
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Quan Zhou</li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Designing Accessible Calendar Tools for Blind and Low-Vision Users
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Mr. Mahmut Erdemli</li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      AmblyOverlay: An Input-Transparent Assistive Overlay for Binocular Visual Therapy and Dichoptic Filtering
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Pooja Thaker</li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Enhancing Accessibility in Webtoons: Investigating Audio Effect Placement Strategies for Visually Impaired Users
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Heewon Lee</li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      SignStreamNet: Streaming Sign Language Video-to-Text Translation for Accessibility
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Warfa Ahmed</li>
+                    </ul>
+                  </div>
+                  </div>
+                </div>
+                <div class="poster-group">
                   <h5 class="poster-group-title">Demos</h5>
                   <div class="paper-list">
                   <div class="paper-item">
@@ -1011,18 +1017,6 @@
                   </div>
                   <div class="paper-item">
                     <h6 class="paper-title">
-                      A Customizable AI-Powered Automatic Text Simplification Tool for Supporting In-Situ Text Comprehension
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Nazmun Nahar Khanom<span class="affiliation"> Tulane University</span></li>
-                      <li>Aaron Gershkovich<span class="affiliation"> Tulane University</span></li>
-                      <li>Oliver Alonzo<span class="affiliation"> DePaul University</span></li>
-                      <li>Saad Hassan<span class="affiliation"> Tulane University</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
                       Explore, Listen, Inspect: Supporting Multimodal Interaction with 3D Surface and Point Data Visualizations
                     </h6>
                     <!-- prettier-ignore -->
@@ -1043,20 +1037,6 @@
                       <li>Mert Baska<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
                       <li>Kathrin Gerling<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
                       <li>Dmitry Alexandrovsky<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      EchoMall: Prototyping GenAI-powered Vision-Free Online Shopping Experience for Blind and Low-Vision Customers
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Kaiyuan Tang<span class="affiliation"> University College London</span></li>
-                      <li>Kerui Chen<span class="affiliation"> University College London</span></li>
-                      <li>tian qing<span class="affiliation"> University College London</span></li>
-                      <li>Zhou Jiang<span class="affiliation"> University College London</span></li>
-                      <li>Qiuyu Lin<span class="affiliation"> University College London</span></li>
-                      <li>Tianming Xu<span class="affiliation"> University College London</span></li>
                     </ul>
                   </div>
                   <div class="paper-item">
@@ -1732,6 +1712,40 @@
                   </div>
                   <div class="paper-item">
                     <h6 class="paper-title">
+                      Can Role-Based LLM Dialogue Improve Understanding of Accessibility Issues?
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Akihiro Miyata<span class="affiliation"> Nihon University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      An Initial Exploration of Low-Cost VR for People With Mobility Disability
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Anna Steffens<span class="affiliation"> Karlsruhe Institute of Technology (KIT)</span></li>
+                      <li>Dmitry Alexandrovsky<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                      <li>Kathrin Gerling<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                      <li>Marvin Wolf<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      MVAuLT: Authoring Interpretive Alt Text for Music Videos
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Vera L. Zhong<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Ace S. Chen<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Dipika Rajesh<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Madison Gruender<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Kathryn E. Ringland<span class="affiliation"> University of California, Santa Cruz</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
                       Highly Intelligible Text-to-Speech System Based on Weighted Averaging of Parameters for Individuals with Spinal Muscular Atrophy
                     </h6>
                     <!-- prettier-ignore -->
@@ -1772,56 +1786,6 @@
                   </div>
                 </div>
                 <div class="poster-group">
-                  <h5 class="poster-group-title">Student Research Competition</h5>
-                  <div class="paper-list">
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      &quot;I can’t just Google it&quot;: Technology Needs of Adult Braille Learners
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Quan Zhou</li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      Designing Accessible Calendar Tools for Blind and Low-Vision Users
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Mr. Mahmut Erdemli</li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      AmblyOverlay: An Input-Transparent Assistive Overlay for Binocular Visual Therapy and Dichoptic Filtering
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Pooja Thaker</li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      Enhancing Accessibility in Webtoons: Investigating Audio Effect Placement Strategies for Visually Impaired Users
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Heewon Lee</li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      SignStreamNet: Streaming Sign Language Video-to-Text Translation for Accessibility
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Warfa Ahmed</li>
-                    </ul>
-                  </div>
-                  </div>
-                </div>
-                <div class="poster-group">
                   <h5 class="poster-group-title">Demos</h5>
                   <div class="paper-list">
                   <div class="paper-item">
@@ -1844,6 +1808,32 @@
                       <li>Tomoya Murakami<span class="affiliation"> Japan Broadcasting Corporation</span></li>
                       <li>Tsubasa Uchida<span class="affiliation"> Japan Broadcasting Corporation</span></li>
                       <li>Hiroyuki Kaneko<span class="affiliation"> Japan Broadcasting Corporation</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      A Customizable AI-Powered Automatic Text Simplification Tool for Supporting In-Situ Text Comprehension
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Nazmun Nahar Khanom<span class="affiliation"> Tulane University</span></li>
+                      <li>Aaron Gershkovich<span class="affiliation"> Tulane University</span></li>
+                      <li>Oliver Alonzo<span class="affiliation"> DePaul University</span></li>
+                      <li>Saad Hassan<span class="affiliation"> Tulane University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      EchoMall: Prototyping GenAI-powered Vision-Free Online Shopping Experience for Blind and Low-Vision Customers
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Kaiyuan Tang<span class="affiliation"> University College London</span></li>
+                      <li>Kerui Chen<span class="affiliation"> University College London</span></li>
+                      <li>tian qing<span class="affiliation"> University College London</span></li>
+                      <li>Zhou Jiang<span class="affiliation"> University College London</span></li>
+                      <li>Qiuyu Lin<span class="affiliation"> University College London</span></li>
+                      <li>Tianming Xu<span class="affiliation"> University College London</span></li>
                     </ul>
                   </div>
                   <div class="paper-item">
@@ -2471,6 +2461,40 @@
                   </div>
                   <div class="paper-item">
                     <h6 class="paper-title">
+                      Can Role-Based LLM Dialogue Improve Understanding of Accessibility Issues?
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Akihiro Miyata<span class="affiliation"> Nihon University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      An Initial Exploration of Low-Cost VR for People With Mobility Disability
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Anna Steffens<span class="affiliation"> Karlsruhe Institute of Technology (KIT)</span></li>
+                      <li>Dmitry Alexandrovsky<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                      <li>Kathrin Gerling<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                      <li>Marvin Wolf<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      MVAuLT: Authoring Interpretive Alt Text for Music Videos
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Vera L. Zhong<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Ace S. Chen<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Dipika Rajesh<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Madison Gruender<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Kathryn E. Ringland<span class="affiliation"> University of California, Santa Cruz</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
                       Highly Intelligible Text-to-Speech System Based on Weighted Averaging of Parameters for Individuals with Spinal Muscular Atrophy
                     </h6>
                     <!-- prettier-ignore -->
@@ -2511,56 +2535,6 @@
                   </div>
                 </div>
                 <div class="poster-group">
-                  <h5 class="poster-group-title">Student Research Competition</h5>
-                  <div class="paper-list">
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      &quot;I can’t just Google it&quot;: Technology Needs of Adult Braille Learners
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Quan Zhou</li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      Designing Accessible Calendar Tools for Blind and Low-Vision Users
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Mr. Mahmut Erdemli</li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      AmblyOverlay: An Input-Transparent Assistive Overlay for Binocular Visual Therapy and Dichoptic Filtering
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Pooja Thaker</li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      Enhancing Accessibility in Webtoons: Investigating Audio Effect Placement Strategies for Visually Impaired Users
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Heewon Lee</li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      SignStreamNet: Streaming Sign Language Video-to-Text Translation for Accessibility
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Warfa Ahmed</li>
-                    </ul>
-                  </div>
-                  </div>
-                </div>
-                <div class="poster-group">
                   <h5 class="poster-group-title">Demos</h5>
                   <div class="paper-list">
                   <div class="paper-item">
@@ -2583,6 +2557,32 @@
                       <li>Tomoya Murakami<span class="affiliation"> Japan Broadcasting Corporation</span></li>
                       <li>Tsubasa Uchida<span class="affiliation"> Japan Broadcasting Corporation</span></li>
                       <li>Hiroyuki Kaneko<span class="affiliation"> Japan Broadcasting Corporation</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      A Customizable AI-Powered Automatic Text Simplification Tool for Supporting In-Situ Text Comprehension
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Nazmun Nahar Khanom<span class="affiliation"> Tulane University</span></li>
+                      <li>Aaron Gershkovich<span class="affiliation"> Tulane University</span></li>
+                      <li>Oliver Alonzo<span class="affiliation"> DePaul University</span></li>
+                      <li>Saad Hassan<span class="affiliation"> Tulane University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      EchoMall: Prototyping GenAI-powered Vision-Free Online Shopping Experience for Blind and Low-Vision Customers
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Kaiyuan Tang<span class="affiliation"> University College London</span></li>
+                      <li>Kerui Chen<span class="affiliation"> University College London</span></li>
+                      <li>tian qing<span class="affiliation"> University College London</span></li>
+                      <li>Zhou Jiang<span class="affiliation"> University College London</span></li>
+                      <li>Qiuyu Lin<span class="affiliation"> University College London</span></li>
+                      <li>Tianming Xu<span class="affiliation"> University College London</span></li>
                     </ul>
                   </div>
                   <div class="paper-item">
@@ -3187,18 +3187,6 @@
                     <ul class="author-list">
                       <li>Ajay Abraham<span class="affiliation"> Lehigh University</span></li>
                       <li>Vinod Namboodiri<span class="affiliation"> Lehigh University</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      nan
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Daniel Koronthály<span class="affiliation"> Western Washington University</span></li>
-                      <li>Selah Bellscheidt<span class="affiliation"> Western Washington University</span></li>
-                      <li>Dion Udokop<span class="affiliation"> Westen Washington University</span></li>
-                      <li>Yasmine N. Elglaly<span class="affiliation"> Western Washington University</span></li>
                     </ul>
                   </div>
                   </div>
@@ -3952,18 +3940,6 @@
                     <ul class="author-list">
                       <li>Ajay Abraham<span class="affiliation"> Lehigh University</span></li>
                       <li>Vinod Namboodiri<span class="affiliation"> Lehigh University</span></li>
-                    </ul>
-                  </div>
-                  <div class="paper-item">
-                    <h6 class="paper-title">
-                      nan
-                    </h6>
-                    <!-- prettier-ignore -->
-                    <ul class="author-list">
-                      <li>Daniel Koronthály<span class="affiliation"> Western Washington University</span></li>
-                      <li>Selah Bellscheidt<span class="affiliation"> Western Washington University</span></li>
-                      <li>Dion Udokop<span class="affiliation"> Westen Washington University</span></li>
-                      <li>Yasmine N. Elglaly<span class="affiliation"> Western Washington University</span></li>
                     </ul>
                   </div>
                   </div>
