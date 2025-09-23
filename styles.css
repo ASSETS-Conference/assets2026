@@ -2592,3 +2592,54 @@ div h4.session-heading {
 .poster-group .affiliation {
   display: none;
 }
+
+/* Small reusable pill used for displaying a date/time block (used on poster pages)
+   Matches the schedule's blue background and becomes full-width on small screens */
+.session-pill {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  display: block;
+  box-sizing: border-box;
+  background-color: var(--accent-color2);
+  color: var(--light-text);
+}
+.session-pill p {
+  margin: 0;
+}
+.session-pill .session-times {
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  /* border-top: 1px solid color-mix(in srgb, var(--light-text) 70%, transparent); */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .session-pill {
+    display: block;
+    width: 100%;
+  }
+}
+
+.poster-nav {
+  font-family: 'Drafting', sans-serif;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.poster-nav a:last-child {
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 480px) {
+  .poster-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .poster-nav a:last-child {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
