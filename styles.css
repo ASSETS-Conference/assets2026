@@ -2643,3 +2643,11 @@ div h4.session-heading {
     margin-top: 0.5rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .sponsors img {
+    padding: 0.75rem;
+    background-color: color-mix(in srgb, var(--text-color), transparent 10%);
+    border-radius: 0.375rem;
+  }
+}
