@@ -4,14 +4,14 @@
   <div class="schedule-grid-th gc-1 gr-1"><h2 class="day-heading">Monday, Oct. 27</h2></div>
   <div class="schedule-grid-td conference-opening gc-1 gr-2" aria-label="Monday, Oct. 27, 9:00 AM - 10:45 AM: Conference Open and Keynote">
     <div class="session-item">
-    <h3 class="time-heading">9:00 AM - 10:45 AM</h3>  <a class="session-link" href="#monday-conference-open-and-keynote-0900-1045"     aria-label="9:00 AM - 10:45 AM, Conference Open and Keynote">
+    <h3 class="time-heading">9:00 AM - 10:45 AM</h3>  <a class="session-link" href="#monday-conference-open-and-keynote-0900-1045-x2"     aria-label="9:00 AM - 10:45 AM, Conference Open and Keynote">
         <h4 class="session-heading"><span class="session-type">Conference Open and Keynote</span></h4>
       </a>
     </div>
   </div>
   <div class="schedule-grid-td break-session gc-1 gr-3" aria-label="Monday, Oct. 27, 10:45 AM - 11:30 AM: Coffee Break and Poster Session A">
     <div class="session-item">
-    <h3 class="time-heading">10:45 AM - 11:30 AM</h3>  <a class="session-link" href="#monday-coffee-break-and-poster-session-a-1045-1130"     aria-label="10:45 AM - 11:30 AM, Coffee Break and Poster Session A">
+    <h3 class="time-heading">10:45 AM - 11:30 AM</h3>  <a class="session-link" href="poster_session_a.html"     aria-label="10:45 AM - 11:30 AM, Coffee Break and Poster Session A">
         <h4 class="session-heading"><span class="session-type">Coffee Break and Poster Session A</span></h4>
       </a>
     </div>
@@ -31,7 +31,7 @@
   </div>
   <div class="schedule-grid-td lunch-session gc-1 gr-5" aria-label="Monday, Oct. 27, 12:45 PM - 2:15 PM: Lunch">
     <div class="session-item">
-    <h3 class="time-heading">12:45 PM - 2:15 PM</h3>  <a class="session-link" href="#monday-lunch-1245-1415"     aria-label="12:45 PM - 2:15 PM, Lunch">
+    <h3 class="time-heading">12:45 PM - 2:15 PM</h3>  <a class="session-link" href="#monday-lunch-1245-1415-x2"     aria-label="12:45 PM - 2:15 PM, Lunch">
         <h4 class="session-heading"><span class="session-type">Lunch</span></h4>
       </a>
     </div>
@@ -51,7 +51,7 @@
   </div>
   <div class="schedule-grid-td break-session gc-1 gr-7" aria-label="Monday, Oct. 27, 3:30 PM - 4:15 PM: Coffee Break and Poster Session A">
     <div class="session-item">
-    <h3 class="time-heading">3:30 PM - 4:15 PM</h3>  <a class="session-link" href="#monday-coffee-break-and-poster-session-a-1530-1615"     aria-label="3:30 PM - 4:15 PM, Coffee Break and Poster Session A">
+    <h3 class="time-heading">3:30 PM - 4:15 PM</h3>  <a class="session-link" href="poster_session_a.html"     aria-label="3:30 PM - 4:15 PM, Coffee Break and Poster Session A">
         <h4 class="session-heading"><span class="session-type">Coffee Break and Poster Session A</span></h4>
       </a>
     </div>
@@ -86,7 +86,7 @@
   </div>
   <div class="schedule-grid-td break-session gc-2 gr-3" aria-label="Tuesday, Oct. 28, 10:30 AM - 11:15 AM: Coffee Break and Poster Session B">
     <div class="session-item">
-    <h3 class="time-heading">10:30 AM - 11:15 AM</h3>  <a class="session-link" href="#tuesday-coffee-break-and-poster-session-b-1030-1115"     aria-label="10:30 AM - 11:15 AM, Coffee Break and Poster Session B">
+    <h3 class="time-heading">10:30 AM - 11:15 AM</h3>  <a class="session-link" href="poster_session_b.html"     aria-label="10:30 AM - 11:15 AM, Coffee Break and Poster Session B">
         <h4 class="session-heading"><span class="session-type">Coffee Break and Poster Session B</span></h4>
       </a>
     </div>
@@ -106,7 +106,7 @@
   </div>
   <div class="schedule-grid-td lunch-session gc-2 gr-5" aria-label="Tuesday, Oct. 28, 12:30 PM - 2:00 PM: Lunch">
     <div class="session-item">
-    <h3 class="time-heading">12:30 PM - 2:00 PM</h3>  <a class="session-link" href="#tuesday-lunch-1230-1400"     aria-label="12:30 PM - 2:00 PM, Lunch">
+    <h3 class="time-heading">12:30 PM - 2:00 PM</h3>  <a class="session-link" href="#tuesday-lunch-1230-1400-x2"     aria-label="12:30 PM - 2:00 PM, Lunch">
         <h4 class="session-heading"><span class="session-type">Lunch</span></h4>
       </a>
     </div>
@@ -126,21 +126,21 @@
   </div>
   <div class="schedule-grid-td break-session gc-2 gr-7" aria-label="Tuesday, Oct. 28, 3:30 PM - 4:15 PM: Coffee Break and Poster Session B">
     <div class="session-item">
-    <h3 class="time-heading">3:30 PM - 4:15 PM</h3>  <a class="session-link" href="#tuesday-coffee-break-and-poster-session-b-1530-1615"     aria-label="3:30 PM - 4:15 PM, Coffee Break and Poster Session B">
+    <h3 class="time-heading">3:30 PM - 4:15 PM</h3>  <a class="session-link" href="poster_session_b.html"     aria-label="3:30 PM - 4:15 PM, Coffee Break and Poster Session B">
         <h4 class="session-heading"><span class="session-type">Coffee Break and Poster Session B</span></h4>
       </a>
     </div>
   </div>
   <div class="schedule-grid-td special-session gc-2 gr-8" aria-label="Tuesday, Oct. 28, 4:15 PM - 5:30 PM: Student Research Competition">
     <div class="session-item">
-    <h3 class="time-heading">4:15 PM - 5:30 PM</h3>  <a class="session-link" href="#tuesday-student-research-competition-1615-1730"     aria-label="4:15 PM - 5:30 PM, Student Research Competition">
+    <h3 class="time-heading">4:15 PM - 5:30 PM</h3>  <a class="session-link" href="#tuesday-student-research-competition-1615-1730-x2"     aria-label="4:15 PM - 5:30 PM, Student Research Competition">
         <h4 class="session-heading"><span class="session-type">Student Research Competition</span></h4>
       </a>
     </div>
   </div>
   <div class="schedule-grid-td special-session gc-2 gr-9" aria-label="Tuesday, Oct. 28, 5:30 PM - 6:30 PM: SIGACCESS Business Meeting">
     <div class="session-item">
-    <h3 class="time-heading">5:30 PM - 6:30 PM</h3>  <a class="session-link" href="#tuesday-sigaccess-business-meeting-1730-1830"     aria-label="5:30 PM - 6:30 PM, SIGACCESS Business Meeting">
+    <h3 class="time-heading">5:30 PM - 6:30 PM</h3>  <a class="session-link" href="#tuesday-sigaccess-business-meeting-1730-1830-x2"     aria-label="5:30 PM - 6:30 PM, SIGACCESS Business Meeting">
         <h4 class="session-heading"><span class="session-type">SIGACCESS Business Meeting</span></h4>
       </a>
     </div>
@@ -161,7 +161,7 @@
   </div>
   <div class="schedule-grid-td break-session gc-3 gr-3" aria-label="Wednesday, Oct. 29, 10:30 AM - 11:15 AM: Coffee Break and Poster Session C">
     <div class="session-item">
-    <h3 class="time-heading">10:30 AM - 11:15 AM</h3>  <a class="session-link" href="#wednesday-coffee-break-and-poster-session-c-1030-1115"     aria-label="10:30 AM - 11:15 AM, Coffee Break and Poster Session C">
+    <h3 class="time-heading">10:30 AM - 11:15 AM</h3>  <a class="session-link" href="poster_session_c.html"     aria-label="10:30 AM - 11:15 AM, Coffee Break and Poster Session C">
         <h4 class="session-heading"><span class="session-type">Coffee Break and Poster Session C</span></h4>
       </a>
     </div>
@@ -181,7 +181,7 @@
   </div>
   <div class="schedule-grid-td lunch-session gc-3 gr-5" aria-label="Wednesday, Oct. 29, 12:30 PM - 2:00 PM: Lunch">
     <div class="session-item">
-    <h3 class="time-heading">12:30 PM - 2:00 PM</h3>  <a class="session-link" href="#wednesday-lunch-1230-1400"     aria-label="12:30 PM - 2:00 PM, Lunch">
+    <h3 class="time-heading">12:30 PM - 2:00 PM</h3>  <a class="session-link" href="#wednesday-lunch-1230-1400-x2"     aria-label="12:30 PM - 2:00 PM, Lunch">
         <h4 class="session-heading"><span class="session-type">Lunch</span></h4>
       </a>
     </div>
@@ -201,14 +201,14 @@
   </div>
   <div class="schedule-grid-td break-session gc-3 gr-7" aria-label="Wednesday, Oct. 29, 3:30 PM - 4:15 PM: Coffee Break and Poster Session C">
     <div class="session-item">
-    <h3 class="time-heading">3:30 PM - 4:15 PM</h3>  <a class="session-link" href="#wednesday-coffee-break-and-poster-session-c-1530-1615"     aria-label="3:30 PM - 4:15 PM, Coffee Break and Poster Session C">
+    <h3 class="time-heading">3:30 PM - 4:15 PM</h3>  <a class="session-link" href="poster_session_c.html"     aria-label="3:30 PM - 4:15 PM, Coffee Break and Poster Session C">
         <h4 class="session-heading"><span class="session-type">Coffee Break and Poster Session C</span></h4>
       </a>
     </div>
   </div>
   <div class="schedule-grid-td closing-session gc-3 gr-8" aria-label="Wednesday, Oct. 29, 4:15 PM - 5:00 PM: Closing Ceremony">
     <div class="session-item">
-    <h3 class="time-heading">4:15 PM - 5:00 PM</h3>  <a class="session-link" href="#wednesday-closing-ceremony-1615-1700"     aria-label="4:15 PM - 5:00 PM, Closing Ceremony">
+    <h3 class="time-heading">4:15 PM - 5:00 PM</h3>  <a class="session-link" href="#wednesday-closing-ceremony-1615-1700-x2"     aria-label="4:15 PM - 5:00 PM, Closing Ceremony">
         <h4 class="session-heading"><span class="session-type">Closing Ceremony</span></h4>
       </a>
     </div>

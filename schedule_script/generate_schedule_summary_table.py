@@ -13,6 +13,24 @@ import unicodedata
 
 # ---------------- Utilities ----------------
 
+# --- add near other small helpers (e.g., after escape_html / slugify) ---
+_POSTER_RE = re.compile(r"poster\s*session\s*([A-Za-z0-9]+)", re.IGNORECASE)
+
+def poster_session_external_href(title: str) -> Optional[str]:
+    """
+    If the session title looks like 'Poster Session A' (case-insensitive),
+    return an external page like 'poster_session_a.html'. Otherwise None.
+    """
+    if not title:
+        return None
+    m = _POSTER_RE.search(title)
+    if not m:
+        return None
+    key = m.group(1).lower()
+    key = re.sub(r"[^a-z0-9]+", "_", key)  # e.g., "A-1" -> "a_1"
+    return f"poster_session_{key}.html"
+
+
 def slugify_ascii(s: str) -> str:
     if not s:
         return ""
@@ -446,6 +464,9 @@ def cell_div_html(group: List[Session], day_registry: set, day_label: str) -> st
                 f'<span class="session-type">{escape_html(s.title)}</span>'
                 '</h4>'
             )
+            poster_href = poster_session_external_href(s.title)
+            href = poster_href or session_anchor_href(s, day_registry)
+
             parts.append(
                 "<div class=\"session-item\">\n"
                 f"{time_h3}"

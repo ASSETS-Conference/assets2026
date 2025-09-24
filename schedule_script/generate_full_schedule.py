@@ -2,16 +2,20 @@
 """
 Generate the **Full Schedule** HTML sections from the ASSETS 2025 content CSV.
 
-Now supports plugging in day-specific Poster Session CSVs (Posters, Demos,
-Doctoral Consortium), grouped and rendered inside the Poster Session slot.
+Poster Sessions are externalized:
+- First --poster-csv -> poster_sessions_a.txt (Session A)
+- Second -> poster_sessions_b.txt (Session B)
+- Third -> poster_sessions_c.txt (Session C)
+
+The full schedule does NOT inline posters; it inserts an HTML comment
+indicating which external file contains the Poster Session content.
 
 Usage:
-    python generate_full_schedule.py /path/to/content.csv > full_schedule.html
-    python generate_full_schedule.py /path/to/content.csv \
-        --poster-csv monday=/path/to/Posters-Monday.csv \
-        --poster-csv tuesday=/path/to/Posters-Tuesday.csv \
-        --poster-csv wednesday=/path/to/Posters-Wednesday.csv \
-        -o full_schedule.html
+    python3 generate_full_schedule.py content.csv \
+    --poster-csv monday=posters_monday.csv \
+    --poster-csv tuesday=posters_tuesday.csv \
+    --poster-csv wednesday=posters_wednesday.csv \
+    -o full_output.txt
 """
 import sys, re, argparse
 from pathlib import Path
@@ -33,6 +37,67 @@ MONTH_NAMES = {
 
 WEEKDAY_ABBR = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
 MONTH_ABBR = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+
+# --- NEW: posters export helpers ---
+
+def render_posters_groups_only(df_posters: pd.DataFrame) -> str:
+    """
+    Return ONLY the <div class="poster-group">...</div> blocks (no outer container),
+    grouped as Posters / SRC / Demos / DC (same grouping as render_posters_block).
+    """
+    if df_posters is None or df_posters.empty:
+        return ""
+    df = df_posters.copy()
+    df["__Type"] = df["Presentation Type"].map(normalize_type_label)
+
+    # preserve first-seen order, but prefer canonical sequence
+    seen = []
+    for t in df["__Type"]:
+        if t not in seen:
+            seen.append(t)
+    preferred_order = ["Posters", "Student Research Competition", "Demos", "Doctoral Consortium"]
+    preferred = [lbl for lbl in preferred_order if lbl in seen]
+    others = [lbl for lbl in seen if lbl not in preferred]
+    ordered_types = preferred + others
+
+    groups_html = []
+    for t in ordered_types:
+        sub = df[df["__Type"] == t]
+        if sub.empty:
+            continue
+        items = []
+        for _, r in sub.iterrows():
+            items.append(render_poster_item(r.get("Title",""), r.get("Authors","")))
+        group_html = [
+            '          <div class="poster-group">',
+            f'            <h5 class="poster-group-title">{html_escape(t)}</h5>',
+            '            <div class="paper-list">',
+            "\n".join(items),
+            '            </div>',
+            '          </div>'
+        ]
+        groups_html.append("\n".join(group_html))
+
+    return "\n".join(groups_html)
+
+
+def render_posters_document(df_posters: pd.DataFrame, letter_label: str) -> str:
+    """
+    Wrap the poster groups with the exact comment framing you requested.
+    """
+    groups = render_posters_groups_only(df_posters)
+    if not groups:
+        return (
+            f'          <!-- Start of Poster Session {letter_label} -->\n'
+            f'          <!-- (No posters) -->\n'
+            f'        <!--End of Poster Session {letter_label}-->'
+        )
+    return (
+        f'          <!-- Start of Poster Session {letter_label} -->\n'
+        f'{groups}\n'
+        f'        <!--End of Poster Session {letter_label}-->'
+    )
+
 
 def safe_cell_str(row, colname: str) -> str:
     v = row.get(colname)
@@ -241,7 +306,6 @@ def _split_authors(auth_blob: str):
     return [p for p in parts if p]
 
 
-
 def load_posters_csv(path: str) -> pd.DataFrame:
     """
     Load a poster CSV and return a tidy DF with columns:
@@ -306,7 +370,6 @@ def render_author_li(author_text: str) -> str:
     return f'                      <li>{html_escape(a)}</li>'
 
 
-
 def render_poster_item(title: str, authors_blob: str) -> str:
     authors = _split_authors(authors_blob)
     parts = []
@@ -326,6 +389,7 @@ def render_poster_item(title: str, authors_blob: str) -> str:
 def render_posters_block(df_posters: pd.DataFrame) -> str:
     """
     Render grouped Posters/SRC/Demos/DC inside a <div class="program-block posters-block">.
+    (Kept for reference; not used when externalizing posters.)
     """
     if df_posters is None or df_posters.empty:
         return ""
@@ -415,7 +479,7 @@ def render_paper_list(row):
             papers.append(render_paper_item_from_cell(row[col]))
     return "\n".join(papers)
 
-def render_time_slot(row, day_anchor: str, id_registry: set, posters_by_day: dict):
+def render_time_slot(row, day_anchor: str, id_registry: set, posters_by_day: dict, poster_meta_by_day: dict):
     time_text = normalize_time_range(
         safe_cell_str(row, "Time (MT) ") or safe_cell_str(row, "Time (MT)")
     )
@@ -425,23 +489,40 @@ def render_time_slot(row, day_anchor: str, id_registry: set, posters_by_day: dic
 
     slot_id = make_slot_id(day_anchor, time_text, session_type, session_name, id_registry)
 
+    # Build the <h4> (link it if it's a Poster Session and we have its letter)
+    session_type_lower = (session_type or "").strip().lower()
+    link_html = None
+    if "poster session" in session_type_lower:
+        meta = poster_meta_by_day.get(day_anchor)
+        if meta:
+            letter, _outfile = meta
+            # Link to the stand-alone poster page (e.g., poster_session_c.html)
+            link_target = f"poster_session_{letter.lower()}.html"
+            link_html = f'<h4 class="slot-title"><a class="slot-link" href="{link_target}">{html_escape(session_type)}</a></h4>'
+
     header = []
     header.append(f'            <div id="{slot_id}" class="{slot_class}">')
     header.append('              <div class="time-slot-header">')
     header.append(f'                <span class="time-range">{html_escape(time_text or "TBD")}</span>')
-    if session_type.lower().startswith("paper session"):
+
+    if session_type_lower.startswith("paper session"):
         header.append('                <h4 class="slot-title">')
         header.append(f'                  <span class="session-number">{html_escape(session_type)}</span>')
         header.append(f'                  <span class="session-topic">{html_escape(session_name)}</span>')
         header.append('                </h4>')
     else:
-        header.append(f'                <h4 class="slot-title">{html_escape(session_type)}</h4>')
+        # Use linked title if available, otherwise plain <h4>
+        if link_html:
+            header.append(f'                {link_html}')
+        else:
+            header.append(f'                <h4 class="slot-title">{html_escape(session_type)}</h4>')
+
     header.append('              </div>')
 
     blocks = []
 
     # Papers block
-    if session_type.lower().startswith("paper session"):
+    if session_type_lower.startswith("paper session"):
         paper_html = render_paper_list(row)
         if paper_html:
             blocks.append("\n".join([
@@ -452,17 +533,19 @@ def render_time_slot(row, day_anchor: str, id_registry: set, posters_by_day: dic
                 '              </div>'
             ]))
 
-    # Posters block (if this is a Poster Session and we have a CSV for the day)
-    if "poster session" in (session_type or "").strip().lower():
-        df_posters = posters_by_day.get(day_anchor)
-        posters_html = render_posters_block(df_posters) if df_posters is not None else ""
-        if posters_html:
-            blocks.append(posters_html)
+    # Posters block (still externalized; leave a maintainer hint)
+    if "poster session" in session_type_lower:
+        meta = poster_meta_by_day.get(day_anchor)
+        if meta:
+            letter, outfile = meta
+            # Optional: point maintainers at the HTML page too
+            blocks.append(f'              <!-- Poster Session {letter} externalized to {outfile}; page: poster_session_{letter.lower()}.html -->')
 
     footer = ["            </div>"]
     return "\n".join(header + blocks + footer)
 
-def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: str, next_anchor: str, posters_by_day: dict) -> str:
+
+def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: str, next_anchor: str, posters_by_day: dict, poster_meta_by_day: dict) -> str:
     label = parse_date_label(date_str)
     anchor = date_anchor_id(date_str)
 
@@ -490,11 +573,9 @@ def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: s
     else:
         html.append('                <a href="#" class="day-nav-btn day-nav-next day-nav-disabled" title="Next day">›</a>')
     html.append('              </div>')
-    html.append('            </div>')
-
+    html.append('            </div>')   # close .day-header-container
     for _, r in rows_for_day.iterrows():
-        html.append(render_time_slot(r, anchor, id_registry, posters_by_day))
-
+        html.append(render_time_slot(r, anchor, id_registry, posters_by_day, poster_meta_by_day))
     html.append('          </section>')
     return "\n".join(html)
 
@@ -502,12 +583,12 @@ def render_day_section(date_str: str, rows_for_day: pd.DataFrame, prev_anchor: s
 
 def parse_poster_args(items):
     """
-    Parse repeated --poster-csv DAY=PATH pairs into {day_anchor: DataFrame}.
-    DAY is one of monday/tuesday/wednesday/thursday/friday/saturday/sunday (case-insensitive).
+    Parse repeated --poster-csv DAY=PATH pairs into an ordered list of (day_key, DataFrame).
+    DAY is one of monday/tuesday/wednesday/thursday/friday/saturday/sunday.
     """
-    mapping = {}
+    ordered = []
     if not items:
-        return mapping
+        return ordered
     for it in items:
         if "=" not in it:
             raise ValueError(f"--poster-csv must be DAY=PATH, got: {it}")
@@ -517,21 +598,38 @@ def parse_poster_args(items):
         if day_key not in ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]:
             raise ValueError(f"Unrecognized DAY for --poster-csv: {day}")
         dfp = load_posters_csv(path.strip())
-        mapping[day_key] = dfp
-    return mapping
+        ordered.append((day_key, dfp))
+    return ordered
 
 def main():
-    ap = argparse.ArgumentParser(description="Generate Full Schedule HTML from content CSV (authors parsed in-cell) with stable anchor IDs per time-slot. Supports Poster Session CSVs via --poster-csv DAY=PATH.")
+    ap = argparse.ArgumentParser(description="Generate Full Schedule HTML from content CSV (authors parsed in-cell) with stable anchor IDs per time-slot. Supports Poster Session CSVs via --poster-csv DAY=PATH. Poster Sessions are externalized to poster_sessions_[a|b|c].txt in the order provided.")
     ap.add_argument("csv", help="Path to content.csv")
     ap.add_argument("-o","--output", help="Write HTML to this file (defaults to stdout)")
     ap.add_argument("--poster-csv", action="append", default=[],
                     help="Attach a poster CSV to a weekday, e.g., --poster-csv monday=/path/to/Posters-Monday.csv (repeatable)")
     args = ap.parse_args()
 
-    # Load poster CSVs (optional)
-    posters_map = parse_poster_args(args.poster_csv)  # day_name -> df
-    # We'll map day anchor names ('monday', ...) to DFs directly
-    posters_by_day = dict(posters_map)
+    # Load poster CSVs (ordered)
+    posters_list = parse_poster_args(args.poster_csv)  # [(day_key, df), ...] in CLI order
+
+    # Map day anchor names ('monday', ...) -> DataFrame for presence checks
+    posters_by_day = {day: df for day, df in posters_list}
+
+    # Hard-code output filenames in provided order: A, B, C, ...
+    letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    def outfile_for_index(i: int) -> str:
+        return f"poster_sessions_{letters[i].lower()}.txt"
+
+    # Write each provided poster CSV to its own file
+    poster_meta_by_day = {}  # day_anchor -> (letter, outfile)
+    for idx, (day, dfp) in enumerate(posters_list):
+        if idx >= len(letters):
+            break  # safety
+        letter = letters[idx]
+        html_doc = render_posters_document(dfp, letter)
+        outpath = outfile_for_index(idx)
+        Path(outpath).write_text(html_doc, encoding="utf-8")
+        poster_meta_by_day[day] = (letter, outpath)
 
     # Load main schedule
     df = pd.read_csv(args.csv)
@@ -549,7 +647,7 @@ def main():
     for i, (date, sub) in enumerate(days):
         prev_a = anchors[i-1] if i > 0 else None
         next_a = anchors[i+1] if i+1 < len(anchors) else None
-        out_lines.append(render_day_section(date, sub, prev_a, next_a, posters_by_day))
+        out_lines.append(render_day_section(date, sub, prev_a, next_a, posters_by_day, poster_meta_by_day))
 
     html = "\n\n".join(out_lines)
     if args.output:

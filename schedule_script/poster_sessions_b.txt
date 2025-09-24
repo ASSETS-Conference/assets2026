@@ -1,0 +1,397 @@
+          <!-- Start of Poster Session B -->
+          <div class="poster-group">
+            <h5 class="poster-group-title">Posters</h5>
+            <div class="paper-list">
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Motivation and Re-engagement in Mixed Reality: How Deaf and Hard of Hearing Users Experience a Mixed Reality Exergame
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Sanzida Mojib Luna<span class="affiliation"> Rochester Institute of Technology</span></li>
+                      <li>Jiangnan Xu<span class="affiliation"> Rochester Institute of Technology</span></li>
+                      <li>Elise Baron<span class="affiliation"> Augment Therapy</span></li>
+                      <li>Garreth W. Tigwell<span class="affiliation"> Rochester Institute of Technology</span></li>
+                      <li>Konstantinos Papangelis<span class="affiliation"> Rochester Institute of Technology</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      NaviSense: A Multimodal Assistive Mobile application for Object Retrieval by Persons with Visual Impairment
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Ajay Narayanan Sridhar<span class="affiliation"> The Pennsylvania State University</span></li>
+                      <li>Fuli Qiao<span class="affiliation"> Pennsylvania State University, University Park</span></li>
+                      <li>Nelson Daniel Troncoso Aldas<span class="affiliation"> The Pennsylvania State University</span></li>
+                      <li>Yanpei Shi<span class="affiliation"> University of Southern California</span></li>
+                      <li>Mehrdad Mahdavi<span class="affiliation"> Pennsylvania State University</span></li>
+                      <li>Laurent Itti<span class="affiliation"> University of Southern California</span></li>
+                      <li>Vijaykrishnan Narayanan<span class="affiliation"> Penn State</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      ModiFab: An Open-Source Platform for Custom Adaptive Devices and Expanded Accessibility
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Mixuan Li<span class="affiliation"> Georgia Institute of Technology</span></li>
+                      <li>Leila Aflatoony<span class="affiliation"> Georgia Institute of Technology</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      &quot;Tell Me What That Is&quot;: Examining Blind and Low Vision Individuals’ Reviews on Assistive Smartphone Applications
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Waqar Hassan Khan<span class="affiliation"> Arizona State University</span></li>
+                      <li>Isaac Buo<span class="affiliation"> Arizona State University</span></li>
+                      <li>Ariane Middel<span class="affiliation"> Arizona State University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Towards a Technology that Improves Focus, Comprehension, and Retention in E-learning for Higher Education students with ADHD
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Aishee Das<span class="affiliation"> The University of Edinburgh</span></li>
+                      <li>Aurora Constantin<span class="affiliation"> The University of Edinburgh</span></li>
+                      <li>Gennaro Imperatore<span class="affiliation"> University of Strathclyde</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      We Write Our Research Papers in WYSIWYM. Why Do We Tag Our PDFs in WYSIWYG?
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Peya Mowar<span class="affiliation"> Carnegie Mellon University</span></li>
+                      <li>Aaron Steinfeld<span class="affiliation"> Carnegie Mellon University</span></li>
+                      <li>Jeffrey P Bigham<span class="affiliation"> Carnegie Mellon University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      A Longitudinal Autoethnography of Email Access for a Professional with Chronic Illness and ADHD: Preliminary Insights
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Veronica Pimenova<span class="affiliation"> University of Michigan</span></li>
+                      <li>Yotam Sechayk<span class="affiliation"> The University of Tokyo</span></li>
+                      <li>Fabricio Murai<span class="affiliation"> Worcester Polytechnic Institute</span></li>
+                      <li>Andrew Hundt<span class="affiliation"> Carnegie Mellon University</span></li>
+                      <li>Shiri Dori-Hacohen<span class="affiliation"> University of Connecticut</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      &quot;A Double-Edged Sword&quot;: Practitioners’ Perspectives on Social VR for ADHD
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Mahya Tazike<span class="affiliation"> Indiana University Indianapolis</span></li>
+                      <li>Elmira Deldari<span class="affiliation"> University of Maryland Baltimore County</span></li>
+                      <li>Adina Friedman<span class="affiliation"> Indiana University Indianapolis</span></li>
+                      <li>Francesco Cafaro<span class="affiliation"> Indiana University Indianapolis</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      A Review of Text Accessibility Standards, Guidelines, and Font Tool Limitations
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Mehek Somai<span class="affiliation"> Rochester Institute of Technology</span></li>
+                      <li>Roshan L Peiris<span class="affiliation"> Rochester Institute of Technology</span></li>
+                      <li>Garreth W. Tigwell<span class="affiliation"> Rochester Institute of Technology</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Quantifying Navigational Difficulty for Visually Impaired Users in Indoor Spaces with AccessQuotient
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Francisco Javier Rafful Garfias<span class="affiliation"> Wichita State University</span></li>
+                      <li>Vinod Namboodiri<span class="affiliation"> Lehigh University</span></li>
+                      <li>Siny Joseph<span class="affiliation"> Kansas State University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Automated, Context-Aware Alt Text Generation for Educational Documents Using Large Language Models
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Disha Baglodi<span class="affiliation"> Georgia Institute of Technology</span></li>
+                      <li>Bella Martincic<span class="affiliation"> Georgia Institute of Technology</span></li>
+                      <li>Norah Sinclair<span class="affiliation"> Georgia Institute of Technology</span></li>
+                      <li>Bruce N. Walker<span class="affiliation"> Georgia Institute of Technology</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Interpretive Caption: Real-Time Vocal Emotion Cues for DHH Users
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Sunday David Ubur<span class="affiliation"> Virginia Tech</span></li>
+                      <li>Denis Gracanin<span class="affiliation"> Virginia Tech</span></li>
+                      <li>Nikitha Donekal Chandrashekar<span class="affiliation"> Virginia Tech</span></li>
+                      <li>Sikiru Adewale<span class="affiliation"> Virginia Tech</span></li>
+                      <li>Enoch Katey Akli<span class="affiliation"> Virginia Tech</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      “Better Than Nothing” or Not Enough? User-Centered Reflections on AI-Generated Audio Descriptions Across Media Formats
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Diana Yee<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Amina Kobenova<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Rohan Jhangiani<span class="affiliation"> University of California</span></li>
+                      <li>Piper Stickler<span class="affiliation"> University of California Santa Cruz</span></li>
+                      <li>Sri Kurniawan<span class="affiliation"> University of California Santa Cruz</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      DIY in Action: Understanding Do-It-Yourself Practices from Tangible Symbol Cards
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Alexander S.W. Parent<span class="affiliation"> Steinhardt School of Culture, Education and Human Development</span></li>
+                      <li>L. Beth Brady<span class="affiliation"> Hunter CUNY</span></li>
+                      <li>Sarah Ivy<span class="affiliation"> University of Utah</span></li>
+                      <li>Jennifer Hercman<span class="affiliation"> Adaptive Design Association</span></li>
+                      <li>Amy Hurst<span class="affiliation"> New York University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Speculating a Tactile Grammar: Toward Task-Aligned Chart Design for Non-Visual Perception
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Areen Khalaila<span class="affiliation"> Brandeis University</span></li>
+                      <li>Dylan Cashman<span class="affiliation"> Brandeis University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Can Role-Based LLM Dialogue Improve Understanding of Accessibility Issues?
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Akihiro Miyata<span class="affiliation"> Nihon University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      An Initial Exploration of Low-Cost VR for People With Mobility Disability
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Anna Steffens<span class="affiliation"> Karlsruhe Institute of Technology (KIT)</span></li>
+                      <li>Dmitry Alexandrovsky<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                      <li>Kathrin Gerling<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                      <li>Marvin Wolf<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      MVAuLT: Authoring Interpretive Alt Text for Music Videos
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Vera L. Zhong<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Ace S. Chen<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Dipika Rajesh<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Madison Gruender<span class="affiliation"> University of California, Santa Cruz</span></li>
+                      <li>Kathryn E. Ringland<span class="affiliation"> University of California, Santa Cruz</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Highly Intelligible Text-to-Speech System Based on Weighted Averaging of Parameters for Individuals with Spinal Muscular Atrophy
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Yusuke Yagi<span class="affiliation"> Kobe University</span></li>
+                      <li>Ryoichi Takashima<span class="affiliation"> Ritsumeikan University</span></li>
+                      <li>Chiho Sasaki<span class="affiliation"> Kumamoto Health Science University</span></li>
+                      <li>Tetsuya Takiguchi<span class="affiliation"> Kobe University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Designing Rehabilitation System for People with Parkinson’s: Targeting Dual-Task Training
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Anna Kubczak<span class="affiliation"> Lodz University of Technology</span></li>
+                      <li>Natalia Walczak<span class="affiliation"> Lodz University of Technology</span></li>
+                      <li>Julia Dominiak<span class="affiliation"> Lodz University of Technology</span></li>
+                      <li>Maksymilian Mateusz Cieślak<span class="affiliation"> Politechnika Łódzka</span></li>
+                      <li>Karolina Joanna Ratajczyk<span class="affiliation"> Medical University of Lodz</span></li>
+                      <li>Zbigniew Chaniecki<span class="affiliation"> Technical University of Lodz</span></li>
+                      <li>Agata Gajos<span class="affiliation"> Department of Extrapyramidal Diseases Medical University of Lodz, Lodz, Poland</span></li>
+                      <li>Krzysztof Grudzień<span class="affiliation"> Lodz University of Technology</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      RunPacer: A Smartwatch-Based Vibrotactile Feedback System for Symmetric Co-Running by Visually Impaired Individuals and Guides
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Yichen Yu<span class="affiliation"> North Carolina State University</span></li>
+                      <li>Huan-Song Xu<span class="affiliation"> National Taiwan University of Science and Technology</span></li>
+                      <li>Ming-Yen Lin<span class="affiliation"> Feng Chia University</span></li>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+          <div class="poster-group">
+            <h5 class="poster-group-title">Demos</h5>
+            <div class="paper-list">
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      BLVDIFF: Supporting BLV Developers with Differential Debugging Tools
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Rylan Sedlacek<span class="affiliation"> University of Mary Washington</span></li>
+                      <li>Prashant Chandrasekar<span class="affiliation"> University of Mary Washington</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Evaluation of Japanese Sign Language Avatar with Mouthing in News Content
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Kohei Hakozaki<span class="affiliation"> Japan Broadcasting Corporation</span></li>
+                      <li>Tomoya Murakami<span class="affiliation"> Japan Broadcasting Corporation</span></li>
+                      <li>Tsubasa Uchida<span class="affiliation"> Japan Broadcasting Corporation</span></li>
+                      <li>Hiroyuki Kaneko<span class="affiliation"> Japan Broadcasting Corporation</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      A Customizable AI-Powered Automatic Text Simplification Tool for Supporting In-Situ Text Comprehension
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Nazmun Nahar Khanom<span class="affiliation"> Tulane University</span></li>
+                      <li>Aaron Gershkovich<span class="affiliation"> Tulane University</span></li>
+                      <li>Oliver Alonzo<span class="affiliation"> DePaul University</span></li>
+                      <li>Saad Hassan<span class="affiliation"> Tulane University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      EchoMall: Prototyping GenAI-powered Vision-Free Online Shopping Experience for Blind and Low-Vision Customers
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Kaiyuan Tang<span class="affiliation"> University College London</span></li>
+                      <li>Kerui Chen<span class="affiliation"> University College London</span></li>
+                      <li>tian qing<span class="affiliation"> University College London</span></li>
+                      <li>Zhou Jiang<span class="affiliation"> University College London</span></li>
+                      <li>Qiuyu Lin<span class="affiliation"> University College London</span></li>
+                      <li>Tianming Xu<span class="affiliation"> University College London</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      AltCAT: An Alt Text Authoring Tool with Automatic Generation and Culturally-Aware Translation
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Hyungwoo Song<span class="affiliation"> Seoul National University</span></li>
+                      <li>Jaehoon Choi<span class="affiliation"> Seoul National University</span></li>
+                      <li>Minjeong Shin<span class="affiliation"> Seoul National University</span></li>
+                      <li>Bongwon Suh<span class="affiliation"> Seoul National University</span></li>
+                      <li>Hyunggu Jung<span class="affiliation"> Seoul National University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Signing for Care: A Demo and Initial Evaluation of an American Sign Language Learning Tool for Emergency Medical Service Providers
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Chaelin Kim<span class="affiliation"> Tulane University</span></li>
+                      <li>Cameron McLaren<span class="affiliation"> Tulane University</span></li>
+                      <li>Madhangi Krishnan<span class="affiliation"> Tulane University</span></li>
+                      <li>Nikhil Modayur<span class="affiliation"> Tulane University</span></li>
+                      <li>Saad Hassan<span class="affiliation"> Tulane University</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      RetreatVR: A Design Exploration of an In-Game Quiet Room for Virtual Reality Games for Neurodivergent People
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Anna-Lena Meiners<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                      <li>Phoebe Kray<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                      <li>Kathrin Gerling<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      A Semi-Automated Prototyping Assistant for Accessibility: Addressing Missing Form Labels and Document Language in Early Design Stages
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Adrian Wegener<span class="affiliation"> Karlsruhe Institute of Technology</span></li>
+                      <li>Felix Kretzer<span class="affiliation"> Karlsruhe Institute of Technology (KIT)</span></li>
+                      <li>Tobias Dominik Nicolay<span class="affiliation"> Karlsruher Institute of technology</span></li>
+                      <li>Alexander Mädche<span class="affiliation"> Karlsruhe Institute of Technology (KIT)</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Blocks4All and Beyond Demonstration: Making Block-Based Programming More Universally Accessible
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Lauren R. Milne<span class="affiliation"> Macalester College</span></li>
+                      <li>Lucy J Rubin<span class="affiliation"> Macalester College</span></li>
+                    </ul>
+                  </div>
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      Pectogram: Enhancing PECS with Generative AI to Support Unfamiliar Communication Contexts
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Ethan Connolly<span class="affiliation"> University of Pennsylvania</span></li>
+                      <li>Soren Lera<span class="affiliation"> Hamilton College</span></li>
+                      <li>Leah Reed<span class="affiliation"> Hamilton College</span></li>
+                      <li>Sarah Morrison-Smith<span class="affiliation"> Hamilton College</span></li>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+          <div class="poster-group">
+            <h5 class="poster-group-title">Scholarship</h5>
+            <div class="paper-list">
+                  <div class="paper-item">
+                    <h6 class="paper-title">
+                      TBD
+                    </h6>
+                    <!-- prettier-ignore -->
+                    <ul class="author-list">
+                      <li>Miriam Andromeda</li>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+        <!--End of Poster Session B-->
