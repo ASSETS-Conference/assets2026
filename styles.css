@@ -1,12 +1,12 @@
 @import url('./fonts.css');
 
 :root {
-  --text-color: #44251b;
+  --text-color: black;
   --bg-color: #f4ece7;
   --inverted-text: white;
-  --accent-color: #e02900;
-  --accent-color2: #3366b8;
-  --footer-color: var(--accent-color2);
+  --accent-color: black;
+  --accent-color2: black;
+  --footer-color:  #8DAA91;
   --default-wght: 400;
   --dark-text: var(--text-color);
   --light-text: white;
@@ -43,7 +43,7 @@ html {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Besley', serif;
+  font-family: 'Roboto', serif;
   font-optical-sizing: auto;
 
   min-height: 100vh;
@@ -153,7 +153,7 @@ nav ul.secondary-menu li:hover a {
 
 nav ul.secondary-menu li a,
 nav ul.main-menu li a {
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-decoration: underline;
   transition: text-decoration-color 2s ease 1s;
 }
@@ -533,7 +533,7 @@ h1 {
 }
 
 .event-info {
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: var(--accent-color);
   line-height: 1.3;
   font-size: 1.4rem;
@@ -630,7 +630,7 @@ ul + p {
 }
 
 .grid-helper .grid-item h2 {
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 1rem;
   text-transform: uppercase;
@@ -778,12 +778,12 @@ footer hr {
 
 .footer-menu li {
   padding: 0;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .cta {
   background-color: var(--accent-color2);
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: var(--light-text);
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
@@ -807,7 +807,7 @@ footer {
 footer p {
   font-weight: 600;
 
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media only screen and (max-width: 1280px) {
@@ -828,7 +828,7 @@ footer p {
 
 .text-block h3,
 h4 {
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
 
   margin-block: 3rem 1rem;
@@ -873,7 +873,7 @@ h4 {
 
 .text-block ol > li:before {
   content: counter(item) '.';
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.85rem;
   text-align: right;
 }
@@ -921,7 +921,7 @@ h4 {
 }
 
 .text-block .updates-dates {
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   position: relative;
   font-size: 0.8rem;
   font-weight: 500;
@@ -935,7 +935,7 @@ h4 {
 }
 
 .quote {
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: italic;
   text-align: left;
 }
@@ -1016,7 +1016,7 @@ ul.pc-members .pc-institution,
 ul.pc-members .pc-country,
 ul.workshop-organizers .affiliation {
   font-style: italic;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.9rem;
   opacity: 0.8;
 }
@@ -1043,7 +1043,7 @@ ul.workshop-organizers .affiliation a {
 .blog-post-date,
 .subtitle {
   display: block;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   text-transform: uppercase;
   opacity: 0.666;
@@ -1078,7 +1078,7 @@ ul.workshop-organizers .affiliation a {
   border-collapse: collapse;
   overflow: hidden;
   margin-block: 2rem;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.9rem;
   text-align: left;
 }
@@ -1139,7 +1139,7 @@ ul.workshop-organizers .affiliation a {
     font-weight: 500;
     opacity: 0.6;
     margin-bottom: 0.25rem;
-    font-family: 'Drafting', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
   }
 
@@ -1197,7 +1197,7 @@ ul.workshop-organizers {
 #hero h2 {
   font-size: 2rem;
   color: var(--accent-color);
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: italic;
   margin-block: 1rem 0.5rem;
   line-height: 1.15;
@@ -1256,7 +1256,7 @@ ul.jennys-links {
 #keynote-teaser h3 {
   font-size: 1.5rem;
   color: var(--accent-color);
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: italic;
 }
 
@@ -1368,7 +1368,7 @@ ul.jennys-links {
 
 .schedule-link {
   font-size: 0.85rem;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
 
@@ -1390,7 +1390,7 @@ ul.jennys-links {
   width: 100%;
   border-collapse: collapse;
   margin-block: 2rem;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.85rem;
   text-align: left;
   table-layout: fixed;
@@ -1450,7 +1450,7 @@ ul.jennys-links {
   font-weight: 500;
   display: block;
   margin-bottom: 0.5rem;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .schedule-table .session-divider {
@@ -1671,7 +1671,7 @@ ul.jennys-links {
     font-size: 1.1rem;
     font-weight: 500;
     text-transform: none;
-    font-family: 'Drafting', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   .schedule-table .mobile-section-header td::before {
@@ -1696,7 +1696,7 @@ ul.jennys-links {
     font-weight: 700;
     opacity: 1;
     margin-bottom: 0.5rem;
-    font-family: 'Drafting', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     /* color: var(--accent-color2); */
   }
@@ -1911,7 +1911,7 @@ ul.jennys-links {
 }
 
 .time-range {
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   display: block;
@@ -1980,7 +1980,7 @@ ul.jennys-links {
   margin-right: 0.5rem;
   background-color: color-mix(in srgb, var(--light-text) 80%, transparent);
   color: var(--accent-color2);
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .paper-tag.honorable-tag {
@@ -2070,7 +2070,7 @@ ul.jennys-links {
 .schedule-grid {
   width: 100%;
   margin-block: 2rem;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.85rem;
   position: relative;
   z-index: 2;
@@ -2171,7 +2171,7 @@ ul.jennys-links {
   font-weight: 500;
   display: block;
   margin-bottom: 0.5rem;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .schedule-grid-td .session-divider {
   height: 1px;
@@ -2497,7 +2497,7 @@ ul.jennys-links {
   font-weight: 500;
   display: block;
   margin-bottom: 0.5rem;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .schedule-grid-td .session-divider {
   height: 1px;
@@ -2566,7 +2566,7 @@ div h2.day-heading {
 }
 div h3.time-heading {
   margin: 0 0 0.5rem 0;
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
 }
@@ -2577,7 +2577,7 @@ div h4.session-heading {
 }
 
 .poster-group-title {
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
   color: var(--accent-color2);
   margin-bottom: 1rem;
@@ -2623,7 +2623,7 @@ div h4.session-heading {
 }
 
 .poster-nav {
-  font-family: 'Drafting', sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   gap: 2rem;
   margin-bottom: 1rem;
