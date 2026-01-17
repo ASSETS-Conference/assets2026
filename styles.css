@@ -615,7 +615,10 @@ a:has(> img):hover,
   text-decoration: none;
 }
 
-p + p,
+p + p {
+  margin-top: 0;
+}
+
 ul + p {
   margin-top: 1.6em;
 }
@@ -854,7 +857,7 @@ footer p {
 .text-block {
   grid-column: 3 / span 8;
   background-color: white;
-  padding: 1rem;
+  padding: 1.2rem;
 }
 
 .text-block h2 {
