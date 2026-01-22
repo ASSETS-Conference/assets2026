@@ -23,16 +23,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #003b1f;
-    --text-color: #f4f4df;
+    --bg-color: #0B0E14;
+    --text-color: #F2F4F7;
     --inverted-text: var(--bg-color);
     --accent-color: #FFC600;
-    --accent-color2: #1226AA;
-    --dark-accent-color2: #0f1f88;
-    --footer-color: #1226AA;
+    --accent-color2: #5c7cfa;
+    --dark-accent-color2: #4c6ef5;
+    --footer-color: #0B0E14;
     --default-wght: 460;
-    --dark-text: var(--bg-color);
-    --light-text: #ffffff;
+    --dark-text: #1A1F2B;
+    --light-text: #F2F4F7;
   }
 }
 
@@ -63,6 +63,13 @@ nav {
   --inner-pad: 1ch;
   box-shadow: 0 4px 24px 0 rgba(18, 38, 170, 0.2);
   background-color: var(--bg-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  nav {
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.4);
+    background-color: #1A1F2B;
+  }
 }
 
 #nav-logo {
@@ -148,6 +155,15 @@ nav ul.secondary-menu {
   z-index: 3;
 }
 
+@media (prefers-color-scheme: dark) {
+  nav ul.secondary-menu {
+    background-color: #1A1F2B;
+    box-shadow:
+      rgba(0, 0, 0, 0.5) 0px 6px 24px 0px,
+      rgba(242, 244, 247, 0.3) 0px 0px 0px 1px;
+  }
+}
+
 nav ul.secondary-menu li:hover a {
   background-color: var(--link-color);
   color: var(--light-text);
@@ -211,6 +227,12 @@ nav ul.secondary-menu li a {
   width: 100%;
 }
 
+@media (prefers-color-scheme: dark) {
+  nav ul.secondary-menu li a {
+    color: #F2F4F7;
+  }
+}
+
 nav ul.main-menu > li.selected-link {
   background-color: var(--link-color);
   /* padding-left: 1ch; */
@@ -248,6 +270,20 @@ nav ul.main-menu > li.selected-link > a {
     text-decoration-color: transparent;
     transition: text-decoration-color 0.05s ease;
     color: var(--text-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  nav ul.main-menu > li.selected-link > a,
+  nav ul.main-menu > li:hover > a,
+  nav ul.main-menu > li.open > a {
+    color: #0B0E14 !important;
+  }
+  
+  nav ul.main-menu > li.selected-link .submenu-toggle > span:before,
+  nav ul.main-menu > li:hover .submenu-toggle > span:before,
+  nav ul.main-menu > li.open .submenu-toggle > span:before {
+    border-color: #0B0E14 !important;
   }
 }
 
@@ -425,11 +461,11 @@ ul.main-menu li.open ul {
 
   @media (prefers-color-scheme: dark) {
     nav .has-submenu.selected-link ul.secondary-menu li:not(:hover) a {
-      color: var(--dark-text);
+      color: #F2F4F7;
     }
 
     nav .has-submenu:not(.selected-link) ul.secondary-menu li:not(:hover) a {
-      color: var(--light-text);
+      color: #F2F4F7;
     }
   }
 
@@ -501,6 +537,17 @@ body.menu-open {
   background-size: 160px 160px;
 }
 
+@media (prefers-color-scheme: dark) {
+  .content-block-container {
+    background-image: none;
+    background-color: var(--bg-color);
+  }
+  
+  footer .content-block-container {
+    background-color: #1A1F2B;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .content-block-container {
     padding: 0 1rem;
@@ -524,6 +571,12 @@ h1 {
   line-height: 1.5;
   margin-bottom: 2rem;
   font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  h1 {
+    color: #F2F4F7;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -550,6 +603,12 @@ h1 {
   font-size: 1.4rem;
   font-weight: 400;
   text-align: right;
+}
+
+@media (prefers-color-scheme: dark) {
+  .event-info {
+    color: #F2F4F7;
+  }
 }
 
 #denver-img {
@@ -588,6 +647,12 @@ p {
   max-width: var(--contentWidth);
   background-color: white;
   padding: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  p {
+    background-color: #1A1F2B;
+  }
 }
 .text-block a,
 .styled-link,
@@ -663,6 +728,15 @@ ul + p {
   color: var(--text-color);
 }
 
+@media (prefers-color-scheme: dark) {
+  .grid-helper.colored-boxes > .grid-item,
+  .highlighted-block {
+    background-color: #1A1F2B;
+    border-color: #F2F4F7;
+    --text-color: #F2F4F7;
+  }
+}
+
 .highlighted-block {
   padding: 1rem;
   margin-bottom: 2rem;
@@ -694,7 +768,10 @@ ul + p {
 
 @media (prefers-color-scheme: dark) {
   .highlighted-block a {
-    color: var(--dark-accent-color2) !important;
+    color: #F2F4F7 !important;
+  }
+  .highlighted-block a:hover {
+    color: var(--accent-color) !important;
   }
 }
 
@@ -846,6 +923,12 @@ footer {
   padding-top: 2rem;
 }
 
+@media (prefers-color-scheme: dark) {
+  footer {
+    background-color: #1A1F2B;
+  }
+}
+
 footer p {
   font-weight: 600;
   font-family: 'Lexend', sans-serif;
@@ -863,6 +946,12 @@ footer p {
   grid-column: 3 / span 8;
   background-color: white;
   padding: 1.2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .text-block {
+    background-color: #1A1F2B;
+  }
 }
 
 .highlighted-block .text-block {
