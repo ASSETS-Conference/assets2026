@@ -1092,7 +1092,7 @@ ul.committee-members {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
-
+  row-gap: 2rem;
   margin-top: 1rem;
 }
 
@@ -1107,10 +1107,6 @@ ul.committee-members li {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-}
-
-ul.committee-members li:nth-child(2n + 3) {
-  margin-top: 2rem;
 }
 
 ul.committee-members img,
