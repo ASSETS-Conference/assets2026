@@ -454,12 +454,29 @@ ul.main-menu li.open ul {
     width: 100%;
   }
 
+  /* Mobile menu styles */
+  nav ul.main-menu > li.open,
+  nav ul.main-menu > li.selected-link {
+    background-color: color-mix(in srgb, var(--accent-color2), transparent 92%);
+    border-color: transparent;
+  }
+
+  nav ul.main-menu > li.open > a,
+  nav ul.main-menu > li.selected-link > a {
+    color: var(--text-color);
+  }
+
   nav .has-submenu.selected-link ul.secondary-menu li a {
     color: var(--light-text);
     text-decoration: none;
   }
 
   @media (prefers-color-scheme: dark) {
+    nav ul.main-menu > li.open,
+    nav ul.main-menu > li.selected-link {
+      background-color: color-mix(in srgb, var(--accent-color2), transparent 85%);
+    }
+
     nav .has-submenu.selected-link ul.secondary-menu li:not(:hover) a {
       color: #F2F4F7;
     }
@@ -742,7 +759,6 @@ ul + p {
   margin-bottom: 2rem;
 }
 
-/* Match min-height of Latest Updates with announcement block */
 .grid-item.span4c .highlighted-block {
   min-height: 206px;
 }
@@ -2762,8 +2778,6 @@ div h4.session-heading {
   display: none;
 }
 
-/* Small reusable pill used for displaying a date/time block (used on poster pages)
-   Matches the schedule's blue background and becomes full-width on small screens */
 .session-pill {
   padding: 0.75rem;
   border-radius: 0.5rem;
@@ -2825,7 +2839,6 @@ div h4.session-heading {
 #tuesday-lunch-1230-1400-x2 .rsvp-link {
   text-decoration: underline;
   font-weight: 600;
-  /* color: var(--accent-color2); matches the yellow-time style */
   color: var(--inverted-text);
 }
 
