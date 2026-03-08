@@ -1,4 +1,4 @@
-# ASSETS2025
+# ASSETS2026
 This repo holds the ASSETS2026 website:
 - Test server: [https://assets-conference.github.io/assets2026/](https://assets-conference.github.io/assets2026/)
 - Production server: [https://assets26.sigaccess.org/](https://assets26.sigaccess.org/)
