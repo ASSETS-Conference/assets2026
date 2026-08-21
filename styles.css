@@ -1613,7 +1613,7 @@ ul.jennys-links {
 
 .schedule-table .session-type {
   font-weight: 600;
-  color: var(--accent-color);
+  color: var(--accent-color2);
   display: block;
   margin-bottom: 0.25rem;
 }
@@ -1939,7 +1939,7 @@ ul.jennys-links {
 
 .day-header {
   font-size: 1.5rem;
-  color: var(--accent-color);
+  color: var(--accent-color2);
   margin-bottom: 1.5rem;
   border-bottom: 2px solid var(--accent-color);
   padding-bottom: 0.5rem;
@@ -1978,7 +1978,7 @@ ul.jennys-links {
   background-color: var(--bg-color);
   z-index: 3;
   height: var(--day-header-height);
-  border-bottom: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color2);
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
 }
@@ -2013,7 +2013,7 @@ ul.jennys-links {
   width: 3rem;
   height: 1.5rem;
   background-color: color-mix(in srgb, var(--inverted-text) 50%, transparent);
-  color: var(--accent-color) !important;
+  color: var(--accent-color2) !important;
 
   text-decoration: none;
   border-radius: 0.25rem;
@@ -2074,7 +2074,7 @@ ul.jennys-links {
 
 .time-slot.lunch-slot .slot-title,
 .time-slot.lunch-slot .time-range {
-  color: var(--inverted-text);
+  color: var(--accent-color2);
 }
 
 .time-slot,
@@ -2356,7 +2356,7 @@ ul.jennys-links {
 }
 .schedule-grid-td .session-type {
   font-weight: 600;
-  color: var(--accent-color);
+  color: var(--accent-color2);
   display: block;
   margin-bottom: 0.25rem;
 }
@@ -2693,7 +2693,7 @@ ul.jennys-links {
 }
 .schedule-grid-td .session-type {
   font-weight: 600;
-  color: var(--accent-color);
+  color: var(--accent-color2);
   display: block;
   margin-bottom: 0.25rem;
 }
