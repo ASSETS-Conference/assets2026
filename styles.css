@@ -2,8 +2,8 @@
 
 :root {
   --text-color: #1226AA;
-  --text-color2: #435264;
   --bg-color: #ffffff;
+  --bg-color2: #E7E9F6;
   --inverted-text: white;
   --accent-color: #FFC600;
   --accent-color2: #1226AA;
@@ -1976,11 +1976,12 @@ ul.jennys-links {
   align-items: baseline;
   position: sticky;
   top: 0;
-  background-color: var(--bg-color);
+  background-color: var(--accent-color2);
+  color: var(--inverted-text);
   z-index: 3;
-  height: var(--day-header-height);
+  min-height: var(--day-header-height);
   border-bottom: 2px solid var(--accent-color2);
-  padding-bottom: 0.5rem;
+  padding: 0.75rem 0 0.75rem 1rem;
   margin-bottom: 1.5rem;
 }
 
@@ -1991,6 +1992,7 @@ ul.jennys-links {
   position: static;
   background: none;
   height: auto;
+  color: var(--inverted-text);
 }
 
 .day-navigation {
@@ -2013,8 +2015,8 @@ ul.jennys-links {
   justify-content: center;
   width: 3rem;
   height: 1.5rem;
-  background-color: color-mix(in srgb, var(--inverted-text) 50%, transparent);
-  color: var(--accent-color2) !important;
+  background-color: transparent;
+  color: var(--inverted-text) !important;
 
   text-decoration: none;
   border-radius: 0.25rem;
@@ -2023,7 +2025,8 @@ ul.jennys-links {
   transition: all 0.2s ease;
 }
 .day-nav-btn:hover {
-  background-color: var(--inverted-text) !important;
+  color: color-mix(in srgb, var(--accent-color), transparent 10%) !important;
+  background-color: transparent !important;
 }
 
 .day-nav-btn.day-nav-disabled {
@@ -2036,7 +2039,6 @@ ul.jennys-links {
   border: 1px solid color-mix(in srgb, var(--light-text) 30%, transparent);
   border-radius: 0.5rem;
   overflow: visible;
-  background-color: color-mix(in srgb, var(--accent-color2), transparent 85%);
 }
 
 .time-slot.break-slot {
@@ -2061,7 +2063,7 @@ ul.jennys-links {
 
 .time-slot-header {
   padding: 1rem;
-  background-color: var(--bg-color);
+  background-color: var(--bg-color2);
   z-index: 1;
   position: sticky;
   top: var(--day-header-height);
@@ -2070,7 +2072,7 @@ ul.jennys-links {
 }
 
 .time-slot.lunch-slot .time-slot-header {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 10%);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 60%);
 }
 
 .time-slot.lunch-slot .slot-title,
@@ -2152,7 +2154,7 @@ ul.jennys-links {
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   margin-right: 0.5rem;
-  background-color: color-mix(in srgb, var(--light-text) 80%, transparent);
+  background-color: var(--bg-color2);
   color: var(--accent-color2);
   font-family: 'Lexend', sans-serif;
 }
@@ -2374,7 +2376,8 @@ ul.jennys-links {
 .fs-poster-room-name {
   display: block;
   font-family: 'Lexend', sans-serif;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 .session-room-name::before {
