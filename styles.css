@@ -34,6 +34,7 @@
     --default-wght: 460;
     --dark-text: #1A1F2B;
     --light-text: #F2F4F7;
+    --bg-color2: color-mix(in srgb, var(--accent-color2) 20%, var(--bg-color));
   }
 }
 
@@ -2036,8 +2037,6 @@ ul.jennys-links {
 
 .time-slot {
   margin-bottom: 2rem;
-  border: 1px solid color-mix(in srgb, var(--light-text) 30%, transparent);
-  border-radius: 0.5rem;
   overflow: visible;
 }
 
@@ -2072,12 +2071,50 @@ ul.jennys-links {
 }
 
 .time-slot.lunch-slot .time-slot-header {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+  background-color: color-mix(in srgb, var(--accent-color) 40%, var(--bg-color));
 }
 
 .time-slot.lunch-slot .slot-title,
 .time-slot.lunch-slot .time-range {
   color: var(--accent-color2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .time-slot-header {
+    background-color: var(--bg-color2);
+    border-bottom-color: color-mix(in srgb, var(--text-color), transparent 85%);
+    color: var(--text-color);
+  }
+
+  .time-slot.break-slot .time-slot-header {
+    background-color: color-mix(in srgb, var(--accent-color) 10%, var(--bg-color));
+  }
+
+  .time-slot.keynote-slot .time-slot-header {
+    background-color: color-mix(in srgb, var(--accent-color) 12%, var(--bg-color));
+  }
+
+  .time-slot.special-slot .time-slot-header {
+    background-color: color-mix(in srgb, var(--accent-color2) 20%, var(--bg-color));
+  }
+
+  .time-slot.closing-slot .time-slot-header {
+    background-color: color-mix(in srgb, var(--accent-color) 15%, var(--bg-color));
+  }
+
+  .time-slot.registration-slot .time-slot-header {
+    background-color: color-mix(in srgb, var(--text-color) 6%, var(--bg-color));
+  }
+
+  .time-slot.lunch-slot .time-slot-header {
+    background-color: color-mix(in srgb, var(--accent-color) 15%, var(--bg-color));
+  }
+
+  .time-slot.lunch-slot .slot-title,
+  .time-slot.lunch-slot .time-range,
+  .time-slot.lunch-slot .session-room-name {
+    color: var(--text-color);
+  }
 }
 
 .time-slot,
@@ -2102,7 +2139,6 @@ ul.jennys-links {
 .program-block {
   padding: 1rem;
   overflow: hidden;
-
   border-top: 1px solid color-mix(in srgb, var(--dark-text) 40%, transparent);
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
