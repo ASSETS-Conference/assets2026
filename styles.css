@@ -2,6 +2,7 @@
 
 :root {
   --text-color: #1226AA;
+  --text-color2: #435264;
   --bg-color: #ffffff;
   --inverted-text: white;
   --accent-color: #FFC600;
@@ -2297,14 +2298,6 @@ ul.jennys-links {
   background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
   text-align: left;
 }
-.schedule-grid-td.lunch-session {
-  background-color: color-mix(in srgb, var(--text-color), transparent 10%);
-  color: var(--light-text);
-  text-align: left;
-}
-.schedule-grid-td.lunch-session .session-type {
-  color: var(--light-text);
-}
 .schedule-grid-td.conference-opening {
   background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
   text-align: left;
@@ -2647,12 +2640,12 @@ ul.jennys-links {
   text-align: left;
 }
 .schedule-grid-td.lunch-session {
-  background-color: color-mix(in srgb, var(--text-color), transparent 10%);
-  color: var(--light-text);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 60%);
+  color: var(--text-color);
   text-align: left;
 }
 .schedule-grid-td.lunch-session .session-type {
-  color: var(--light-text);
+  color: var(--text-color);
 }
 .schedule-grid-td.conference-opening {
   background-color: color-mix(in srgb, var(--accent-color), transparent 92%);
