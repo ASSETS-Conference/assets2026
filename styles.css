@@ -370,7 +370,7 @@ ul.main-menu li.open ul {
   position: fixed;
   right: 2rem;
   top: 1.5rem;
-  z-index: 2;
+  z-index: 100;
 }
 
 .hamburger {
@@ -439,7 +439,7 @@ ul.main-menu li.open ul {
     display: block; /* Show menu when toggled */
     top: 0;
     padding-right: 6rem;
-    z-index: 3;
+    z-index: 99;
   }
 
   #menu-container.open:before {
@@ -516,7 +516,7 @@ ul.main-menu li.open ul {
   }
 
   #menu-toggle.active {
-    z-index: 4;
+    z-index: 101;
   }
 
   #menu-toggle.active .hamburger {
