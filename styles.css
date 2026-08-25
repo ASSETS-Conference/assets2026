@@ -357,20 +357,25 @@ ul.main-menu li.open ul {
 
 #menu-toggle {
   display: none;
-  background: none;
+  background-color: var(--bg-color);
   border: none;
+  border-radius: 0.35rem;
   cursor: pointer;
   justify-self: end;
+  align-items: center;
+  justify-content: center;
 
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0;
 
   grid-column: 2;
 
   position: fixed;
-  right: 2rem;
-  top: 1.5rem;
+  right: 1.75rem;
+  top: 1.25rem;
   z-index: 100;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--text-color), transparent 88%);
 }
 
 .hamburger {
@@ -415,7 +420,7 @@ ul.main-menu li.open ul {
 
 @media only screen and (max-width: 768px) {
   #menu-toggle {
-    display: block;
+    display: flex;
     grid-column: 3;
   }
 
