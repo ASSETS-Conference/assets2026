@@ -257,6 +257,8 @@ def extract_paper_tag_and_title(raw_title: str):
             "short": ("short-tag", "Short Paper"),
             "short paper": ("short-tag", "Short Paper"),
             "honorable mention": ("honorable-tag", "Honorable Mention"),
+            "social impact": ("social-impact-tag", "Social Impact Nominee"),
+            "social impact nominee": ("social-impact-tag", "Social Impact Nominee"),
         }
         if token in mapping:
             tag_class, tag_label = mapping[token]
