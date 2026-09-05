@@ -24,7 +24,43 @@
 
     <link rel="preload" href="setup.js?v=COMMIT_HASH" as="script" />
     <script src="setup.js?v=COMMIT_HASH" defer></script>
-  </head>
+  
+    <style>
+      /* Parallel sessions in the at-a-glance schedule:
+         one shared time, stronger outer grouping, lighter A/B divider. */
+      .schedule-grid-td.parallel-session-block {
+        box-sizing: border-box;
+        border: 3px solid currentColor;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .parallel-session-block .parallel-time {
+        margin: 0;
+        padding: 0.65rem 0.8rem;
+        border-bottom: 2px solid currentColor;
+      }
+
+      .parallel-session-block .parallel-session-list {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+
+      .parallel-session-block .parallel-session-list > .session-item {
+        padding: 0.8rem;
+        min-width: 0;
+      }
+
+      .parallel-session-block .parallel-session-list > .session-divider {
+        height: 1px;
+        margin: 0;
+        border: 0;
+        background: currentColor;
+        opacity: 0.35;
+      }
+    </style>
+</head>
   <body>
     <nav id="nav-container" data-active="program"></nav>
 
@@ -120,11 +156,14 @@
               </div>
             </div>
             <div
-              class="schedule-grid-td paper-sessions gc-1 gr-4"
+              class="schedule-grid-td paper-sessions parallel-session-block gc-1 gr-4"
               aria-label="Monday, Oct. 26, 11:20 AM - 12:20 PM: Paper Session 1A | Paper Session 1B"
             >
-              <div class="session-item">
-                <h3 class="time-heading">11:20 AM - 12:20 PM</h3>
+              <h3 class="time-heading parallel-time">11:20 AM - 12:20 PM</h3>
+
+              <div class="parallel-session-list">
+
+                <div class="session-item">
                 <a
                   class="session-link"
                   href="#monday-paper-session-1a-1120-1220"
@@ -152,6 +191,8 @@
                 <span class="session-room">AR I+II</span>
               </div>
             </div>
+              </div>
+            
             <div
               class="schedule-grid-td lunch-session gc-1 gr-5"
               aria-label="Monday, Oct. 26, 12:20 PM - 2:00 PM: Lunch"
@@ -163,11 +204,14 @@
               </div>
             </div>
             <div
-              class="schedule-grid-td paper-sessions gc-1 gr-6"
+              class="schedule-grid-td paper-sessions parallel-session-block gc-1 gr-6"
               aria-label="Monday, Oct. 26, 2:00 PM - 3:20 PM: Paper Session 2A | Paper Session 2B"
             >
-              <div class="session-item">
-                <h3 class="time-heading">2:00 PM - 3:20 PM</h3>
+              <h3 class="time-heading parallel-time">2:00 PM - 3:20 PM</h3>
+
+              <div class="parallel-session-list">
+
+                <div class="session-item">
                 <a
                   class="session-link"
                   href="#monday-paper-session-2a-1400-1520"
@@ -195,6 +239,8 @@
                 <span class="session-room">AR I+II</span>
               </div>
             </div>
+              </div>
+            
             <div
               class="schedule-grid-td break-session gc-1 gr-7"
               aria-label="Monday, Oct. 26, 3:20 PM - 4:00 PM: Coffee Break and Poster Session A"
@@ -208,11 +254,14 @@
               </div>
             </div>
             <div
-              class="schedule-grid-td paper-sessions gc-1 gr-8"
+              class="schedule-grid-td paper-sessions parallel-session-block gc-1 gr-8"
               aria-label="Monday, Oct. 26, 4:00 PM - 5:20 PM: Paper Session 3A | Paper Session 3B"
             >
-              <div class="session-item">
-                <h3 class="time-heading">4:00 PM - 5:20 PM</h3>
+              <h3 class="time-heading parallel-time">4:00 PM - 5:20 PM</h3>
+
+              <div class="parallel-session-list">
+
+                <div class="session-item">
                 <a
                   class="session-link"
                   href="#monday-paper-session-3a-1600-1720"
@@ -240,6 +289,8 @@
                 <span class="session-room">AR I+II</span>
               </div>
             </div>
+              </div>
+            
             <div
               class="schedule-grid-td special-session gc-1 gr-9"
               aria-label="Monday, Oct. 26, TBD: Off-Site Reception"
@@ -256,11 +307,14 @@
               <h2 class="day-heading">Tuesday, Oct. 27</h2>
             </div>
             <div
-              class="schedule-grid-td paper-sessions gc-2 gr-2"
+              class="schedule-grid-td paper-sessions parallel-session-block gc-2 gr-2"
               aria-label="Tuesday, Oct. 27, 9:00 AM - 10:20 AM: Paper Session 4A | Paper Session 4B"
             >
-              <div class="session-item">
-                <h3 class="time-heading">9:00 AM - 10:20 AM</h3>
+              <h3 class="time-heading parallel-time">9:00 AM - 10:20 AM</h3>
+
+              <div class="parallel-session-list">
+
+                <div class="session-item">
                 <a
                   class="session-link"
                   href="#tuesday-paper-session-4a-0900-1020"
@@ -288,6 +342,8 @@
                 <span class="session-room">AR I+II</span>
               </div>
             </div>
+              </div>
+            
             <div
               class="schedule-grid-td break-session gc-2 gr-3"
               aria-label="Tuesday, Oct. 27, 10:20 AM - 11:00 AM: Coffee Break and Poster Session B"
@@ -301,11 +357,14 @@
               </div>
             </div>
             <div
-              class="schedule-grid-td paper-sessions gc-2 gr-4"
+              class="schedule-grid-td paper-sessions parallel-session-block gc-2 gr-4"
               aria-label="Tuesday, Oct. 27, 11:00 AM - 12:20 PM: Paper Session 5A | Paper Session 5B"
             >
-              <div class="session-item">
-                <h3 class="time-heading">11:00 AM - 12:20 PM</h3>
+              <h3 class="time-heading parallel-time">11:00 AM - 12:20 PM</h3>
+
+              <div class="parallel-session-list">
+
+                <div class="session-item">
                 <a
                   class="session-link"
                   href="#tuesday-paper-session-5a-1100-1220"
@@ -333,6 +392,8 @@
                 <span class="session-room">AR I+II</span>
               </div>
             </div>
+              </div>
+            
             <div
               class="schedule-grid-td lunch-session gc-2 gr-5"
               aria-label="Tuesday, Oct. 27, 12:20 PM - 2:00 PM: Lunch"
@@ -344,11 +405,14 @@
               </div>
             </div>
             <div
-              class="schedule-grid-td paper-sessions gc-2 gr-6"
+              class="schedule-grid-td paper-sessions parallel-session-block gc-2 gr-6"
               aria-label="Tuesday, Oct. 27, 2:00 PM - 3:20 PM: Paper Session 6A | Paper Session 6B"
             >
-              <div class="session-item">
-                <h3 class="time-heading">2:00 PM - 3:20 PM</h3>
+              <h3 class="time-heading parallel-time">2:00 PM - 3:20 PM</h3>
+
+              <div class="parallel-session-list">
+
+                <div class="session-item">
                 <a
                   class="session-link"
                   href="#tuesday-paper-session-6a-1400-1520"
@@ -376,6 +440,8 @@
                 <span class="session-room">AR I+II</span>
               </div>
             </div>
+              </div>
+            
             <div
               class="schedule-grid-td break-session gc-2 gr-7"
               aria-label="Tuesday, Oct. 27, 3:20 PM - 4:00 PM: Coffee Break and Poster Session B"
@@ -416,11 +482,14 @@
               <h2 class="day-heading">Wednesday, Oct. 28</h2>
             </div>
             <div
-              class="schedule-grid-td paper-sessions gc-3 gr-2"
+              class="schedule-grid-td paper-sessions parallel-session-block gc-3 gr-2"
               aria-label="Wednesday, Oct. 28, 9:30 AM - 10:20 AM: Paper Session 7A | Paper Session 7B"
             >
-              <div class="session-item">
-                <h3 class="time-heading">9:30 AM - 10:20 AM</h3>
+              <h3 class="time-heading parallel-time">9:30 AM - 10:20 AM</h3>
+
+              <div class="parallel-session-list">
+
+                <div class="session-item">
                 <a
                   class="session-link"
                   href="#wednesday-paper-session-7a-0930-1020"
@@ -448,6 +517,8 @@
                 <span class="session-room">AR I+II</span>
               </div>
             </div>
+              </div>
+            
             <div
               class="schedule-grid-td break-session gc-3 gr-3"
               aria-label="Wednesday, Oct. 28, 10:20 AM - 11:00 AM: Coffee Break and Poster Session C"
@@ -461,11 +532,14 @@
               </div>
             </div>
             <div
-              class="schedule-grid-td paper-sessions gc-3 gr-4"
+              class="schedule-grid-td paper-sessions parallel-session-block gc-3 gr-4"
               aria-label="Wednesday, Oct. 28, 11:00 AM - 12:20 PM: Paper Session 8A | Paper Session 8B"
             >
-              <div class="session-item">
-                <h3 class="time-heading">11:00 AM - 12:20 PM</h3>
+              <h3 class="time-heading parallel-time">11:00 AM - 12:20 PM</h3>
+
+              <div class="parallel-session-list">
+
+                <div class="session-item">
                 <a
                   class="session-link"
                   href="#wednesday-paper-session-8a-1100-1220"
@@ -493,6 +567,8 @@
                 <span class="session-room">AR I+II</span>
               </div>
             </div>
+              </div>
+            
             <div
               class="schedule-grid-td lunch-session gc-3 gr-5"
               aria-label="Wednesday, Oct. 28, 12:20 PM - 2:00 PM: Lunch"
@@ -504,11 +580,14 @@
               </div>
             </div>
             <div
-              class="schedule-grid-td paper-sessions gc-3 gr-6"
+              class="schedule-grid-td paper-sessions parallel-session-block gc-3 gr-6"
               aria-label="Wednesday, Oct. 28, 2:00 PM - 3:00 PM: Paper Session 9A | Paper Session 9B"
             >
-              <div class="session-item">
-                <h3 class="time-heading">2:00 PM - 3:00 PM</h3>
+              <h3 class="time-heading parallel-time">2:00 PM - 3:00 PM</h3>
+
+              <div class="parallel-session-list">
+
+                <div class="session-item">
                 <a
                   class="session-link"
                   href="#wednesday-paper-session-9a-1400-1500"
@@ -536,6 +615,8 @@
                 <span class="session-room">AR I+II</span>
               </div>
             </div>
+              </div>
+            
             <div
               class="schedule-grid-td break-session gc-3 gr-7"
               aria-label="Wednesday, Oct. 28, 3:00 PM - 3:40 PM: Coffee Break and Poster Session C"
