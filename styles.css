@@ -2904,6 +2904,19 @@ div h4.session-heading {
   }
 }
 
+.sponsors a {
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sponsors a img {
+  display: inline-block;
+  width: auto;
+  max-width: none;
+}
+
 @media (prefers-color-scheme: dark) {
   .sponsors img {
     padding: 0.75rem;
