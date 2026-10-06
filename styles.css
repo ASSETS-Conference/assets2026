@@ -2865,6 +2865,10 @@ div h4.session-heading {
 }
 .session-pill p {
   margin: 0;
+  padding: 0;
+  max-width: none;
+  background-color: transparent;
+  color: inherit;
 }
 .session-pill .session-times {
   padding-top: 0.5rem;
