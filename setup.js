@@ -7,6 +7,15 @@
   document.head.appendChild(script) // Append the script to the head
 })()
 
+// The menu is injected after the browser has already scrolled to the URL hash,
+// which pushes the target down, so scroll to it again once layout has settled.
+function scrollToHash() {
+  if (!location.hash) return
+  const target = document.getElementById(decodeURIComponent(location.hash.slice(1)))
+  if (target) target.scrollIntoView()
+}
+window.addEventListener('load', scrollToHash)
+
 fetch('footer.html')
   .then((response) => response.text())
   .then((html) => {
@@ -28,6 +37,7 @@ fetch('menu.html')
     const script = document.createElement('script')
     script.src = 'menu.js'
     document.body.appendChild(script)
+    scrollToHash()
   })
 
 /*
