@@ -1029,6 +1029,10 @@ footer p {
   margin-block: 2rem 1rem;
 }
 
+.text-block .highlighted-block > :first-child {
+  margin-block-start: 0;
+}
+
 .text-block ul,
 .text-block ol {
   padding: 0;
