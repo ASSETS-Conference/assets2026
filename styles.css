@@ -1374,7 +1374,11 @@ ul.workshop-organizers {
 }
 
 #hero img {
-  border-radius: 0.5rem;
+  width: 16rem;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 1ch;
 }
 
 #hero h2 {
@@ -1429,6 +1433,13 @@ ul.jennys-links {
 }
 
 #keynote-teaser {
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+#keynote-teaser .span3c img {
+  width: 100%;
+  height: auto;
 }
 
 #keynote-teaser h2 {
@@ -1456,14 +1467,33 @@ ul.jennys-links {
   opacity: 0.666;
 }
 
+#keynote-teaser p {
+  padding: 0;
+  background-color: transparent;
+}
+
+#keynote-teaser .keynote-talk-title {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.17em;
+  color: inherit;
+  line-height: 1.3;
+  margin: 0.35rem 0 0;
+}
+
+#keynote-teaser .keynote-learn-more {
+  margin-top: 0.35rem;
+}
+
 .keynote-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .keynote-info * {
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 .jenny-vertical {
