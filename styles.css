@@ -1095,6 +1095,12 @@ footer p {
   padding-left: var(--bullet-margin);
 }
 
+.text-block .allergens {
+  display: block;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
 #updates {
   list-style: none;
   display: flex;
