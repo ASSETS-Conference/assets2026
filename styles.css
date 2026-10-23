@@ -1382,17 +1382,21 @@ ul.workshop-organizers {
 }
 
 #hero h2 {
-  font-size: 2rem;
-  color: var(--accent-color);
+  font-size: 1.25rem;
+  color: var(--accent-color2);
   font-family: 'Lexend', sans-serif;
   font-style: italic;
-  margin-block: 1rem 0.5rem;
-  line-height: 1.15;
+  font-weight: 600;
+  margin-block: 0.75rem 0.2rem;
+  line-height: 1.3;
 }
 
 #hero h3 {
-  margin: 0;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-size: 1rem;
   font-weight: 400;
+  margin: 0 0 1.5rem;
+  line-height: 1.4;
 }
 
 ul.jennys-links {
