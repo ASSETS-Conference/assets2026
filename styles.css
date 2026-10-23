@@ -2437,6 +2437,12 @@ ul.jennys-links {
   color: var(--text-color);
   margin-bottom: 0.25rem;
 }
+.schedule-grid-td .session-speaker {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin-bottom: 0.15rem;
+}
 .schedule-grid-td .session-type {
   font-weight: 600;
   color: var(--accent-color2);
