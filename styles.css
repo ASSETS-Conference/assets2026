@@ -1234,6 +1234,23 @@ ul.workshop-organizers .affiliation a {
   margin-bottom: 5rem;
 }
 
+.blog-post figure {
+  margin-block: 1.5rem 2rem;
+}
+
+.blog-post figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.blog-post figcaption {
+  font-family: 'Lexend', sans-serif;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
 .blog-post-date,
 .subtitle {
   display: block;
